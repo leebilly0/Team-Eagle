@@ -84,7 +84,7 @@
               7,234
             </span>
             <span class="booksDonatedText">
-              Books Donated - BILLY
+              Books Donated
             </span>
           </div>
         </div>
