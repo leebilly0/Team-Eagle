@@ -84,7 +84,7 @@
               7,234
             </span>
             <span class="booksDonatedText">
-              Books Donated - hello world
+              Books Donated - jvang
             </span>
           </div>
         </div>
