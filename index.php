@@ -84,7 +84,7 @@
               7,234
             </span>
             <span class="booksDonatedText">
-              Books Donated - jvang
+              Books Donated - LHuynh
             </span>
           </div>
         </div>
