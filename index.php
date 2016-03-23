@@ -33,46 +33,6 @@
 
   <body>
 
-		<!--Add check loginID and password to make check with database-->
-	<?php
-		//Go to the login_functions.inc to check with database
-		require ("login_functions.inc");
-		//isset() fucntion is to check the variable is set or not set.
-		if (isset($_POST['submitted'])) {
-	 
-			//$loginID = trim($_POST['loginID'], "{[/\"'()]}");
-			//$password = trim($_POST['password'], "{[/\"'()]}");
-	 
-			//**Set check = loginID and data = password
-			//call check_login() function from login_fucntion.php to check for true/false
-			list ($check, $returnName) = check_login($_POST['loginID'], $_POST['password']);
-	
-			//list ($check, $returnName) = check_login($loginID, $password);
-
-			if ($check==true) { // OK!
-				session_start();
-				//set the session of cookie by put user_id = loginID  
-				$_SESSION['user_name'] = $returnName;
-				$_SESSION['user_type'] = "admin";
-   
-				//called the absolute_url function from login_function.php
-				$url = absolute_url ('indexAdmin.php'); // passing value of url as "loggedin.php"
-				header("Location: $url");
-   
-				exit();
-			} 
-  
-			else { // Unsuccessful!
-				$errors = $returnName; //here set the errors = data = password
-				//called the absolute_url function from login_function.php
-				$url = absolute_url ('index.php'); // passing value of url as "loggedin.php"
-				header("Location: $url");
-			}
-		} // End of the main submit conditional.
-	?>
-
-	<!--END OF THE LOG IN PROCESS-->
-  
     <!-- THIS IS THE NAVBAR AT THE TOP OF EVERYPAGE -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -96,26 +56,23 @@
 
         <!-- Start of username password form of right nav bar -->
         <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right" action="index.php" method="POST">
+          <form class="navbar-form navbar-right">
 		   <div class="form-group">
               <FONT COLOR="Black">Admin Login</FONT>
             </div>
             <div class="form-group">
-              <input type="text" placeholder="Username" class="form-control" name="loginID">
+              <input type="text" placeholder="Username" class="form-control">
             </div>
             <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control" name="password">
+              <input type="password" placeholder="Password" class="form-control">
             </div>
-			<input type="hidden" name="submitted" value="TRUE" />
             <button type="submit" class="btn btn-primary">Sign in</button>
           </form>
         </div>
       </div>
     </nav>
     <!-- END OF NAVBAR -->
-	
 
-	
     <!-- Main jumbotron for a primary marketing message -->
     <div class="jumbotron">
       <div class="container">

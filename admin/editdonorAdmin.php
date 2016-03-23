@@ -1,12 +1,4 @@
 <!DOCTYPE html>
-<!--Add Session to every Admin page-->
-<?php
-	//Add session to be start
-	require ("../session.php");
-	//Add php log out process After it press the logoff button
-	require ("../logoff.php");      
-
-?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -64,11 +56,10 @@
 
         <!-- Start of username password form of right nav bar -->
         <div id="navbar" class="navbar-collapse collapse">
-         <form class="navbar-form navbar-right" action="../logoff.php" method="POST">
-		   <div class="form-group">
-              <FONT COLOR="Black">Welcome Back<?php echo " {$_SESSION['user_name']}";?></FONT>
-            <button type="submit" class="btn btn-primary" name="log_out">Log off</button>
-			
+          <form class="navbar-form navbar-right" action="../index.php">
+       <div class="form-group">
+              <FONT COLOR="Black">Welcome Back</FONT>
+            <button type="submit" class="btn btn-primary">Log off</button>
           </form>
         </div>
       </div>
