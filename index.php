@@ -1,5 +1,9 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,8 +39,8 @@
 
 		<!--Add check loginID and password to make check with database-->
 	<?php
-		//Go to the login_functions.inc to check with database
-		require ("login_functions.inc");
+		//Go to the login_functions.php to check with database
+		require ("login_functions.php");
 		//isset() fucntion is to check the variable is set or not set.
 		if (isset($_POST['submitted'])) {
 	 
@@ -46,11 +50,9 @@
 			//**Set check = loginID and data = password
 			//call check_login() function from login_fucntion.php to check for true/false
 			list ($check, $returnName) = check_login($_POST['loginID'], $_POST['password']);
-	
 			//list ($check, $returnName) = check_login($loginID, $password);
 
-			if ($check==true) { // OK!
-				session_start();
+			if ($check) { // OK!
 				//set the session of cookie by put user_id = loginID  
 				$_SESSION['user_name'] = $returnName;
 				$_SESSION['user_type'] = "admin";

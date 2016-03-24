@@ -2,6 +2,18 @@
 Team Eagle Repository
 
 3-23-16
+Changed login_functions.inc to loginfunctions.php
+	-Because of security reasons
+Designed Donors page for user
+	-will be implementing to admin side once user side is done since its the same code.
+Made changes to index.php and admin.php 
+	-Modified Poleaps code for a more universal use
+	-Created a confirgurationsDatabase.php for logging into each team mates sql
+		-also helps with universal use on different pages
+		-added to all ADMIN pages
+		-add to all USER pages
+
+3-23-16
 I messed up the files by accident. Reverted it back to poleaps last commit lol -Billy
 
 3-2-16

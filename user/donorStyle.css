@@ -1,0 +1,82 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+  background-color: #f8f8f8;
+}
+
+/*navigation bar. changed background color of the bar and text color*/
+.navbar {
+	background-color: #f8f8f8;
+	color: Black;
+}
+
+/*change text link for color on active (or when its staying still)*/
+.navbar-inverse .navbar-nav > li > a {
+	font-size: 1.1em;
+	color: Black;
+}
+
+/*change text LINK COLOR ON HOVER*/
+.navbar-inverse .navbar-nav > li > a:hover {
+	color: #f8f8f8;
+	background-color: #337ab7;
+}
+
+/*styling name logo on top left "TEAM EAGLE Example"*/
+.navbar-inverse .navbar-brand {
+	font-weight: 600;
+	color: #337ab7;
+}
+
+/*style for on hover of top left text logo^^^*/
+.navbar-inverse .navbar-brand:hover{
+	color: #337ab7;
+}
+
+
+h2 {
+	color: #337ab7;
+}
+
+.booksDonatedText {
+	font-size: 2em;
+}
+
+.booksDonatedNumbers {
+	font-size: 4em;
+	font-style: italic;
+	color: #337ab7;	
+}
+
+h1 {
+	font-size: 3.5em;
+	color: #337ab7;
+	font-weight: bold;
+}
+
+p {
+	font-weight: bold;
+}
+
+/*
+ * Placeholder dashboard ideas
+ */
+
+.placeholders {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.placeholders h4 {
+  margin-bottom: 0;
+}
+.placeholder {
+  margin-bottom: 20px;
+}
+.placeholder img {
+  display: inline-block;
+  min-height: 250px;
+  max-height: 250px;
+  min-width: 200px;
+  max-width: 200px;
+}

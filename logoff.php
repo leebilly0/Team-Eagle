@@ -3,12 +3,12 @@
 	<?php
 		
 		if(isset($_POST['log_out'])){
-			require ("login_functions.inc");
+			require ("login_functions.php");
 			// This page lets the user logout.
 			// If no session variable exists, redirect the user:
 			if (!isset($_SESSION['user_name'])) {
 				
-				require_once ('login_functions.inc');
+				require_once ('login_functions.php');
 				$url = absolute_url('index.php');
 				header("Location: $url");
 				exit();

@@ -1,3 +1,6 @@
+<?php
+  require ("../configurationDatabase.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
