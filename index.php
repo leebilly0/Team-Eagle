@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,6 +50,7 @@ session_start();
 			//list ($check, $returnName) = check_login($loginID, $password);
 
 			if ($check) { // OK!
+        session_start();
 				//set the session of cookie by put user_id = loginID  
 				$_SESSION['user_name'] = $returnName;
 				$_SESSION['user_type'] = "admin";

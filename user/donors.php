@@ -1,6 +1,3 @@
-<?php
-  require ("../configurationDatabase.php");
-?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -76,11 +73,21 @@
     </nav>
     <!-- END OF NAVBAR -->
 
+<?php
+    /*There are two parts to connection to the database and querying results, THIS IS STEP 1
+    SEE LINE 131 for further step*/
+    require ("../configurationDatabase.php");
+    global $DataBaseCon; //grabs connection to MYSQL database
+    $getData = "SELECT donor_fname, donor_lname, donate_dd, total_amt FROM donors"; //My Query I will be Using
+    $results = mysqli_query($DataBaseCon, $getData);  //Grab results from database using connection and query
+?>
+
     <!-- Start your coding below here -->
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-1 main">
-          <h1>Donors</h1>
+          <h1>Donors</h1> 
           <p>Here is the list of donors who have donated books and/or monetary value to Village Library over the years</p>
 
+           <!--HEADLINER of PIX of donors and little info about them -->
           <div class="row placeholders">
             <div class="col-xs-6 col-sm-3 placeholder">
               <img src="../images/billy.jpg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
@@ -103,10 +110,13 @@
               <span class="text-muted">Insert Text</span>
             </div>
           </div>
+          <!--ENd of headliner for donors -->
 
+           <!-- Table with Data -->
           <h2 class="sub-header">Village Library Contributors</h2>
           <div class="table-responsive">
             <table class="table table-striped">
+              <!--Headers for data table-->
               <thead>
                 <tr>
                   <th>First Name</th>
@@ -116,70 +126,29 @@
                   <th>Books Donated</th>
                 </tr>
               </thead>
+              <!--Data for Table -->
               <tbody>
-                <tr>
-                  <td>Billy</td>
-                  <td>Lee</td>
-                  <td>2016</td>
-                  <td>$1</td>
-                  <td><a href="user/books.php">View Books Donated</a></td>
-                </tr>
-                <tr>
-                  <td>amet</td>
-                  <td>consectetur</td>
-                  <td>adipiscing</td>
-                  <td>elit</td>
-                  <td><a href="user/books.php">View Books Donated</a></td>
-                </tr>
-                <tr>
-                  <td>Integer</td>
-                  <td>nec</td>
-                  <td>odio</td>
-                  <td>Praesent</td>
-                  <td><a href="user/books.php">View Books Donated</a></td>
-                </tr>
-                <tr>
-                  <td>libero</td>
-                  <td>Sed</td>
-                  <td>cursus</td>
-                  <td>ante</td>
-                  <td><a href="user/books.php">View Books Donated</a></td>
-                </tr>
-                <tr>
-                  <td>dapibus</td>
-                  <td>diam</td>
-                  <td>Sed</td>
-                  <td>nisi</td>
-                  <td><a href="user/books.php">View Books Donated</a></td>
-                </tr>
-                <tr>
-                  <td>Nulla</td>
-                  <td>quis</td>
-                  <td>sem</td>
-                  <td>at</td>
-                  <td><a href="user/books.php">View Books Donated</a></td>
-                </tr>
-                <tr>
-                  <td>nibh</td>
-                  <td>elementum</td>
-                  <td>imperdiet</td>
-                  <td>Duis</td>
-                  <td><a href="user/books.php">View Books Donated</a></td>
-                </tr>
-                <tr>
-                  <td>sagittis</td>
-                  <td>ipsum</td>
-                  <td>Praesent</td>
-                  <td>mauris</td>
-                  <td><a href="user/books.php">View Books Donated</a></td>
-                </tr>
-                <tr>
-                  <td>Fusce</td>
-                  <td>nec</td>
-                  <td>tellus</td>
-                  <td>sed</td>
-                  <td><a href="user/books.php">View Books Donated</a></td>
-                </tr>
+                <?php
+                  /*THIS IS STEP 2 in QUERYING FROM DATABASE SEE LINE 79 FOR STEP 1*/
+                 
+                  //if data exist in table
+                  if (mysqli_num_rows($results) > 0)
+                  {
+                    //output data of each row 
+                    while ($row = mysqli_fetch_assoc($results))
+                    {
+                      /*while results has row of data. output first name, last name
+                      date, total amount and a link*/
+                      echo "<tr>";
+                      echo "<td>".$row["donor_fname"]."</td>";
+                      echo "<td>".$row["donor_lname"]."</td>";
+                      echo "<td>".$row["donate_dd"]."</td>";
+                      echo "<td>".$row["total_amt"]."</td>";
+                      echo "<td><a href='user/books.php'>View Books Donated</a></td>";
+                      echo "</tr>";
+                    }
+                  }
+                ?>  
               </tbody>
             </table>
           </div>
