@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+  require ("../configurationDatabase.php");
+?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -75,10 +78,10 @@
 
 <?php
     /*There are two parts to connection to the database and querying results, THIS IS STEP 1
-    SEE LINE 131 for further step*/
-    require ("../configurationDatabase.php");
+    SEE LINE 133 for further step*/
     global $DataBaseCon; //grabs connection to MYSQL database
-    $getData = "SELECT donor_fname, donor_lname, donate_dd, total_amt FROM donors"; //My Query I will be Using
+    //My Query I will be Using
+    $getData = "SELECT donor_fname, donor_lname, donate_dd, total_amt FROM donors ORDER BY donor_fname"; 
     $results = mysqli_query($DataBaseCon, $getData);  //Grab results from database using connection and query
 ?>
 
@@ -119,8 +122,7 @@
               <!--Headers for data table-->
               <thead>
                 <tr>
-                  <th>First Name</th>
-                  <th>Last Name</th>
+                  <th>Name</th>
                   <th>Donated Date</th>
                   <th>Total Amount Donated</th>
                   <th>Books Donated</th>
@@ -140,8 +142,7 @@
                       /*while results has row of data. output first name, last name
                       date, total amount and a link*/
                       echo "<tr>";
-                      echo "<td>".$row["donor_fname"]."</td>";
-                      echo "<td>".$row["donor_lname"]."</td>";
+                      echo "<td>".$row["donor_fname"]." ".$row["donor_lname"]."</td>";
                       echo "<td>".$row["donate_dd"]."</td>";
                       echo "<td>".$row["total_amt"]."</td>";
                       echo "<td><a href='user/books.php'>View Books Donated</a></td>";

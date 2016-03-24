@@ -69,7 +69,7 @@
         <div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form navbar-right" action="../logoff.php" method="POST">
 		   <div class="form-group">
-              <FONT COLOR="Black">Welcome Back<?php echo " {$_SESSION['user_name']}";?></FONT>
+              <FONT COLOR="Black">Welcome Back<?php echo " {$_SESSION['user_name']}";?>&#33;</FONT>
             <button type="submit" class="btn btn-primary" name="log_out">Log off</button>
 			
           </form>
@@ -79,7 +79,84 @@
     <!-- END OF NAVBAR -->
 
     <!-- Start your coding below here -->
+    <?php
+    /*There are two parts to connection to the database and querying results, THIS IS STEP 1
+    SEE LINE 133 for further step*/
+    global $DataBaseCon; //grabs connection to MYSQL database
+    //My Query I will be Using
+    $getData = "SELECT donor_fname, donor_lname, donate_dd, total_amt FROM donors ORDER BY donor_fname"; 
+    $results = mysqli_query($DataBaseCon, $getData);  //Grab results from database using connection and query
+?>
 
+    <!-- Start your coding below here -->
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-1 main">
+          <h1>Donors</h1> 
+          <p>Here is the list of donors who have donated books and/or monetary value to Village Library over the years</p>
+
+           <!--HEADLINER of PIX of donors and little info about them -->
+          <div class="row placeholders">
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img src="../images/billy.jpg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4>Billy Lee</h4>
+              <span class="text-muted">Insert Text</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img src="../images/notAvailable.png" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4>John Doe</h4>
+              <span class="text-muted">Insert Text</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img src="../images/notAvailable.png" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4>Jane Doe</h4>
+              <span class="text-muted">Insert Text</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img src="../images/notAvailable.png" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4>Poleap Sar</h4>
+              <span class="text-muted">Insert Text</span>
+            </div>
+          </div>
+          <!--ENd of headliner for donors -->
+
+           <!-- Table with Data -->
+          <h2 class="sub-header">Village Library Contributors</h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <!--Headers for data table-->
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Donated Date</th>
+                  <th>Total Amount Donated</th>
+                  <th>Books Donated</th>
+                </tr>
+              </thead>
+              <!--Data for Table -->
+              <tbody>
+                <?php
+                  /*THIS IS STEP 2 in QUERYING FROM DATABASE SEE LINE 79 FOR STEP 1*/
+                 
+                  //if data exist in table
+                  if (mysqli_num_rows($results) > 0)
+                  {
+                    //output data of each row 
+                    while ($row = mysqli_fetch_assoc($results))
+                    {
+                      /*while results has row of data. output first name, last name
+                      date, total amount and a link*/
+                      echo "<tr>";
+                      echo "<td>".$row["donor_fname"]." ".$row["donor_lname"]."</td>";
+                      echo "<td>".$row["donate_dd"]."</td>";
+                      echo "<td>".$row["total_amt"]."</td>";
+                      echo "<td><a href='user/books.php'>View Books Donated</a></td>";
+                      echo "</tr>";
+                    }
+                  }
+                ?>  
+              </tbody>
+            </table>
+          </div>
+        </div>
 
 
 

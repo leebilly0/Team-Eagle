@@ -68,7 +68,7 @@
         <div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form navbar-right" action="../logoff.php" method="POST">
 		   <div class="form-group">
-              <FONT COLOR="Black">Welcome Back<?php echo " {$_SESSION['user_name']}";?></FONT>
+              <FONT COLOR="Black">Welcome Back<?php echo " {$_SESSION['user_name']}";?>&#33;</FONT>
             <button type="submit" class="btn btn-primary" name="log_out">Log off</button>
 			
           </form>

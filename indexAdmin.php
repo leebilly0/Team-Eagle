@@ -7,6 +7,9 @@
 	
 	//Add php log out process After it press the logoff button
 	require ("logoff.php");
+
+  //Add database to page
+  require ("configurationDatabase.php");
 ?>
 <!--End of Session-->
 
@@ -70,7 +73,7 @@
         <div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form navbar-right" action="logoff.php" method="POST">
 		   <div class="form-group">
-              <FONT COLOR="Black">Welcome Back<?php echo " {$_SESSION['user_name']}";?></FONT>
+              <FONT COLOR="Black">Welcome Back<?php echo " {$_SESSION['user_name']}";?>&#33;</FONT>
             <button type="submit" class="btn btn-primary" name="log_out">Log off</button>
 			
           </form>
@@ -80,17 +83,80 @@
     <!-- END OF NAVBAR -->
 	
 	
+   <?php
+    /*There are two parts to connection to the database and querying results, THIS IS STEP 1
+    SEE LINE 133 for further step*/
+    global $DataBaseCon; //grabs connection to MYSQL database
+?>
+  
     <!-- Main jumbotron for a primary marketing message -->
     <div class="jumbotron">
       <div class="container">
         <div class="mainpage">
           <h1>Village Library</h1>
           <p>Donated By The Community For The Community</p>
+          <!-- Starting text inside Banner -->
           <div class="mainpagetextlarge">
-            <p>7,234</p>
-            <div class="mainpagetextsmall">
-              Books Donated
-            </div>
+            <!-- Total Books DOnated -->
+            <span class="mainPageBannerNumber">
+              <?php
+                //My Query I will be Using
+                $getData = "SELECT count(book_id) AS totalBooks FROM books"; 
+                $results = mysqli_query($DataBaseCon, $getData);  //Grab results from database using connection and query
+                
+                //output total count of books in database
+                $row = mysqli_fetch_assoc($results);
+                echo $row['totalBooks'];
+              ?>
+            </span>
+            <span class="mainPageBannerText">
+              BOOKS DONATED<br/>
+            </span>
+            <!-- Worth of Books in Database -->
+            <span class="mainPageBannerNumber">
+              <?php
+                //My Query I will be Using
+                $getData = "SELECT FORMAT(sum(cost),2) AS totalBookCost FROM books"; 
+                $results = mysqli_query($DataBaseCon, $getData);  //Grab results from database using connection and query
+                
+                //output sum of book worth in database
+                $row = mysqli_fetch_assoc($results);
+                echo "&#36;" .$row['totalBookCost'];
+              ?>
+            </span>
+            <span class="mainPageBannerText">
+              WORTH OF BOOKS<br/>
+            </span>
+            <!-- Total Amount of money donated in Database -->
+            <span class="mainPageBannerNumber">
+              <?php
+                //My Query I will be Using
+                $getData = "SELECT FORMAT(sum(total_amt),0) AS totalDonated FROM donors"; 
+                $results = mysqli_query($DataBaseCon, $getData);  //Grab results from database using connection and query
+                
+                //output sum of donated money in database
+                $row = mysqli_fetch_assoc($results);
+                echo "&#36;" .$row['totalDonated'];
+              ?>
+            </span>
+            <span class="mainPageBannerText">
+              IN DONATION FOR BOOKS<br/>
+            </span>
+            <!-- Programs funded by donors -->
+            <span class="mainPageBannerNumber">
+              <?php
+                //My Query I will be Using
+                $getData = "SELECT count(program_id) AS totalPrograms FROM program";
+                $results = mysqli_query($DataBaseCon, $getData);  //Grab results from database using connection and query
+                
+                //output total count of books in database
+                $row = mysqli_fetch_assoc($results);
+                echo $row['totalPrograms'];
+              ?>
+            </span>
+            <span class="mainPageBannerText">
+              PROGRAMS FUNDED BY DONORS<br/>
+            </span>
           </div>
         </div>
       </div>
