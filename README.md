@@ -3,29 +3,28 @@ Team Eagle Repository
 
 3-23-16 (UPDATE) -Billy
 Fixed up Index.php and IndexAdmin.php
-	-Wrote MySQL queries to pull data from database as text
-	-Added Shadow to text
-	-changed color scheme of text around
+-Wrote MySQL queries to pull data from database as text
+-Added Shadow to text
+-changed color scheme of text around
 All Admin Pages
-	-Added an exclamantion point after the "Welcome Back [username!"
+-Added an exclamantion point after the "Welcome Back [username!"
 Donor Pages
-	-Finished Designing Donor Pages for User
-	-Finished Designing Donor page for Admin
-	-Donor pages pulls correct database info for tables
-	-Donor pages sorts by alphabetical order of first name
-	
+-Finished Designing Donor Pages for User
+-Finished Designing Donor page for Admin
+-Donor pages pulls correct database info for tables
+-Donor pages sorts by alphabetical order of first name
 
 3-23-16 -Billy
 Changed login_functions.inc to loginfunctions.php
-	-Because of security reasons 
+-Because of security reasons 
 Designed Donors page for user 
-	-will be implementing to admin side once user side is done since its the same code. 
+-will be implementing to admin side once user side is done since its the same code. 
 Made changes to index.php and admin.php  
-	-Modified Poleaps code for a more universal use 
-	-Created a confirgurationsDatabase.php for logging into each team mates sql 
-		-also helps with universal use on different pages
-		-added to all ADMIN pages
-		-add to all USER pages
+-Modified Poleaps code for a more universal use 
+-Created a confirgurationsDatabase.php for logging into each team mates sql 
+-also helps with universal use on different pages
+-added to all ADMIN pages
+-add to all USER pages
 
 3-23-16
 I messed up the files by accident. Reverted it back to poleaps last commit lol -Billy
