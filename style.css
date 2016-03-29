@@ -82,3 +82,8 @@ h2 {
 .mainpagetextlarge {
 	text-align: center;
 }
+
+.row-padding{
+    padding-top: 30px;
+    padding-bottom:  30px;
+}

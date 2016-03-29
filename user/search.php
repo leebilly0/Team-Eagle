@@ -76,8 +76,32 @@
     </nav>
     <!-- END OF NAVBAR -->
 
-    <!-- Start your coding below here -->
+      <!-- START KEYWORD SEARCH FORM -->
+        <div class="container center_div">
+            <div class="row row-padding">
+                <div class="col-sm-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading"><h4>Keyword Search</h2></div>
+                        <div class="panel-body">
 
+                            <form action ="searchresults.php"  method="POST">
+                                <div class="input-group">
+                                    <input type="textbox" name ="keywordToSearch" required class="form-control input-lg" placeholder="Type in keyword to search for a book">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-primary btn-lg" name = "search" type="submit" >Search</button>
+                                    </span>
+                                </div>
+                                
+                                <div class="input-group">
+                                    <button onclick="window.location.href = 'searchadvance.php'" type="button" class="btn btn-link">Advanced Search</button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>  
+                </div> 
+            </div>
+        </div>
 
 
 
