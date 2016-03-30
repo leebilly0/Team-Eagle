@@ -134,13 +134,13 @@ require ("../configurationDatabase.php");
                         <div class="form-group">
                             <label class="control-label col-sm-2" >Year of Publisher:</label>
                             <div class="col-sm-10"> 
-                                <input type="text" name ="yearOfPubAdmin" class="form-control"  >
+                                <input type="number" name ="yearOfPubAdmin" class="form-control"  >
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-2" >ISBN:</label>
                             <div class="col-sm-10"> 
-                                <input type="text" name ="isbnAdmin" class="form-control"  >
+                                <input type="number" name ="isbnAdmin" class="form-control"  >
                             </div>
                         </div>
                         <div class="form-group">
@@ -157,7 +157,7 @@ require ("../configurationDatabase.php");
                         <div class="form-group">
                             <label class="control-label col-sm-2" >Cost:</label>
                             <div class="col-sm-10"> 
-                                <input type="number" name ="costAdmin" placeholder="Please enter a valid number" class="form-control"  >
+                                <input type="number" step="any" name ="costAdmin" placeholder="Please enter a valid number" class="form-control"  >
                             </div>
                         </div>
                         <div class="form-group "> 
