@@ -1,5 +1,7 @@
 # Team-Eagle
 Team Eagle Repository
+3-28-16 --Linh
+Checked in Keyword search and advancedSearch for both user and admin
 
 3-29-16 - Billy
 -Finished ViewBooks for donors
