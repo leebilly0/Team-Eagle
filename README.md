@@ -1,6 +1,11 @@
 # Team-Eagle
 Team Eagle Repository
 
+3-29-16 - Billy
+-Finished ViewBooks for donors
+-Found BUG!!!! Login doesn't work for other pages, only front page
+-Tried Fixing bug but failed
+
 3-23-16 (UPDATE) -Billy
 Fixed up Index.php and IndexAdmin.php
 -Wrote MySQL queries to pull data from database as text

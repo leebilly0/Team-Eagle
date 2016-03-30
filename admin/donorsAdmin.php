@@ -148,7 +148,7 @@
                       echo "<td>".$row["donor_fname"]." ".$row["donor_lname"]."</td>";
                       echo "<td>".$row["donate_dd"]."</td>";
                       echo "<td>".$row["total_amt"]."</td>";
-                      echo "<td><a href='user/books.php'>View Books Donated</a></td>";
+                      echo "<td><a href='viewbooksdonorAdmin.php?first_name=".$row["donor_fname"]."&last_name=".$row["donor_lname"]."'>View Books Donated</a></td>";
                       echo "</tr>";
                     }
                   }
