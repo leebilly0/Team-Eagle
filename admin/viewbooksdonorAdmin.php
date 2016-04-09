@@ -138,7 +138,7 @@
             </table>
             <br/>
              <!-- Back Button -->
-            <center><a class="btn btn-primary" href="donors.php" role="button">Back To Donors</a></center>
+            <center><a class="btn btn-primary" href="donorsAdmin.php" role="button">Back To Donors</a></center>
           </div>
         </div>
 

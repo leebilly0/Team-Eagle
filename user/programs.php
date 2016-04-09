@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <?php
+    
+
+//To have access to mysql database
   require ("../configurationDatabase.php");
-  session_start();
 ?>
 <html lang="en">
   <head>
@@ -22,7 +24,7 @@
     <link href="../css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../style.css" rel="stylesheet">
+    <link href="donorStyle.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -36,45 +38,6 @@
   </head>
 
   <body>
-
-    <!--Add check loginID and password to make check with database-->
-  <?php
-    //Go to the login_functions.php to check with database
-    require ("../login_functions.php");
-    //isset() fucntion is to check the variable is set or not set.
-    if (isset($_POST['submitted'])) {
-   
-      //$loginID = trim($_POST['loginID'], "{[/\"'()]}");
-      //$password = trim($_POST['password'], "{[/\"'()]}");
-   
-      //**Set check = loginID and data = password
-      //call check_login() function from login_fucntion.php to check for true/false
-      list ($check, $returnName) = check_login($_POST['loginID'], $_POST['password']);
-      //list ($check, $returnName) = check_login($loginID, $password);
-
-      if ($check) { // OK!
-       
-        //set the session of cookie by put user_id = loginID  
-        $_SESSION['user_name'] = $returnName;
-        $_SESSION['user_type'] = "admin";
-   
-        //called the absolute_url function from login_function.php
-        $url = absolute_url ('../indexAdmin.php'); // passing value of url as "loggedin.php"
-        header("Location: $url");
-   
-        exit();
-      } 
-  
-      else { // Unsuccessful!
-        $errors = $returnName; //here set the errors = data = password
-        //called the absolute_url function from login_function.php
-        $url = absolute_url ('../index.php'); // passing value of url as "loggedin.php"
-        header("Location: $url");
-      }
-    } // End of the main submit conditional.
-  ?>
-
-  <!--END OF THE LOG IN PROCESS-->
 
     <!-- THIS IS THE NAVBAR AT THE TOP OF EVERYPAGE -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -117,7 +80,77 @@
     <!-- END OF NAVBAR -->
 
     <!-- Start your coding below here -->
+	<!--Table of program to display-->		
+			<?php
+			//Make print of each rows of program
+			
+			/*Make database connection called DataBaseCon */
+			//$DataBaseCon = mysqli_connect("localhost", "my_user", "my_password", "my_database_name");
+			global $DataBaseCon; //grabs connection to MYSQL database
+			
+			$getDatabase = "SELECT program_id,program,yr_start,mission FROM program LIMIT 2, 3000";
+			//Run query
+			if(!$result = mysqli_query($DataBaseCon, $getDatabase)){
+				echo "Could not successfully run query";
+				exit();
+			}
+			//If there no match result found
+			if(mysqli_num_rows($result) == 0){
+				echo "No rows found !";
+				exit();
+			}
 
+      ?>
+
+       <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-1 main">
+
+      <h1>Programs</h1> 
+      <p>Here is the list of programs donors have donated to or in memory of</p>
+
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <!--Headers for data table-->
+              <thead>
+                <tr>
+                  <th>Program ID</th>
+                  <th>Program Name</th>
+                  <th>Year Started</th>
+                  <th>Mission Statement/Reason For Program</th>
+                </tr>
+              </thead>
+              <!--Data for Table -->
+              <tbody>
+      <?php
+		
+			while($row = mysqli_fetch_assoc($result)){
+				$number = $row["program_id"];
+				$program_name = $row["program"];
+				$year = $row["yr_start"];
+				$mission = $row["mission"];
+				
+				
+				echo "<tr>";
+				echo "<td class = 'tdProgramsAdmin'>".$number."</td>";
+				echo "<td class = 'tdProgramsAdmin'>". $program_name."</td>";
+				echo "<td class = 'tdProgramsAdmin'>".$year."</td>";
+				echo "<td class = 'tdProgramsAdmin'>". $mission."</td>";
+				echo "<td class = 'tdProgramsAdmin'><a href='viewbooksprogram.php'>View Books</a></td>";
+				echo "<td class = 'tdProgramsAdmin'><a href='viewdonorsprogram.php'>View Donors</a></td>";
+				echo "</tr>";
+			
+			}//End of while loop
+
+			?>
+         </tbody>
+        </table>
+      </div>
+    </div>
+		
+		
+	
+	
+	</table>
+	
 
 
 

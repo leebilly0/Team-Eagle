@@ -1,5 +1,12 @@
 # Team-Eagle
 Team Eagle Repository
+4-9-19 - Billy
+-Fixed Poleaps code because it was not in sync with everyone elses (code was written for his individual use and conflicted with group project codes)
+-Fixed Program Page to match the rest of the website's style
+-Fixed Program's View Books page to query the correct query and also to show the correct books.
+-Added back button to view books in programs page.
+-Added indexLogin.PHP (which is a clone of index.php) for admin to loginto. I will be removing login functionality from all user pages
+
 3-28-16 --Linh
 Checked in Keyword search and advancedSearch for both user and admin
 
