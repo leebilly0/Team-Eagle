@@ -100,6 +100,38 @@ require ("../configurationDatabase.php");
 
                             </form>
                         </div>
+                        <div class="panel-body">
+
+                            <form action ="searchresultsAdmin.php"  method="POST">
+                                <div class="input-group">
+                                    <input type="textbox" name ="DonorKeywordToSearchAdmin" required class="form-control input-lg" placeholder="Type in keyword to search for a book">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-primary btn-lg" name = "DonorSearchAdmin" type="submit" >Search</button>
+                                    </span>
+                                </div>
+                                
+                                <div class="input-group">
+                                    <button onclick="window.location.href = 'donarsearchadvanceAdmin.php'" type="button" class="btn btn-link">Advanced Search</button>
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="panel-body">
+
+                            <form action ="searchresultsAdmin.php"  method="POST">
+                                <div class="input-group">
+                                    <input type="textbox" name ="keywordToSearchAdmin" required class="form-control input-lg" placeholder="Type in keyword to search for a book">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-primary btn-lg" name = "ProgramSearchAdmin" type="submit" >Search</button>
+                                    </span>
+                                </div>
+                                
+                                <div class="input-group">
+                                    <button onclick="window.location.href = 'programsearchadvanceAdmin.php'" type="button" class="btn btn-link">Advanced Search</button>
+                                </div>
+
+                            </form>
+                        </div>
                     </div>  
                 </div> 
             </div>

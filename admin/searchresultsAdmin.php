@@ -170,7 +170,7 @@ if (mysqli_num_rows($results) > 0) {
         echo "<td>" . $row["isbn"] . "</td>";
         echo "<td>" . $row["language"] . "</td>";
         echo "<td>" . $row["cost"] . "</td>";
-        echo "<td><a href='.php'>View</a> &nbsp <a href='.php'>Edit</a> &nbsp<a href='.php'>Delete</a></td>";
+        //echo "<td><a href='delete.php?isbnAdmin= . isbn . '>Delete</a></td>";
         echo "</tr>";
     }
 }

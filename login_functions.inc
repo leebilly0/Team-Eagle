@@ -1,6 +1,7 @@
-<?php
 
-include_once ("configurationDatabase.php");
+
+
+<?php
 
 function absolute_url ($page = 'logginIndex.php') {
  $url = 'http://' . $_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']);
@@ -13,7 +14,7 @@ function absolute_url ($page = 'logginIndex.php') {
 
 //**Call first when the loginIndex.php page is submitted
 function check_login($loginID = '', $password = '') {
-	global $DataBaseCon;
+
 
 	$errors = array(); // Declare variable $errors  as an array
 	
@@ -30,21 +31,40 @@ function check_login($loginID = '', $password = '') {
 
 	//**If the errors array is empty or mean no error or has user enter both in login id and password
 	if (empty($errors)) {    
-            
+
 		//**1. Make connection to database /SQL
 		//**variable $DataBaseCon is set equal to make connection to database from php 
+	
+		//**Below is check to see if it not able to connect with database, it will give an error message
+		if(!$DataBaseCon = mysqli_connect("localhost","root","2031")){
+		
+			//**If not connect message error
+			echo "Error connecting to Data Base <br />";
+	
+			exit();//exit function will print the error message first, and exit the current script
+	
+		}//end if $DataBaseCon
+		
+		
+		//**check if the command is not select the right database, give error message
+		//**change the default path to specific data base table "userAndPassword"
+		if (!mysqli_select_db($DataBaseCon, "project"))   {
+		
+			//if the database is not select, it print messege error
+			echo "Error selecting Data Base<br />";
+			exit();
+		}//end if select database
 
 
 		//**Need to change for difference name to macth your database table's name
 		//**command below is to INSERT DATA into DATABASE TABLE
-		
+		$getDatabase = "SELECT NAME FROM logins WHERE username = '$loginID' AND PASSWORD = '$password' ";
 		
 		
 		//***mysqli_query is command
 		//**perform the queries and if it connect and run command fine, it returns true
 		//**if true
 		if($checkResult = mysqli_query($DataBaseCon, $getDatabase)){
-                    $getDatabase = "SELECT NAME FROM logins WHERE username = '$loginID' AND PASSWORD = '$password' ";
 			
 			//*Return the number of the row as integer
 			$resultRowCount = mysqli_num_rows($checkResult);

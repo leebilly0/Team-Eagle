@@ -138,6 +138,40 @@
 
                             </form>
                         </div>
+                        
+                         <div class="panel-body">
+
+                            <form action ="Searchresults.php"  method="POST">
+                                <div class="input-group">
+                                    <input type="textbox" name ="DonorKeywordToSearch" required class="form-control input-lg" placeholder="Type in keyword to search for a donor">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-primary btn-lg" name = "DonorSearch" type="submit" >Search</button>
+                                    </span>
+                                </div>
+                                
+                                <div class="input-group">
+                                    <button onclick="window.location.href = 'donorsearchadvance.php'" type="button" class="btn btn-link">Advanced Search</button>
+                                </div>
+
+                            </form>
+                        </div>
+                        
+                        <div class="panel-body">
+
+                            <form action ="Searchresults.php"  method="POST">
+                                <div class="input-group">
+                                    <input type="textbox" name ="ProgramKeywordToSearch" required class="form-control input-lg" placeholder="Type in keyword to search for a program">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-primary btn-lg" name = "ProgramSearch" type="submit" >Search</button>
+                                    </span>
+                                </div>
+                                
+                                <div class="input-group">
+                                    <button onclick="window.location.href = 'programsearchadvance.php'" type="button" class="btn btn-link">Advanced Search</button>
+                                </div>
+
+                            </form>
+                        </div>
                     </div>  
                 </div> 
             </div>
