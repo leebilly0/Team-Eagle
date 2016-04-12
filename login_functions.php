@@ -43,8 +43,9 @@ function check_login($loginID = '', $password = '') {
 		//***mysqli_query is command
 		//**perform the queries and if it connect and run command fine, it returns true
 		//**if true
+		$getDatabase = "SELECT NAME FROM logins WHERE username = '$loginID' AND PASSWORD = '$password' ";
 		if($checkResult = mysqli_query($DataBaseCon, $getDatabase)){
-                    $getDatabase = "SELECT NAME FROM logins WHERE username = '$loginID' AND PASSWORD = '$password' ";
+                    
 			
 			//*Return the number of the row as integer
 			$resultRowCount = mysqli_num_rows($checkResult);
