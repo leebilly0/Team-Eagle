@@ -3,6 +3,7 @@ Team Eagle Repository
 4-12-16 - Linh
 - Created keyword search and advance search for donor and program for both user and admin
 - Also added delete book function for admin
+_ Added function to handle UTF-8 . Now the user and admin can search for multiple languages from database
 
 4-9-19 - Billy
 -Fixed Poleaps code because it was not in sync with everyone elses (code was written for his individual use and conflicted with group project codes)
