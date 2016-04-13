@@ -1,5 +1,23 @@
 # Team-Eagle
 Team Eagle Repository
+
+4/13/16- poleap
+	+Add adminHeader.php, deleteProgramAdmin, into the Admin folder
+	+Add AdminstyleSheet into StyleSheet folder
+	+Add conntectDatabase.php into Team_Eagle
+	+Edit the code of program
+	+Add login function to all user pages with add sign- poleap
+	+Edit again on all admin pages with add sign as <!--**Add below -->
+**Note: when there is add sign mean, I have add that line of code until the end sign as <!--**Done add above -->
+	+Make a connect to database with one page called "connectDatabase.php", which when request to connect the database
+		it will call that one page. except the login_function.php and index.php.
+	+All sign in request, it will call the login_function.php to do the process
+	+ change file of session.php and logoff.php into admin folder
+	+ Add php file name adminHeader.php in admin folder
+	+ Add php file name userHeader.php in user folder
+	+ Add deleteProgramAdmin.php in Admin folders
+
+
 4-9-19 - Billy
 -Fixed Poleaps code because it was not in sync with everyone elses (code was written for his individual use and conflicted with group project codes)
 -Fixed Program Page to match the rest of the website's style

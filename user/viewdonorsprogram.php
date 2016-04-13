@@ -1,8 +1,11 @@
 <!DOCTYPE html>
+<!--Billy code-->
 <?php
-  require ("../configurationDatabase.php");
- session_start();
+ // require ("../configurationDatabase.php");
+ // session_start();
 ?>
+<!--done Billy code-->
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -15,6 +18,11 @@
 
     <title>Village Library</title>
 
+	<!--***Add Below -->
+	<link href="StyleSheet/userStyleSheet.css" rel="stylesheet">
+	<!--***Done add above-->
+    
+	
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
 
@@ -36,45 +44,6 @@
   </head>
 
   <body>
-
-    <!--Add check loginID and password to make check with database-->
-  <?php
-    //Go to the login_functions.php to check with database
-    require ("../login_functions.php");
-    //isset() fucntion is to check the variable is set or not set.
-    if (isset($_POST['submitted'])) {
-   
-      //$loginID = trim($_POST['loginID'], "{[/\"'()]}");
-      //$password = trim($_POST['password'], "{[/\"'()]}");
-   
-      //**Set check = loginID and data = password
-      //call check_login() function from login_fucntion.php to check for true/false
-      list ($check, $returnName) = check_login($_POST['loginID'], $_POST['password']);
-      //list ($check, $returnName) = check_login($loginID, $password);
-
-      if ($check) { // OK!
-       
-        //set the session of cookie by put user_id = loginID  
-        $_SESSION['user_name'] = $returnName;
-        $_SESSION['user_type'] = "admin";
-   
-        //called the absolute_url function from login_function.php
-        $url = absolute_url ('../indexAdmin.php'); // passing value of url as "loggedin.php"
-        header("Location: $url");
-   
-        exit();
-      } 
-  
-      else { // Unsuccessful!
-        $errors = $returnName; //here set the errors = data = password
-        //called the absolute_url function from login_function.php
-        $url = absolute_url ('../index.php'); // passing value of url as "loggedin.php"
-        header("Location: $url");
-      }
-    } // End of the main submit conditional.
-  ?>
-
-  <!--END OF THE LOG IN PROCESS-->
 
     <!-- THIS IS THE NAVBAR AT THE TOP OF EVERYPAGE -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -116,8 +85,79 @@
     </nav>
     <!-- END OF NAVBAR -->
 
-    <!-- Start your coding below here -->
+ <!-- Start your coding below here -->
+  <!--***Add below-->
+	<h1>View Donor for " <?php $program_name = $_POST['program_name'];
+          echo $program_name; ?> "</h1>
+	<br />
+	<!--Table of program to display-->
+	<table class = "tdBookAdmin" style="width: 100%" >
+		<tr>
+			<th class = "tdBookAdmin">ID</th>
+			<th class = "tdBookAdmin">First Name</th>
+			<th class = "tdBookAdmin">Last Name</th>
+			<th class = "tdBookAdmin">Total Amount</th>
 
+		</tr>
+		
+		<!--***Add below-->
+			<?php
+			//****Called connecDatabase.php to do connection 
+			require("../connectDatabase.php");
+			
+			$program_id = $_POST['program_id'];
+			
+			//Get all donor id that donate to that program 1,2
+			$getDornorID = $getDatabase = 'SELECT donor_id from books WHERE program_id="'.$program_id.'"';
+			if(!$result1 = mysqli_query($DataBaseCon, $getDornorID)){
+				echo "Could not successfully run query";
+				exit();
+			}
+			//If there no match result found
+			if(mysqli_num_rows($result1) == 0){
+				echo "No result found !";
+				exit();
+			}
+			
+			while($rowDonorID = mysqli_fetch_assoc($result1)){
+				$donor_id = $rowDonorID['donor_id'];
+
+			//Get name from database with each donor id
+			$getDatabase = 'SELECT donor_id, donor_fname, donor_lname, total_amt FROM donors WHERE donor_id ="'.$donor_id.'"';
+			//Run query
+			if(!$result = mysqli_query($DataBaseCon, $getDatabase)){
+				echo "Could not successfully run query";
+				exit();
+			}
+			//If there no match result found
+			if(mysqli_num_rows($result) == 0){
+				echo "No result found !";
+				exit();
+			}
+		
+			while($row = mysqli_fetch_assoc($result)){
+				$donor_id = $row["donor_id"];
+				$donor_fname = $row["donor_fname"];
+				$donor_lname = $row["donor_lname"];
+				//$author = $author_fname.$author_lname;
+				$total_amt = $row["total_amt"];
+
+				
+				echo "<tr>";
+				echo "<td class = 'tdBookAdmin'>".$donor_id."</td>";
+				echo "<td class = 'tdBookAdmin'>".$donor_fname."</td>";
+				echo "<td class = 'tdBookAdmin'>".$donor_lname."</td>";
+				echo "<td class = 'tdBookAdmin'>".$total_amt."</td>";
+				echo "</tr>";
+
+			}//End of while loop
+			
+			}//End of get donor id  loop
+
+			?>
+
+	</table>
+<!--***Done add above-->
 
 
 

@@ -12,7 +12,7 @@ while ($loopFlag)
 
 		//try connecting with other passwords
 		if ($count == 0)
-			$password = 'SP1';	//use Poleaps password
+			$password = '';	//use Poleaps password
 		if ($count == 1)
 			$password = '2031';	//use linhs password
 		if ($count == 2)

@@ -39,11 +39,12 @@
 
 		<!--Add check loginID and password to make check with database-->
 	<?php
-		//Go to the login_functions.php to check with database
-		require ("login_functions.php");
+
 		//isset() fucntion is to check the variable is set or not set.
 		if (isset($_POST['submitted'])) {
-	 
+			//Go to the login_functions.php to check with database
+			require ("login_functions.php");
+			
 			//$loginID = trim($_POST['loginID'], "{[/\"'()]}");
 			//$password = trim($_POST['password'], "{[/\"'()]}");
 	 
