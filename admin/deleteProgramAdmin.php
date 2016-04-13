@@ -4,7 +4,7 @@
 	<?php
 	if(isset($_POST['Delete_program'])){
 			//****Called connecDatabase.php to do connection 
-			require("../connectDatabase.php");	
+			require("../configurationDatabase.php");	
 			$program_id = $_POST['program_id'];
 			$program_name = $_POST['program_name'];
 			//Get name from database with each donor id

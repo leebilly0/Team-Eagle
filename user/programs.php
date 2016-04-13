@@ -22,7 +22,7 @@
     <link href="../css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../style.css" rel="stylesheet">
+    <link href="donorStyle.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -36,19 +36,6 @@
   </head>
 
   <body>
-
- 	<!--***Add Below for check loginID and password to make check with database-->
-	<?php
-	//If the click on the sign in button
-	if(isset($_POST['submitted'])){
-		session_start();
-		$_SESSION['logAtPage'] = 'programs.php';
-		//Go to the login_functions.inc to check with database
-		require("userLogin_functions.inc");
-		
-	}
-	?>
-	<!--***Done add above-->
 	
     <!-- THIS IS THE NAVBAR AT THE TOP OF EVERYPAGE -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -70,30 +57,6 @@
                 <li><a href="search.php">Search</a></li>
             </ul>
         </div>
-
-        <!-- Start of username password form of right nav bar -->
-        <div id="navbar" class="navbar-collapse collapse">
-		<!--***Add below for action = programs.php-->
-          <form class="navbar-form navbar-right" action="programs.php" method="POST">
-		  <!--***Done add above-->
-		  
-		   <div class="form-group">
-              <FONT COLOR="Black">Admin Login</FONT>
-            </div>
-            <div class="form-group">
-              <input type="text" placeholder="Username" class="form-control" name="loginID">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control" name="password">
-            </div>
-			<!--***Add below-->
-			<input type="hidden" name="submitted" value="TRUE" />
-			<!--***Done add above-->
-			
-            <button type="submit" class="btn btn-primary">Sign in</button>
-          </form>
-        </div>
-      </div>
     </nav>
     <!-- END OF NAVBAR -->
 
@@ -118,7 +81,7 @@
 			<?php
 			
 			//****Called connecDatabase.php to do connection 
-			require("../connectDatabase.php");
+			require("../configurationDatabase.php");
 		//	global $DataBaseCon; //grabs connection to MYSQL database
 			$getDatabase = "SELECT program_id,program,yr_start,mission FROM program ";
 			//Run query
@@ -160,8 +123,9 @@
 				//echo "<td class = 'tdProgramsAdmin'><a href='viewbooksprogramAdmin.php'>View Books</a></td>";
 				//echo "<td class = 'tdProgramsAdmin'><a href='viewdonorsprogramAdmin.php'>View Donors</a></td>";
 				echo "<td class = 'tdProgramsAdmin'>
-						<form name='submit_program_ID' action='viewdonorsprogramAdmin.php' method='POST'>
+						<form name='submit_program_ID' action='viewdonorsprogram.php' method='POST'>
 						<input type= 'hidden' name ='program_id' value ='".$number."'>
+						<input type= 'hidden' name ='program_name' value ='".$program_name."'>
 						<input type ='submit' name='submitProgramID' value = 'View Donor' >
 						</form>
 					</td>";

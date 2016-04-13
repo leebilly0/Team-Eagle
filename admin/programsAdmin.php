@@ -25,7 +25,7 @@
 			<?php
 			
 			//****Called connecDatabase.php to do connection 
-			require("../connectDatabase.php");
+			require("../configurationDatabase.php");
 		//	global $DataBaseCon; //grabs connection to MYSQL database
 			$getDatabase = "SELECT program_id,program,yr_start,mission FROM program ";
 			//Run query
@@ -59,6 +59,7 @@
 				echo "<td class = 'tdProgramsAdmin'>
 						<form name='submit_program_ID' action='viewbooksprogramAdmin.php' method='POST'>
 						<input type= 'hidden' name ='program_id' value ='".$number."'>
+						<input type= 'hidden' name ='program_name' value ='".$program_name."'>
 						<input type ='submit' name='submitProgramID' value = 'View Book' >
 						</form>
 					</td>";

@@ -37,39 +37,10 @@
 		<!--Add check loginID and password to make check with database-->
 	<?php
 
-		//isset() fucntion is to check the variable is set or not set.
-		if (isset($_POST['submitted'])) {
 			//Go to the login_functions.php to check with database
 			require ("login_functions.php");
 			
-			//$loginID = trim($_POST['loginID'], "{[/\"'()]}");
-			//$password = trim($_POST['password'], "{[/\"'()]}");
-	 
-			//**Set check = loginID and data = password
-			//call check_login() function from login_fucntion.php to check for true/false
-			list ($check, $returnName) = check_login($_POST['loginID'], $_POST['password']);
-			//list ($check, $returnName) = check_login($loginID, $password);
-
-			if ($check) { // OK!
-       
-				//set the session of cookie by put user_id = loginID  
-				$_SESSION['user_name'] = $returnName;
-				$_SESSION['user_type'] = "admin";
-   
-				//called the absolute_url function from login_function.php
-				$url = absolute_url ('indexAdmin.php'); // passing value of url as "loggedin.php"
-				header("Location: $url");
-   
-				exit();
-			} 
-  
-			else { // Unsuccessful!
-				$errors = $returnName; //here set the errors = data = password
-				//called the absolute_url function from login_function.php
-				$url = absolute_url ('index.php'); // passing value of url as "loggedin.php"
-				header("Location: $url");
-			}
-		} // End of the main submit conditional.
+	
 	?>
 
 	<!--END OF THE LOG IN PROCESS-->

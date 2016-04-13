@@ -30,7 +30,7 @@
     <link href="../css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../style.css" rel="stylesheet">
+    <link href="Donorstyle.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -66,22 +66,6 @@
             </ul>
         </div>
 
-        <!-- Start of username password form of right nav bar -->
-        <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">
-       <div class="form-group">
-              <FONT COLOR="Black">Admin Login</FONT>
-            </div>
-            <div class="form-group">
-              <input type="text" placeholder="Username" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-primary">Sign in</button>
-          </form>
-        </div>
-      </div>
     </nav>
     <!-- END OF NAVBAR -->
 
@@ -103,7 +87,7 @@
 		<!--***Add below-->
 			<?php
 			//****Called connecDatabase.php to do connection 
-			require("../connectDatabase.php");
+			require("../configurationDatabase.php");
 			
 			$program_id = $_POST['program_id'];
 			

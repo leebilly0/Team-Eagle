@@ -62,6 +62,8 @@ require ("../configurationDatabase.php");
                     <li><a href="donorsAdmin.php">Donors</a></li>
                     <li><a href="programsAdmin.php">Programs</a></li>
                     <li><a href="searchAdmin.php">Search</a></li>
+                    <li><a href="aboutAdmin.php">About</a></li>
+                <li><a href="adminTools.php">Admin Tools</a></li>
                 </ul>
             </div>
 

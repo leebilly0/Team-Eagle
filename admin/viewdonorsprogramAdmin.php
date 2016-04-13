@@ -28,7 +28,7 @@
 		<!--***Add below-->
 			<?php
 			//****Called connecDatabase.php to do connection 
-			require("../connectDatabase.php");
+			require("../configurationDatabase.php");
 			
 			$program_id = $_POST['program_id'];
 			
