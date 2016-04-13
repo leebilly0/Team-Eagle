@@ -1,5 +1,9 @@
 # Team-Eagle
 Team Eagle Repository
+4-12-16 - Linh
+- Created keyword search and advance search for donor and program for both user and admin
+- Also added delete book function for admin
+
 4-9-19 - Billy
 -Fixed Poleaps code because it was not in sync with everyone elses (code was written for his individual use and conflicted with group project codes)
 -Fixed Program Page to match the rest of the website's style
