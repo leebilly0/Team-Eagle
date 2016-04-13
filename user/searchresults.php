@@ -121,7 +121,8 @@ session_start();
 global $DataBaseCon; //grabs connection to MYSQL database
 
 if (isset($_POST['search'])) {
-    $keywordInput = filter_input(INPUT_POST, 'keywordToSearch');
+    $keyword = filter_input(INPUT_POST, 'keywordToSearch');
+    $keywordInput = urldecode($keyword);
     // check the input is empty or not. If not then pop up an alert message
     if (empty($keywordInput)) {
         echo "<script>alert('Please fill out the input field to generate a report');
@@ -170,9 +171,12 @@ if (mysqli_num_rows($results) > 0) {
 }
 if (isset($_POST['advancedSearch'])){
             //store all the input text field of the form
-        $titleInput = filter_input(INPUT_POST, 'title');
-        $fNameInput = filter_input(INPUT_POST, 'authorFName');
-        $lNameInput = filter_input(INPUT_POST, 'authorLName');
+        $title = filter_input(INPUT_POST, 'title');
+        $titleInput = urldecode($title);
+        $fName = filter_input(INPUT_POST, 'authorFName');
+        $fNameInput = urldecode($fName);
+        $lName= filter_input(INPUT_POST, 'authorLName');
+        $lNameInput = urldecode($lName);
         $genreInput = filter_input(INPUT_POST, 'genre');
         $yearInput = filter_input(INPUT_POST, 'yearOfPub');
         $isbnInput = filter_input(INPUT_POST, 'isbn');
@@ -234,7 +238,8 @@ if (mysqli_num_rows($results) > 0) {
 }
 }
  if (isset($_POST['DonorSearch'])){
-     $keywordInput = filter_input(INPUT_POST, 'DonorKeywordToSearch');
+     $keyword = filter_input(INPUT_POST, 'DonorKeywordToSearch');
+     $keywordInput = urldecode($keyword);
     // check the input is empty or not. If not then pop up an alert message
     if (empty($keywordInput)) {
         echo "<script>alert('Please fill out the input field to generate a report');
@@ -274,8 +279,10 @@ if (mysqli_num_rows($results) > 0) {
 }
 if (isset($_POST['DonorAdvancedSearch'])){
             //store all the input text field of the form
-        $donorFnameInput = filter_input(INPUT_POST, 'donorFirstName');
-        $donorLnameInput = filter_input(INPUT_POST, 'donorLastName');
+        $donorFname = filter_input(INPUT_POST, 'donorFirstName');
+        $donorFnameInput = urldecode($donorFname);
+        $donorLname = filter_input(INPUT_POST, 'donorLastName');
+        $donorLnameInput = urldecode($donorLname);
         $donateDDInput = filter_input(INPUT_POST, 'donateDD');
         $totalAmountInput = filter_input(INPUT_POST, 'totalAmount');
         $amountInput = null;
@@ -326,7 +333,8 @@ if (mysqli_num_rows($results) > 0) {
 
 
  if (isset($_POST['ProgramSearch'])){
-     $keywordInput = filter_input(INPUT_POST, 'ProgramKeywordToSearch');
+     $keyword = filter_input(INPUT_POST, 'ProgramKeywordToSearch');
+     $keywordInput = urldecode($keyword);
     // check the input is empty or not. If not then pop up an alert message
     if (empty($keywordInput)) {
         echo "<script>alert('Please fill out the input field to generate a report');
@@ -366,9 +374,11 @@ if (mysqli_num_rows($results) > 0) {
 }
 if (isset($_POST['ProgramAdvancedSearch'])){
             //store all the input text field of the form
-        $programInput = filter_input(INPUT_POST, 'program');
+        $program = filter_input(INPUT_POST, 'program');
+        $programInput = urldecode($program);
         $startDateInput = filter_input(INPUT_POST, 'startDate');
-        $missionInput = filter_input(INPUT_POST, 'mission');
+        $mission = filter_input(INPUT_POST, 'mission');
+        $missionInput = urldecode($mission);
        
         //Check all fields are empty or not
         if (empty($programInput) && empty($startDateInput) && empty($missionInput)) {

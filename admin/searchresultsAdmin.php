@@ -88,7 +88,8 @@ require ("../configurationDatabase.php");
 global $DataBaseCon; //grabs connection to MYSQL database
 
 if (isset($_POST['searchAdmin'])) {
-    $keywordInput = filter_input(INPUT_POST, 'keywordToSearchAdmin');
+    $keyword = filter_input(INPUT_POST, 'keywordToSearchAdmin');
+    $keywordInput=urldecode($keyword);
     // check the input is empty or not. If not then pop up an alert message
     if (empty($keywordInput)) {
         echo "<script>alert('Please fill out the input field to generate a report');
@@ -138,9 +139,12 @@ if (mysqli_num_rows($results) > 0) {
 }
 if (isset($_POST['advancedSearchAdmin'])){
             //store all the input text field of the form
-        $titleInput = filter_input(INPUT_POST, 'titleAdmin');
-        $fNameInput = filter_input(INPUT_POST, 'authorFNameAdmin');
-        $lNameInput = filter_input(INPUT_POST, 'authorLNameAdmin');
+        $title = filter_input(INPUT_POST, 'titleAdmin');
+        $titleInput=urldecode($title);
+        $fName = filter_input(INPUT_POST, 'authorFNameAdmin');
+        $fNameInput=urldecode($fName);
+        $lName = filter_input(INPUT_POST, 'authorLNameAdmin');
+        $lNameInput=urldecode($lName);
         $genreInput = filter_input(INPUT_POST, 'genreAdmin');
         $yearInput = filter_input(INPUT_POST, 'yearOfPubAdmin');
         $isbnInput = filter_input(INPUT_POST, 'isbnAdmin');
@@ -161,7 +165,7 @@ if (isset($_POST['advancedSearchAdmin'])){
                    </script>";
         }
         //query to execute
-        $getData = "SELECT book_title,author_fname,author_lname,genre,year_ofpub,isbn,language,cost"
+        $getData = "SELECT book_id,book_title,author_fname,author_lname,genre,year_ofpub,isbn,language,cost"
                 . " FROM books WHERE (book_title = '$titleInput' or author_fname='$fNameInput' or "
                 . "author_lname = '$lNameInput' or genre='$genreInput' or "
                 . "year_ofpub = '$yearInput' or isbn='$isbnInput' or "
@@ -202,7 +206,8 @@ if (mysqli_num_rows($results) > 0) {
 }
 }
  if (isset($_POST['DonorSearchAdmin'])){
-     $keywordInput = filter_input(INPUT_POST, 'DonorKeywordToSearchAdmin');
+     $keyword = filter_input(INPUT_POST, 'DonorKeywordToSearchAdmin');
+     $keywordInput=urldecode($keyword);
     // check the input is empty or not. If not then pop up an alert message
     if (empty($keywordInput)) {
         echo "<script>alert('Please fill out the input field to generate a report');
@@ -243,8 +248,10 @@ if (mysqli_num_rows($results) > 0) {
 }
 if (isset($_POST['DonorAdvancedSearchAdmin'])){
             //store all the input text field of the form
-        $donorFnameInput = filter_input(INPUT_POST, 'donorFirstNameAdmin');
-        $donorLnameInput = filter_input(INPUT_POST, 'donorLastNameAdmin');
+        $donorFname = filter_input(INPUT_POST, 'donorFirstNameAdmin');
+         $donorFnameInput=urldecode($donorFname);
+        $donorLname = filter_input(INPUT_POST, 'donorLastNameAdmin');
+         $donorLnameInput=urldecode($donorLname);
         $donateDDInput = filter_input(INPUT_POST, 'donateDDAdmin');
         $totalAmountInput = filter_input(INPUT_POST, 'totalAmountAdmin');
         $amountInput = null;
@@ -296,7 +303,8 @@ if (mysqli_num_rows($results) > 0) {
 
 
  if (isset($_POST['ProgramSearchAdmin'])){
-     $keywordInput = filter_input(INPUT_POST, 'ProgramKeywordToSearchAdmin');
+     $keyword = filter_input(INPUT_POST, 'ProgramKeywordToSearchAdmin');
+      $keywordInput=urldecode($keyword);
     // check the input is empty or not. If not then pop up an alert message
     if (empty($keywordInput)) {
         echo "<script>alert('Please fill out the input field to generate a report');
@@ -337,9 +345,11 @@ if (mysqli_num_rows($results) > 0) {
 }
 if (isset($_POST['ProgramAdvancedSearchAdmin'])){
             //store all the input text field of the form
-        $programInput = filter_input(INPUT_POST, 'programAdmin');
+        $program = filter_input(INPUT_POST, 'programAdmin');
+        $programInput=urldecode($program);
         $startDateInput = filter_input(INPUT_POST, 'startDateAdmin');
-        $missionInput = filter_input(INPUT_POST, 'missionAdmin');
+        $mission = filter_input(INPUT_POST, 'missionAdmin');
+        $missionInput=urldecode($mission);
        
         //Check all fields are empty or not
         if (empty($programInput) && empty($startDateInput) && empty($missionInput)) {

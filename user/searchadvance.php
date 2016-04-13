@@ -189,7 +189,7 @@
                                     <option value="">(Select one)</option>
                                     <option value="english" >English</option>
                                     <option value="hindi">Hindi</option>
-                                    <option value="tengu">Tengu</option>
+                                    <option value="tengu">Telugu</option>
                                 </select>
                             </div>
                         </div>
