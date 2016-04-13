@@ -1,7 +1,4 @@
 <!DOCTYPE html>
-<?php
- session_start();
-?>
 <html lang="en">
 
   <head>
@@ -95,26 +92,9 @@
                 <li><a href="user/donors.php">Donors</a></li>
                 <li><a href="user/programs.php">Programs</a></li>
                 <li><a href="user/search.php">Search</a></li>
+                <li><a href="user/about.php">About</a></li>
             </ul>
         </div>
-
-        <!-- Start of username password form of right nav bar -->
-        <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right" action="index.php" method="POST">
-		   <div class="form-group">
-              <FONT COLOR="Black">Admin Login</FONT>
-            </div>
-            <div class="form-group">
-              <input type="text" placeholder="Username" class="form-control" name="loginID">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control" name="password">
-            </div>
-			<input type="hidden" name="submitted" value="TRUE" />
-            <button type="submit" class="btn btn-primary">Sign in</button>
-          </form>
-        </div>
-      </div>
     </nav>
     <!-- END OF NAVBAR -->
 	

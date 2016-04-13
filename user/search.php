@@ -124,7 +124,7 @@
                         <div class="panel-heading"><h4>Keyword Search</h2></div>
                         <div class="panel-body">
 
-                            <form action ="searchresults.php"  method="POST">
+                            <form action ="searchresults.php" method="POST">
                                 <div class="input-group">
                                     <input type="textbox" name ="keywordToSearch" required class="form-control input-lg" placeholder="Type in keyword to search for a book">
                                     <span class="input-group-btn">

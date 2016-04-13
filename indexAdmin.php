@@ -56,7 +56,7 @@
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>  
           </button>
 
           <!-- Start of Links on left nav bar -->
@@ -66,16 +66,8 @@
                 <li><a href="admin/donorsAdmin.php">Donors</a></li>
                 <li><a href="admin/programsAdmin.php">Programs</a></li>
                 <li><a href="admin/searchAdmin.php">Search</a></li>
-                 <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
+                <li><a href="admin/aboutAdmin.php">About</a></li>
+                <li><a href="admin/adminTools.php">Admin Tools</a></li>
               </ul>
             </ul>
         </div>

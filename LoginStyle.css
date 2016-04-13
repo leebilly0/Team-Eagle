@@ -35,7 +35,6 @@ body {
 .navbar {
 	background-color: #f8f8f8;
 	color: Black;
-	position: absolute;
 }
 
 /*change text link for color on active (or when its staying still)*/
@@ -87,4 +86,9 @@ h2 {
 .row-padding{
     padding-top: 30px;
     padding-bottom:  30px;
+}
+
+.form-group{
+	padding-top: 275px;
+	padding-bottom: 200px;
 }
