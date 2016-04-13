@@ -120,6 +120,7 @@ require ("../configurationDatabase.php");
 
                             <form action ="searchresultsAdmin.php"  method="POST">
                                 <div class="input-group">
+                                    <input type="textbox" name ="ProgramKeywordToSearchAdmin" required class="form-control input-lg" placeholder="Type in keyword to search for a program">
                                     <span class="input-group-btn">
                                         <button class="btn btn-primary btn-lg" name = "ProgramSearchAdmin" type="submit" >Search</button>
                                     </span>
