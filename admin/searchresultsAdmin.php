@@ -195,9 +195,8 @@ if (mysqli_num_rows($results) > 0) {
         echo "<td>" . $row["isbn"] . "</td>";
         echo "<td>" . $row["language"] . "</td>";
         echo "<td>" . $row["cost"] . "</td>";
-        echo "<td><a href='.php'>Edit</a> &nbsp<a href='/Admin/deleteBook.php?isbnAdmin= . isbn . '>Delete</a></td>";
+        echo "<td><a href='.php'>Edit</a> &nbsp<a href='deleteBook.php?id=".$row['book_id']."'>Delete</a></td>";
         echo "</tr>";
-        
         echo "</tbody>";
     }
 }
