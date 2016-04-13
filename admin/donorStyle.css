@@ -5,37 +5,10 @@ body {
   background-color: #f8f8f8;
 }
 
-/*styling picture for main page*/
-.jumbotron {
-	background-image: url(images/jumbo4.jpg);
-	background-size: cover; 
-	height: 800px;
-	background-color: #f8f8f8;
-	color: White;
-}
-
-/*styling header over banner*/
-.mainpage > h1 {
-    margin: 0;
-    font-size: 7em;
-    color: #f8f8f8;
-    text-align: center;
-    font-weight: 550;
-}
-
-/*styling paragraph over banner*/
-.mainpage > p {
-	text-align: center;
-	font-style: italic;
-	color: #337ab7;
-	text-shadow: 2px 2px 3px rgba(0,0,0,1.6);
-}
-
 /*navigation bar. changed background color of the bar and text color*/
 .navbar {
 	background-color: #f8f8f8;
 	color: Black;
-	position: absolute;
 }
 
 /*change text link for color on active (or when its staying still)*/
@@ -66,25 +39,44 @@ h2 {
 	color: #337ab7;
 }
 
-.mainPageBannerText {
+.booksDonatedText {
 	font-size: 2em;
-	color: #337ab7;	
-	text-shadow: 1px 1px 2px rgba(0,0,0,1.6);
 }
 
-.mainPageBannerNumber {
+.booksDonatedNumbers {
 	font-size: 4em;
 	font-style: italic;
-	color: #f8f8f8;	
-	text-shadow: 1px 1px 2px rgba(0,0,0,1.6);
-
+	color: #337ab7;	
 }
 
-.mainpagetextlarge {
-	text-align: center;
+h1 {
+	font-size: 3.5em;
+	color: #337ab7;
+	font-weight: bold;
 }
 
-.row-padding{
-    padding-top: 30px;
-    padding-bottom:  30px;
+p {
+	font-weight: bold;
+}
+
+/*
+ * Placeholder dashboard ideas
+ */
+
+.placeholders {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.placeholders h4 {
+  margin-bottom: 0;
+}
+.placeholder {
+  margin-bottom: 20px;
+}
+.placeholder img {
+  display: inline-block;
+  min-height: 250px;
+  max-height: 250px;
+  min-width: 200px;
+  max-width: 200px;
 }

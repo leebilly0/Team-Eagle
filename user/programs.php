@@ -88,7 +88,7 @@
 			//$DataBaseCon = mysqli_connect("localhost", "my_user", "my_password", "my_database_name");
 			global $DataBaseCon; //grabs connection to MYSQL database
 			
-			$getDatabase = "SELECT program_id,program,yr_start,mission FROM program LIMIT 2, 3000";
+			$getDatabase = "SELECT program_id,program,yr_start,mission FROM program LIMIT 1, 3000";
 			//Run query
 			if(!$result = mysqli_query($DataBaseCon, $getDatabase)){
 				echo "Could not successfully run query";
@@ -134,7 +134,7 @@
 				echo "<td class = 'tdProgramsAdmin'>". $program_name."</td>";
 				echo "<td class = 'tdProgramsAdmin'>".$year."</td>";
 				echo "<td class = 'tdProgramsAdmin'>". $mission."</td>";
-				echo "<td class = 'tdProgramsAdmin'><a href='viewbooksprogram.php'>View Books</a></td>";
+				echo "<td class = 'tdProgramsAdmin'><a href='viewbooksprogram.php?program_name=".$row["program"]."'>View Books</a></td>";
 				echo "<td class = 'tdProgramsAdmin'><a href='viewdonorsprogram.php'>View Donors</a></td>";
 				echo "</tr>";
 			

@@ -117,6 +117,83 @@
     <!-- END OF NAVBAR -->
 
     <!-- Start your coding below here -->
+    <?php
+      //Make print of each rows of program
+      $program_name = $_GET['program_name'];
+      /*Make database connection called DataBaseCon */
+      //$DataBaseCon = mysqli_connect("localhost", "my_user", "my_password", "my_database_name");
+      global $DataBaseCon; //grabs connection to MYSQL database
+      
+      $getDatabase = "SELECT book_title, author_fname, author_lname, genre, year_ofpub,book_id, LANGUAGE FROM books natural join program where program='".$program_name."';";
+      //Run query
+      if(!$result = mysqli_query($DataBaseCon, $getDatabase)){
+        echo "Could not successfully run query";
+        exit();
+      }
+      //If there no match result found
+      
+
+      ?>
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-1 main">
+
+      <h1>Books for <?php 
+          echo $program_name; ?>
+      </h1> 
+      <p>Here is the list of books donors have donated to <?php 
+          echo $program_name; ?></p>
+
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <!--Headers for data table-->
+              <thead>
+                <tr>
+                  <th class = "tdBookAdmin">Title</th>
+          <th class = "tdBookAdmin">Author</th>
+          <th class = "tdBookAdmin">Genre</th>
+          <th class = "tdBookAdmin">Year of Publication</th>
+          <th class = "tdBookAdmin">ISBN</th>
+          <th class = "tdBookAdmin">Language</th>
+                </tr>
+              </thead>
+              <!--Data for Table -->
+              <tbody>
+    
+    
+      <?php 
+
+      if(mysqli_num_rows($result) == 0){
+        echo "<i>";
+        echo "There are no Books donated to this program yet";
+        echo "</i>";
+      }
+
+      while($row = mysqli_fetch_assoc($result)){
+        $title = $row["book_title"];
+        $author_fname = $row["author_fname"];
+        $author_lname = $row["author_lname"];
+        $author = $author_fname. " ". $author_lname;
+        $genre = $row["genre"];
+        $year_pub = $row["year_ofpub"];
+        $ISBN = $row["book_id"];
+        $language = $row["LANGUAGE"];
+        
+        echo "<tr>";
+        echo "<td class = 'tdBookAdmin'>".$title."</td>";
+        echo "<td class = 'tdBookAdmin'>".$author."</td>";
+        echo "<td class = 'tdBookAdmin'>".$genre."</td>";
+        echo "<td class = 'tdBookAdmin'>".$year_pub."</td>";
+        echo "<td class = 'tdBookAdmin'>".$ISBN."</td>";
+        echo "<td class = 'tdBookAdmin'>".$language."</td>";
+        echo "</tr>";
+
+      }//End of while loop
+
+      ?>
+      </tbody>
+            </table>
+            <br/>
+             <!-- Back Button -->
+            <center><a class="btn btn-primary" href="programs.php" role="button">Back To Donors</a></center>
 
 
 

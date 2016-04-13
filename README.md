@@ -1,5 +1,21 @@
 # Team-Eagle
 Team Eagle Repository
+4-12-16 - Billy
+-Fixed Poleaps code because it was not in sync with everyone elses (code was written for his 
+individual use and conflicted with group project codes)
+-Fixed Program Page to match the rest of the website's style
+-Fixed Program's View Books page to query the correct query and also to show the correct books.
+-Added back button to view books in programs page.
+-Removed login functions for all user pages since it should only be shown for admin uses
+-Fixed and Added view books page for user side and touched up code for programs in user side
+-created login for admin called /login.php for admins to log into
+-removing login interface for user.
+-added Admin tools section for when admin is logged in.
+-added about button for team page.
+-added donorstyle css to admin folder (it is just a standard css for our theme so that the admin 
+
+pages have the same theme
+
 4-12-16 - Linh
 - Created keyword search and advance search for donor and program for both user and admin
 - Also added delete book function for admin
