@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+<!--Add Session to every Admin page-->
 <?php
-	//Add session to be start
-	require ("../session.php");
-		  
-	//Add php log out process After it press the logoff button
-	require ("../logoff.php");
+  //Add session to be start
+  require ("../session.php");
+
+  //Add php log out process After it press the logoff button
+  require ("../logoff.php");      
 
    //To have access to mysql database
   require ("../configurationDatabase.php");
@@ -61,23 +62,68 @@
                 <li><a href="donorsAdmin.php">Donors</a></li>
                 <li><a href="programsAdmin.php">Programs</a></li>
                 <li><a href="searchAdmin.php">Search</a></li>
+                <li><a href="aboutAdmin.php">About</a></li>
+                <li><a href="adminTools.php">Admin Tools</a></li>
             </ul>
         </div>
 
         <!-- Start of username password form of right nav bar -->
         <div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form navbar-right" action="../logoff.php" method="POST">
-		   <div class="form-group">
+       <div class="form-group">
               <FONT COLOR="Black">Welcome Back<?php echo " {$_SESSION['user_name']}";?>&#33;</FONT>
             <button type="submit" class="btn btn-primary" name="log_out">Log off</button>
-			
+      
           </form>
         </div>
       </div>
     </nav>
     <!-- END OF NAVBAR -->
 
+
+
     <!-- Start your coding below here -->
+<div class="container center_div row-padding">
+
+            <div class="panel panel-primary ">
+                <div class="panel-heading"> <h4>Add Donor</h4></div>
+                <div class="panel-body">
+                    <p>Add a donor to the database</p>
+                    <form action ="AddDonorSubmit.php" method="POST" class="form-horizontal" >
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" >First Name:</label>
+                            <div class="col-sm-10">
+                                <input type="text" name ="firstName" class="form-control"  >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" >Last Name:</label>
+                            <div class="col-sm-10">
+                                <input type="text" name ="lastName" class="form-control"  >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" >Donate Year:</label>
+                            <div class="col-sm-10"> 
+                                <input type="number" name ="donateYear" class="form-control"  >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" >Total Amount Donated:</label>
+                            <div class="col-sm-10"> 
+                                <input type="number" name ="totalAmountDonated" class="form-control"  >
+                            </div>
+                        </div>
+                        <div class="form-group "> 
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <a class="btn btn-primary" href="adminTools.php" role="button">Back</a>
+                                <button type="submit" name ="addDonor" class="btn btn-primary">Add Donor</button>
+                            </div>
+                        </div>
+                    </form> </div>
+            </div>
+
 
 
 

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <!--Add Session to every Admin page-->
 <?php
-	//Add session to be start
-	require ("../session.php");
+  //Add session to be start
+  require ("../session.php");
 
-	//Add php log out process After it press the logoff button
-	require ("../logoff.php");      
+  //Add php log out process After it press the logoff button
+  require ("../logoff.php");      
 
    //To have access to mysql database
   require ("../configurationDatabase.php");
@@ -29,7 +29,7 @@
     <link href="../css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="donorStyle.css" rel="stylesheet">
+    <link href="../style.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -70,10 +70,10 @@
         <!-- Start of username password form of right nav bar -->
         <div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form navbar-right" action="../logoff.php" method="POST">
-		   <div class="form-group">
+       <div class="form-group">
               <FONT COLOR="Black">Welcome Back<?php echo " {$_SESSION['user_name']}";?>&#33;</FONT>
             <button type="submit" class="btn btn-primary" name="log_out">Log off</button>
-			
+      
           </form>
         </div>
       </div>
@@ -82,18 +82,6 @@
 
     <!-- Start your coding below here -->
 
-   <center> 
-              <div class="adminToolsLink">
-                <img src="../images/logo.png" alt="Vunnava Dot Com Library">;<br><br>
-              <FONT COLOR="Black" size="5">ADMIN TOOLS</FONT><br><br>
-               <FONT size="4">
-                <a href="addbookAdmin.php">Add Book</a><br><br>
-                <a href="adddonorAdmin.php">Add Donor</a><br><br>
-                <a href="addprogramAdmin.php">Add Program</a><br><br>
-                <a href="addAdmin.php">Add Admin</a><br><br>
-                <a href="uploadAdmin.php">Upload Excel Sheet</a><br><br>
-              </FONT>
-              </div></center>
 
 
 

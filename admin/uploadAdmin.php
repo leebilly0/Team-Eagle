@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <!--Add Session to every Admin page-->
 <?php
-	//Add session to be start
-	require ("../session.php");
-	//Add php log out process After it press the logoff button
-	require ("../logoff.php");      
+  //Add session to be start
+  require ("../session.php");
 
- //To have access to mysql database
+  //Add php log out process After it press the logoff button
+  require ("../logoff.php");      
+
+   //To have access to mysql database
   require ("../configurationDatabase.php");
 ?>
 <html lang="en">
@@ -61,16 +62,18 @@
                 <li><a href="donorsAdmin.php">Donors</a></li>
                 <li><a href="programsAdmin.php">Programs</a></li>
                 <li><a href="searchAdmin.php">Search</a></li>
+                <li><a href="aboutAdmin.php">About</a></li>
+                <li><a href="adminTools.php">Admin Tools</a></li>
             </ul>
         </div>
 
         <!-- Start of username password form of right nav bar -->
         <div id="navbar" class="navbar-collapse collapse">
-           <form class="navbar-form navbar-right" action="../logoff.php" method="POST">
-		   <div class="form-group">
+          <form class="navbar-form navbar-right" action="../logoff.php" method="POST">
+       <div class="form-group">
               <FONT COLOR="Black">Welcome Back<?php echo " {$_SESSION['user_name']}";?>&#33;</FONT>
             <button type="submit" class="btn btn-primary" name="log_out">Log off</button>
-			
+      
           </form>
         </div>
       </div>
