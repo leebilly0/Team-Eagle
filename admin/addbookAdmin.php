@@ -1,15 +1,15 @@
 <!DOCTYPE html>
+<!--Add Session to every Admin page-->
 <?php
-	//Add session to be start
-	require ("../session.php");
-	
-	//Add php log out process After it press the logoff button
-	require ("../logoff.php");
+    //Add session to be start
+    require ("../session.php");
 
-  //To have access to mysql database
+    //Add php log out process After it press the logoff button
+    require ("../logoff.php");      
+
+   //To have access to mysql database
   require ("../configurationDatabase.php");
 ?>
-
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -62,16 +62,18 @@
                 <li><a href="donorsAdmin.php">Donors</a></li>
                 <li><a href="programsAdmin.php">Programs</a></li>
                 <li><a href="searchAdmin.php">Search</a></li>
+                <li><a href="aboutAdmin.php">About</a></li>
+                <li><a href="adminTools.php">Admin Tools</a></li>
             </ul>
         </div>
 
         <!-- Start of username password form of right nav bar -->
         <div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form navbar-right" action="../logoff.php" method="POST">
-		   <div class="form-group">
+           <div class="form-group">
               <FONT COLOR="Black">Welcome Back<?php echo " {$_SESSION['user_name']}";?>&#33;</FONT>
             <button type="submit" class="btn btn-primary" name="log_out">Log off</button>
-			
+            
           </form>
         </div>
       </div>
@@ -79,99 +81,7 @@
     <!-- END OF NAVBAR -->
 
     <!-- Start your coding below here -->
-<div class="container center_div row-padding">
 
-            <div class="panel panel-primary ">
-                <div class="panel-heading"> <h4>Add Book</h4></div>
-                <div class="panel-body">
-                    <p>Please enter all the information of book that you want to add into system</p>
-                    <form action ="searchresultsAdmin.php" method="POST" class="form-horizontal" >
-
-                        <div class="form-group">
-                            <label class="control-label col-sm-2" >Title:</label>
-                            <div class="col-sm-10">
-                                <input type="text" name ="titleAdmin" class="form-control"  >
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-2" >Author First Name:</label>
-                            <div class="col-sm-10">
-                                <input type="text" name ="authorFNameAdmin" class="form-control"  >
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-2" >Author Last Name:</label>
-                            <div class="col-sm-10"> 
-                                <input type="text" name ="authorLNameAdmin" class="form-control"  >
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-2" >Genre:</label>
-                            <div class="col-sm-10"> 
-                                <select name="genreAdmin" class="form-control">
-                                    <option value="">(Select one)</option>
-                                    <option value="novel">Novel</option>
-                                    <option value="science">Science</option>
-                                    <option value="drama">Drama</option>
-                                    <option value="action">Action</option>
-                                    <option value="romance">Romance</option>
-                                    <option value="mystery">Mystery</option>
-                                    <option value="horror">Horror</option>
-                                    <option value="health">Health</option>
-                                    <option value="travel">Travel</option>
-                                    <option value="guide">Guide</option>
-                                    <option value="children">Children</option>
-                                    <option value="religion">Religion</option>
-                                    <option value="science">Science</option>
-                                    <option value="history">History</option>
-                                    <option value="comics">Comics</option>
-                                    <option value="cookbooks">Cookbooks</option>
-                                    <option value="diaries">Diaries</option>
-                                    <option value="fantasy">Fantasy</option>
-                                    <option value="art">Art</option>
-
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-2" >Year of Publisher:</label>
-                            <div class="col-sm-10"> 
-                                <input type="number" name ="yearOfPubAdmin" class="form-control"  >
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-2" >ISBN:</label>
-                            <div class="col-sm-10"> 
-                                <input type="number" name ="isbnAdmin" class="form-control"  >
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-2" >Language:</label>
-                            <div class="col-sm-10"> 
-                                <select name = "languageAdmin" class="form-control">
-                                    <option value="">(Select one)</option>
-                                    <option value="english" >English</option>
-                                    <option value="hindi">Hindi</option>
-                                    <option value="tengu">Tengu</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-2" >Cost:</label>
-                            <div class="col-sm-10"> 
-                                <input type="number" step="any" name ="costAdmin" placeholder="Please enter a valid number" class="form-control"  >
-                            </div>
-                        </div>
-                        <div class="form-group "> 
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button name="reset" type="reset" class="btn btn-default ">Clear</button>
-                                <button type="submit" name ="addBookAdmin" class="btn btn-primary">Add</button>
-                            </div>
-                        </div>
-                    </form> </div>
-            </div>
-
-        </div>
 
 
 
