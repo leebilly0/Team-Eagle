@@ -1,6 +1,9 @@
 # Team-Eagle
 Team Eagle Repository
 4-13-16 -Billy
+-fixed a bug for loggin into session
+-added add donor
+4-13-16 -Billy
 -Fixed Poleaps code because it was not in sync with everyone elses (code was written for his individual use and conflicted with group project codes)
 -Fixed Program Page to match the rest of the website's style
 -Fixed Program's View Books page to query the correct query and also to show the correct books.

@@ -60,7 +60,7 @@
           </button>
 
           <!-- Start of Links on left nav bar -->
-          <a class="navbar-brand" href="index.php">Team Eagle</a>
+          <a class="navbar-brand" href="indexAdmin.php">Team Eagle</a>
           <ul class="nav navbar-nav">
                 <li><a href="admin/booksAdmin.php">Books</a></li>
                 <li><a href="admin/donorsAdmin.php">Donors</a></li>
@@ -68,6 +68,18 @@
                 <li><a href="admin/searchAdmin.php">Search</a></li>
                 <li><a href="admin/aboutAdmin.php">About</a></li>
                 <li><a href="admin/adminTools.php">Admin Tools</a></li>
+                <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
               </ul>
             </ul>
         </div>
@@ -205,7 +217,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>

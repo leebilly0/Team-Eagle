@@ -118,7 +118,7 @@
                         <div class="form-group "> 
                             <div class="col-sm-offset-2 col-sm-10">
                                 <a class="btn btn-primary" href="adminTools.php" role="button">Back</a>
-                                <button type="submit" name ="addDonor" class="btn btn-primary">Add Donor</button>
+                                <button type="submit" name ="submit" class="btn btn-primary">Add Donor</button>
                             </div>
                         </div>
                     </form> </div>

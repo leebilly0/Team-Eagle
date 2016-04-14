@@ -15,6 +15,8 @@
 
 global $DataBaseCon; //grabs connection to MYSQL database
 
+//var_dump($DataBaseCon);
+
 if(isset($_POST['submit']))
 {
     $fname = $_POST['firstName'];
@@ -22,13 +24,16 @@ if(isset($_POST['submit']))
     $donateyear = $_POST['donateYear'];
     $totalamount = $_POST['totalAmountDonated'];
 
-    return $fname;
-   
+    $getData = "INSERT INTO `donors` SET `donor_fname`='".$fname."', `donor_lname`='".$lname."', `donate_dd`='".$donateyear."', `total_amt`=".$totalamount.""; 
 
-    $getData = "INSERT INTO donors (donor_fname, donor_lname, donate_dd, total_amt) VALUES('".$fname."', '".$lname."', '".$donateyear."', ".$totalamount.")"; 
+
+   //$getData = "INSERT INTO donors (donor_fname, donor_lname, donate_dd, total_amt) VALUES('".$fname."', '".$lname."', '".$donateyear."', ".$totalamount.")"; 
+    //INSERT INTO donors (donor_fname, donor_lname, donate_dd, total_amt) VALUES('Billy', 'Lee', '2000', 400.00);
+
     $results = mysqli_query($DataBaseCon, $getData);  //Grab results from database using connection and query
-}
 
+   // var_dump($results);
+  //  mysql_close();
+}
 header("Location: donorsAdmin.php"); /* Redirect browser */
-exit();
 ?>

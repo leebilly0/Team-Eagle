@@ -36,7 +36,6 @@
   </head>
 
   <body>
-
 	<!--Add check loginID and password to make check with database-->
   <?php
     //Go to the login_functions.php to check with database
@@ -54,10 +53,10 @@
 
       if ($check) { // OK!
        
+
         //set the session of cookie by put user_id = loginID  
         $_SESSION['user_name'] = $returnName;
         $_SESSION['user_type'] = "admin";
-   
         //called the absolute_url function from login_function.php
         $url = absolute_url ('indexAdmin.php'); // passing value of url as "loggedin.php"
         header("Location: $url");
@@ -77,7 +76,7 @@
   <!--END OF THE LOG IN PROCESS-->
   
 	
-          <center> <form class="navbar-form" action="indexAdmin.php" method="POST">
+          <center> <form class="navbar-form" method="POST">
        <div class="form-group">
               <img src="images/logo.png" alt="Vunnava Dot Com Library">;<br>
               <FONT COLOR="Black" size="5">Admin Login</FONT><br><br>
