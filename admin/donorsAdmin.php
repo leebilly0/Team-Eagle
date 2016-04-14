@@ -20,7 +20,7 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title>Village Library</title>
+    <title>Vunnava Dot Com Library</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -56,7 +56,7 @@
           </button>
 
           <!-- Start of Links on left nav bar -->
-          <a class="navbar-brand" href="../indexAdmin.php">Team Eagle</a>
+          <a class="navbar-brand" href="../indexAdmin.php"><img class="header-logo" alt="Vunnava Dot Com Library Logo" src="../images/logo.png"></a>
           <ul class="nav navbar-nav">
                 <li><a href="booksAdmin.php">Books</a></li>
                 <li><a href="donorsAdmin.php">Donors</a></li>
@@ -100,9 +100,9 @@
 ?>
 
     <!-- Start your coding below here -->
-    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-1 main">
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-1 main"><br>
           <h1>Donors</h1> 
-          <p>Here is the list of donors who have donated books and/or monetary value to Village Library over the years</p>
+          <p>Here is the list of donors who have donated books and/or monetary value to Vunnava Dot Com Library over the years</p>
 
            <!--HEADLINER of PIX of donors and little info about them -->
           <div class="row placeholders">
@@ -130,7 +130,7 @@
           <!--ENd of headliner for donors -->
 
            <!-- Table with Data -->
-          <h2 class="sub-header">Village Library Contributors</h2>
+          <h2 class="sub-header">Vunnava Dot Com Library Contributors</h2>
           <div class="table-responsive">
             <table class="table table-striped">
               <!--Headers for data table-->

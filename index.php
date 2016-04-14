@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title>Village Library</title>
+    <title>Vunnava Dot Com Library</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -57,7 +57,7 @@
           </button>
 
           <!-- Start of Links on left nav bar -->
-          <a class="navbar-brand" href="index.php">Team Eagle</a>
+          <a class="navbar-brand" href="index.php"><img class="header-logo" alt="Vunnava Dot Com Library Logo" src="images/logo.png"></a>
           <ul class="nav navbar-nav">
                 <li><a href="user/books.php">Books</a></li>
                 <li><a href="user/donors.php">Donors</a></li>
@@ -79,7 +79,7 @@
     <div class="jumbotron">
       <div class="container">
         <div class="mainpage">
-          <h1>Village Library</h1>
+          <h1>Vunnava Dot Com Library</h1>
           <p>Donated By The Community For The Community</p>
           <!-- Starting text inside Banner -->
           <div class="mainpagetextlarge">
@@ -154,8 +154,8 @@
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-4">
-          <h2>What Is Village Library?</h2>
-          <p>Founded in 2016, Village Library is a books donation website for the community.  
+          <h2>What Is Vunnava Dot Com Library?</h2>
+          <p>Founded in 2016, Vunnava Dot Com Library is a books donation website for the community.  
           Simply put, we exist to help those who need books, get books!</p>
         </div>
         <div class="col-md-4">
@@ -188,7 +188,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>

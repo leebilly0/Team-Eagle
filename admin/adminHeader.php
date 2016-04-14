@@ -25,7 +25,7 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title>Village Library</title>
+    <title>Vunnava Dot Com Library</title>
 	
 	<!--***Add Below -->
 	<link href="StyleSheet/AdminStyleSheet.css" rel="stylesheet">
@@ -53,7 +53,7 @@
 	<!--Test---->
 	 <link rel="icon" href="favicon.ico">
 
-    <title>Village Library</title>
+    <title>Vunnava Dot Com Library</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -92,7 +92,7 @@
           </button>
 
           <!-- Start of Links on left nav bar -->
-          <a class="navbar-brand" href="../indexAdmin.php">Team Eagle</a>
+          <a class="navbar-brand" href="../indexAdmin.php"><img class="header-logo" alt="Vunnava Dot Com Library Logo" src="../images/logo.png"></a>
           <ul class="nav navbar-nav">
                 <li><a href="booksAdmin.php">Books</a></li>
                 <li><a href="donorsAdmin.php">Donors</a></li>

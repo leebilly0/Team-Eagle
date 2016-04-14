@@ -13,7 +13,7 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title>Village Library</title>
+    <title>Vunnava Dot Com Library</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -37,42 +37,6 @@
 
   <body>
 
-    <!--Add check loginID and password to make check with database-->
-  <?php
-    //Go to the login_functions.php to check with database
-    require ("../login_functions.php");
-    //isset() fucntion is to check the variable is set or not set.
-    if (isset($_POST['submitted'])) {
-   
-      //$loginID = trim($_POST['loginID'], "{[/\"'()]}");
-      //$password = trim($_POST['password'], "{[/\"'()]}");
-   
-      //**Set check = loginID and data = password
-      //call check_login() function from login_fucntion.php to check for true/false
-      list ($check, $returnName) = check_login($_POST['loginID'], $_POST['password']);
-      //list ($check, $returnName) = check_login($loginID, $password);
-
-      if ($check) { // OK!
-       
-        //set the session of cookie by put user_id = loginID  
-        $_SESSION['user_name'] = $returnName;
-        $_SESSION['user_type'] = "admin";
-   
-        //called the absolute_url function from login_function.php
-        $url = absolute_url ('../indexAdmin.php'); // passing value of url as "loggedin.php"
-        header("Location: $url");
-   
-        exit();
-      } 
-  
-      else { // Unsuccessful!
-        $errors = $returnName; //here set the errors = data = password
-        //called the absolute_url function from login_function.php
-        $url = absolute_url ('../index.php'); // passing value of url as "loggedin.php"
-        header("Location: $url");
-      }
-    } // End of the main submit conditional.
-  ?>
 
   <!--END OF THE LOG IN PROCESS-->
 
@@ -88,33 +52,17 @@
           </button>
 
           <!-- Start of Links on left nav bar -->
-          <a class="navbar-brand" href="../index.php">Team Eagle</a>
+          <a class="navbar-brand" href="../index.php"><img class="header-logo" alt="Vunnava Dot Com Library Logo" src="../images/logo.png"></a>
           <ul class="nav navbar-nav">
                 <li><a href="books.php">Books</a></li>
                 <li><a href="donors.php">Donors</a></li>
                 <li><a href="programs.php">Programs</a></li>
                 <li><a href="search.php">Search</a></li>
+                <li><a href="about.php">About</a></li>
             </ul>
         </div>
+      </nav>
 
-        <!-- Start of username password form of right nav bar -->
-        <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">
-       <div class="form-group">
-              <FONT COLOR="Black">Admin Login</FONT>
-            </div>
-            <div class="form-group">
-              <input type="text" placeholder="Username" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-primary">Sign in</button>
-          </form>
-        </div>
-      </div>
-    </nav>
-    <!-- END OF NAVBAR -->
 
 <?php
     /*There are two parts to connection to the database and querying results, THIS IS STEP 1
@@ -128,7 +76,7 @@
     <!-- Start your coding below here -->
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-1 main">
           <h1>Donors</h1> 
-          <p>Here is the list of donors who have donated books and/or monetary value to Village Library over the years</p>
+          <p>Here is the list of donors who have donated books and/or monetary value to Vunnava Dot Com Library over the years</p>
 
            <!--HEADLINER of PIX of donors and little info about them -->
           <div class="row placeholders">
@@ -156,7 +104,7 @@
           <!--ENd of headliner for donors -->
 
            <!-- Table with Data -->
-          <h2 class="sub-header">Village Library Contributors</h2>
+          <h2 class="sub-header">Vunnava Dot Com Library Contributors</h2>
           <div class="table-responsive">
             <table class="table table-striped">
               <!--Headers for data table-->
@@ -206,7 +154,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>

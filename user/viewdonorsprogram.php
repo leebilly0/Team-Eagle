@@ -16,7 +16,7 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title>Village Library</title>
+    <title>Vunnava Dot Com Library</title>
 
 	<!--***Add Below -->
 	<link href="StyleSheet/userStyleSheet.css" rel="stylesheet">
@@ -57,12 +57,13 @@
           </button>
 
           <!-- Start of Links on left nav bar -->
-          <a class="navbar-brand" href="../index.php">Team Eagle</a>
+          <a class="navbar-brand" href="../index.php"><img class="header-logo" alt="Vunnava Dot Com Library Logo" src="../images/logo.png"></a>
           <ul class="nav navbar-nav">
                 <li><a href="books.php">Books</a></li>
                 <li><a href="donors.php">Donors</a></li>
                 <li><a href="programs.php">Programs</a></li>
                 <li><a href="search.php">Search</a></li>
+                <li><a href="about.php">About</a></li>
             </ul>
         </div>
 
@@ -154,7 +155,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>

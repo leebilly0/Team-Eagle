@@ -23,7 +23,7 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title>Village Library</title>
+    <title>Vunnava Dot Com Library</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -60,7 +60,7 @@
           </button>
 
           <!-- Start of Links on left nav bar -->
-          <a class="navbar-brand" href="indexAdmin.php">Team Eagle</a>
+          <a class="navbar-brand" href="indexAdmin.php"><img class="header-logo" alt="Vunnava Dot Com Library Logo" src="images/logo.png"></a>
           <ul class="nav navbar-nav">
                 <li><a href="admin/booksAdmin.php">Books</a></li>
                 <li><a href="admin/donorsAdmin.php">Donors</a></li>
@@ -105,7 +105,7 @@
     <div class="jumbotron">
       <div class="container">
         <div class="mainpage">
-          <h1>Village Library</h1>
+          <h1>Vunnava Dot Com Library</h1>
           <p>Donated By The Community For The Community</p>
           <!-- Starting text inside Banner -->
           <div class="mainpagetextlarge">
@@ -180,8 +180,8 @@
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-4">
-          <h2>What Is Village Library?</h2>
-          <p>Founded in 2016, Village Library is a books donation website for the community.  
+          <h2>What Is Vunnava Dot Com Library?</h2>
+          <p>Founded in 2016, Vunnava Dot Com Library is a books donation website for the community.  
           Simply put, we exist to help those who need books, get books!</p>
         </div>
         <div class="col-md-4">

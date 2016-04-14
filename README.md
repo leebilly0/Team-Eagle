@@ -1,6 +1,12 @@
 # Team-Eagle
 Team Eagle Repository
 4-13-16 - Billy
+-Updated Logo for all pages ADMIN AND USER
+-Updated Name for all pages ADMIN AND USER
+-Fixed USER CSS AND ADMIN CSS for theme
+-Fixed other missed bugs such as not importing proper bootstrap javascripts
+
+4-13-16 - Billy
 -added new toolbar for admin to all admin pages
 
 <<<<<<< HEAD
