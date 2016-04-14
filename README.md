@@ -1,5 +1,8 @@
 # Team-Eagle
 Team Eagle Repository
+4-13-16 - Billy
+-added new toolbar for admin to all admin pages
+
 <<<<<<< HEAD
 4/13/16-Poleap
 	+edit addProgramAdmin.php

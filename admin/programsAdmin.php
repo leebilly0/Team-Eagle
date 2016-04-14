@@ -10,7 +10,7 @@
     <!-- Start your coding below here -->
 	<h1>Programs</h1>
 	<br>
-	<h3><a href = "addNewProgram.php" >Add New Program</a></h3>
+	<h3><a href = "addprogramAdmin.php" >Add New Program</a></h3>
 	<!--Table of program to display-->
 	<table class = "tdProgramsAdmin" style="width: 100%" >
 		<tr>
