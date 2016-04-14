@@ -109,7 +109,7 @@ require ("../configurationDatabase.php");
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-2" >Donate dd:</label>
+                            <label class="control-label col-sm-2" >Start Year:</label>
                             <div class="col-sm-10"> 
                                 <input type="number" name ="donateDDAdmin" class="form-control"  >
                             </div>

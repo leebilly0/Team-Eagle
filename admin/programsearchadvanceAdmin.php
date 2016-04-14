@@ -103,9 +103,9 @@ require ("../configurationDatabase.php");
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-2" >Start Date:</label>
+                            <label class="control-label col-sm-2" >Start Year:</label>
                             <div class="col-sm-10">
-                                <input type="text" name ="startDateAdmin" class="form-control"  >
+                                <input type="number" name ="startDateAdmin" class="form-control"  >
                             </div>
                         </div>
                         <div class="form-group">

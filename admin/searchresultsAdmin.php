@@ -99,8 +99,9 @@ require ("../configurationDatabase.php");
 global $DataBaseCon; //grabs connection to MYSQL database
 
 if (isset($_POST['searchAdmin'])) {
-    $keyword = filter_input(INPUT_POST, 'keywordToSearchAdmin');
+    $keyword = filter_input(INPUT_POST, 'keywordToSearchAdmin',FILTER_SANITIZE_SPECIAL_CHARS);
     $keywordInput=urldecode($keyword);
+    $_SESSION["bookKeyword"] = $keywordInput;
     // check the input is empty or not. If not then pop up an alert message
     if (empty($keywordInput)) {
         echo "<script>alert('Please fill out the input field to generate a report');
@@ -140,7 +141,7 @@ if (mysqli_num_rows($results) > 0) {
         echo "<td>" . $row["isbn"] . "</td>";
         echo "<td>" . $row["language"] . "</td>";
         echo "<td>" . $row["cost"] . "</td>";
-      echo "<td><a href='.php'>Edit</a> &nbsp<a href='deleteBook.php?id=".$row['book_id']."'>Delete</a></td>";
+      echo "<td><a href='.php'>Edit</a> &nbsp<a href='deleteKeywordSearchBook.php?id=".$row['book_id']."'>Delete</a></td>";
       
         echo "</tr>";
         
@@ -150,16 +151,23 @@ if (mysqli_num_rows($results) > 0) {
 }
 if (isset($_POST['advancedSearchAdmin'])){
             //store all the input text field of the form
-        $title = filter_input(INPUT_POST, 'titleAdmin');
+        $title = filter_input(INPUT_POST, 'titleAdmin',FILTER_SANITIZE_SPECIAL_CHARS);
         $titleInput=urldecode($title);
-        $fName = filter_input(INPUT_POST, 'authorFNameAdmin');
+        $_SESSION["bookTitle"] = $titleInput;
+        $fName = filter_input(INPUT_POST, 'authorFNameAdmin',FILTER_SANITIZE_SPECIAL_CHARS);
         $fNameInput=urldecode($fName);
-        $lName = filter_input(INPUT_POST, 'authorLNameAdmin');
+        $_SESSION["authorFName"] = $fNameInput;
+        $lName = filter_input(INPUT_POST, 'authorLNameAdmin',FILTER_SANITIZE_SPECIAL_CHARS);
         $lNameInput=urldecode($lName);
+        $_SESSION["authorLName"] = $lNameInput;
         $genreInput = filter_input(INPUT_POST, 'genreAdmin');
-        $yearInput = filter_input(INPUT_POST, 'yearOfPubAdmin');
-        $isbnInput = filter_input(INPUT_POST, 'isbnAdmin');
+        $_SESSION["bookGenre"] = $genreInput;
+        $yearInput = filter_input(INPUT_POST, 'yearOfPubAdmin',FILTER_SANITIZE_SPECIAL_CHARS);
+        $_SESSION["year"] = $yearInput;
+        $isbnInput = filter_input(INPUT_POST, 'isbnAdmin',FILTER_SANITIZE_SPECIAL_CHARS);
+        $_SESSION["isbn"] = $isbnInput;
         $languageInput = filter_input(INPUT_POST, 'languageAdmin');
+        $_SESSION["language"] = $languageInput;
         $cost = filter_input(INPUT_POST, 'costAdmin');
         $costInput = null;
         if (strpos($cost, '$') !== false) {
@@ -168,6 +176,7 @@ if (isset($_POST['advancedSearchAdmin'])){
 
             $costInput = "$" . $cost;
         }
+        $_SESSION["cost"] = $costInput;
         //Check all fields are empty or not
         if (empty($titleInput) && empty($fNameInput) && empty($lNameInput) && empty($genreInput) && empty($yearInput) && empty($isbnInput) && empty($languageInput) && empty($cost)) {
             //    if (empty($titleInput)&& empty($fNameInput)&& empty($lNameInput)&& empty($yearInput)&& empty($isbnInput)&& empty($languageInput)&& empty($cost)) {
@@ -210,15 +219,16 @@ if (mysqli_num_rows($results) > 0) {
         echo "<td>" . $row["isbn"] . "</td>";
         echo "<td>" . $row["language"] . "</td>";
         echo "<td>" . $row["cost"] . "</td>";
-        echo "<td><a href='.php'>Edit</a> &nbsp<a href='deleteBook.php?id=".$row['book_id']."'>Delete</a></td>";
+        echo "<td><a href='.php'>Edit</a> &nbsp<a href='deleteAdvanceSearchBook.php?id=".$row['book_id']."'>Delete</a></td>";
         echo "</tr>";
         echo "</tbody>";
     }
 }
 }
  if (isset($_POST['DonorSearchAdmin'])){
-     $keyword = filter_input(INPUT_POST, 'DonorKeywordToSearchAdmin');
+     $keyword = filter_input(INPUT_POST, 'DonorKeywordToSearchAdmin',FILTER_SANITIZE_SPECIAL_CHARS);
      $keywordInput=urldecode($keyword);
+     $_SESSION["donor"] = $keywordInput;
     // check the input is empty or not. If not then pop up an alert message
     if (empty($keywordInput)) {
         echo "<script>alert('Please fill out the input field to generate a report');
@@ -226,7 +236,7 @@ if (mysqli_num_rows($results) > 0) {
                    </script>";
     }
     //query to execute
-    $getData = "SELECT donor_fname,donor_lname,donate_dd,total_amt"
+    $getData = "SELECT donor_id,donor_fname,donor_lname,donate_dd,total_amt"
             . " FROM donors WHERE donor_fname LIKE CONCAT('%', '$keywordInput', '%') "
             . "OR donor_lname LIKE CONCAT('%', '$keywordInput', '%')  OR donate_dd LIKE CONCAT('%', '$keywordInput', '%') OR total_amt LIKE CONCAT('%', '$keywordInput', '%')";
            
@@ -251,7 +261,7 @@ if (mysqli_num_rows($results) > 0) {
         echo "<td>" . $row["donor_fname"] . " " . $row["donor_lname"] . "</td>";
         echo "<td>" . $row["donate_dd"] . "</td>";
         echo "<td>" . $row["total_amt"] . "</td>";
-        echo "<td><a href='.php'>Edit</a> &nbsp<a href='/Admin/deleteBook.php?isbnAdmin= . isbn . '>Delete</a></td>";
+        echo "<td><a href='.php'>Edit</a> &nbsp<a href='deleteKeywordSearchDonor.php?donorId=".$row['donor_id']."'>Delete</a></td>";
         echo "</tr>";
         echo "</tbody>";
     }
@@ -259,11 +269,14 @@ if (mysqli_num_rows($results) > 0) {
 }
 if (isset($_POST['DonorAdvancedSearchAdmin'])){
             //store all the input text field of the form
-        $donorFname = filter_input(INPUT_POST, 'donorFirstNameAdmin');
+        $donorFname = filter_input(INPUT_POST, 'donorFirstNameAdmin',FILTER_SANITIZE_SPECIAL_CHARS);
          $donorFnameInput=urldecode($donorFname);
-        $donorLname = filter_input(INPUT_POST, 'donorLastNameAdmin');
+          $_SESSION["donorFname"] = $donorFnameInput;
+        $donorLname = filter_input(INPUT_POST, 'donorLastNameAdmin',FILTER_SANITIZE_SPECIAL_CHARS);
          $donorLnameInput=urldecode($donorLname);
+          $_SESSION["donorLname"] = $donorLnameInput;
         $donateDDInput = filter_input(INPUT_POST, 'donateDDAdmin');
+         $_SESSION["donorDate"] = $donateDDInput;
         $totalAmountInput = filter_input(INPUT_POST, 'totalAmountAdmin');
         $amountInput = null;
         if (strpos($totalAmountInput, '$') !== false) {
@@ -272,6 +285,7 @@ if (isset($_POST['DonorAdvancedSearchAdmin'])){
 
             $amountInput = "$" . $totalAmountInput;
         }
+         $_SESSION["donorAmount"] = $amountInput;
         //Check all fields are empty or not
         if (empty($donorFnameInput) && empty($donorLnameInput) && empty($donateDDInput) && empty($amountInput)) {
             //    if (empty($titleInput)&& empty($fNameInput)&& empty($lNameInput)&& empty($yearInput)&& empty($isbnInput)&& empty($languageInput)&& empty($cost)) {
@@ -280,7 +294,7 @@ if (isset($_POST['DonorAdvancedSearchAdmin'])){
                    </script>";
         }
         //query to execute
-        $getData = "SELECT donor_fname,donor_lname,donate_dd,total_amt"
+        $getData = "SELECT donor_id,donor_fname,donor_lname,donate_dd,total_amt"
                 . " FROM donors WHERE (donor_fname = '$donorFnameInput' or donor_lname='$donorLnameInput' or "
                 . "donate_dd = '$donateDDInput' or total_amt='$amountInput')";
 
@@ -289,7 +303,7 @@ if (isset($_POST['DonorAdvancedSearchAdmin'])){
     echo "<thead>";
 echo "<tr>";
 echo "<th>Donor Name </th>";
-echo "<th>Donate dd </th>";
+echo "<th>Start Year </th>";
 echo "<th>Total amount</th>";
 echo "</tr>";
 echo "/<thead>";
@@ -305,7 +319,7 @@ if (mysqli_num_rows($results) > 0) {
         echo "<td>" . $row["donor_fname"] . " " . $row["donor_lname"] . "</td>";
         echo "<td>" . $row["donate_dd"] . "</td>";
         echo "<td>" . $row["total_amt"] . "</td>";
-        echo "<td><a href='.php'>Edit</a> &nbsp<a href='/Admin/deleteBook.php?isbnAdmin= . isbn . '>Delete</a></td>";
+        echo "<td><a href='.php'>Edit</a> &nbsp<a href='deleteAdvanceSearchDonor.php?donorId=".$row['donor_id']."'>Delete</a></td>";
         echo "</tr>";
         echo "</tbody>";
     }
@@ -314,8 +328,9 @@ if (mysqli_num_rows($results) > 0) {
 
 
  if (isset($_POST['ProgramSearchAdmin'])){
-     $keyword = filter_input(INPUT_POST, 'ProgramKeywordToSearchAdmin');
+     $keyword = filter_input(INPUT_POST, 'ProgramKeywordToSearchAdmin',FILTER_SANITIZE_SPECIAL_CHARS);
       $keywordInput=urldecode($keyword);
+      $_SESSION["program"] = $keywordInput;
     // check the input is empty or not. If not then pop up an alert message
     if (empty($keywordInput)) {
         echo "<script>alert('Please fill out the input field to generate a report');
@@ -323,7 +338,7 @@ if (mysqli_num_rows($results) > 0) {
                    </script>";
     }
     //query to execute
-    $getData = "SELECT program,yr_start,mission"
+    $getData = "SELECT program_id,program,yr_start,mission"
             . " FROM program WHERE program LIKE CONCAT('%', '$keywordInput', '%') "
             . "OR yr_start LIKE CONCAT('%', '$keywordInput', '%')  OR mission LIKE CONCAT('%', '$keywordInput', '%')";
            
@@ -332,7 +347,7 @@ if (mysqli_num_rows($results) > 0) {
     echo "<thead>";
 echo "<tr>";
 echo "<th>Program </th>";
-echo "<th>Start Date </th>";
+echo "<th>Start Year </th>";
 echo "<th>Mission</th>";
 echo "</tr>";
 echo "/<thead>";
@@ -348,7 +363,7 @@ if (mysqli_num_rows($results) > 0) {
         echo "<td>" . $row["program"] . "</td>";
         echo "<td>" . $row["yr_start"] . "</td>";
         echo "<td>" . $row["mission"] . "</td>";
-        echo "<td><a href='.php'>Edit</a> &nbsp<a href='/Admin/deleteBook.php?isbnAdmin= . isbn . '>Delete</a></td>";
+        echo "<td><a href='.php'>Edit</a> &nbsp<a href='deleteKeywordSearchProgram.php?programId=".$row['program_id']."'>Delete</a></td>";
         echo "</tr>";
         echo "</tbody>";
     }
@@ -356,11 +371,14 @@ if (mysqli_num_rows($results) > 0) {
 }
 if (isset($_POST['ProgramAdvancedSearchAdmin'])){
             //store all the input text field of the form
-        $program = filter_input(INPUT_POST, 'programAdmin');
+        $program = filter_input(INPUT_POST, 'programAdmin',FILTER_SANITIZE_SPECIAL_CHARS);
         $programInput=urldecode($program);
+         $_SESSION["programName"] = $programInput;
         $startDateInput = filter_input(INPUT_POST, 'startDateAdmin');
-        $mission = filter_input(INPUT_POST, 'missionAdmin');
+         $_SESSION["programDate"] = $startDateInput;
+        $mission = filter_input(INPUT_POST, 'missionAdmin',FILTER_SANITIZE_SPECIAL_CHARS);
         $missionInput=urldecode($mission);
+         $_SESSION["programMission"] = $missionInput;
        
         //Check all fields are empty or not
         if (empty($programInput) && empty($startDateInput) && empty($missionInput)) {
@@ -370,7 +388,7 @@ if (isset($_POST['ProgramAdvancedSearchAdmin'])){
                    </script>";
         }
         //query to execute
-        $getData = "SELECT program,yr_start,mission"
+        $getData = "SELECT program_id,program,yr_start,mission"
                 . " FROM program WHERE (program = '$programInput' or yr_start='$startDateInput' or "
                 . "mission = '$missionInput')";
 
@@ -395,7 +413,7 @@ if (mysqli_num_rows($results) > 0) {
         echo "<td>" . $row["program"] . "</td>";
         echo "<td>" . $row["yr_start"] . "</td>";
         echo "<td>" . $row["mission"] . "</td>";
-        echo "<td><a href='.php'>Edit</a> &nbsp<a href='/Admin/deleteBook.php?isbnAdmin= . isbn . '>Delete</a></td>";
+        echo "<td><a href='.php'>Edit</a> &nbsp<a href='deleteAdvanceSearchProgram.php?programId=".$row['program_id']."'>Delete</a></td>";
         echo "</tr>";
         echo "</tbody>";
     }

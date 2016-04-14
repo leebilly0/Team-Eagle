@@ -86,27 +86,24 @@ require ("../configurationDatabase.php");
                         <table class="table table-striped">
 <?php
 global $DataBaseCon; //grabs connection to MYSQL database
-$id = $_GET['id'];
-//echo $id;
- $deleteQuery = "DELETE FROM books WHERE book_id=$id limit 1";
+$programId = $_GET['programId'];
+$program=$_SESSION["program"];
+ $deleteQuery = "DELETE FROM program WHERE program_id = '$programId'";
  
 if (mysqli_query($DataBaseCon, $deleteQuery)) {
-    echo "<script>alert('Book has been successfully deleted!');
+    echo "<script>alert('Donor has been successfully deleted!');
          
     </script>";
 
-    //query to execute
-    $getData = "SELECT book_id, book_title,author_fname,author_lname,genre,year_ofpub,isbn,language,cost FROM books ;";
+   $getData = "SELECT program_id,program,yr_start,mission"
+            . " FROM program WHERE program LIKE CONCAT('%', '$program', '%') "
+            . "OR yr_start LIKE CONCAT('%', '$program', '%')  OR mission LIKE CONCAT('%', '$program', '%')";
     $results = mysqli_query($DataBaseCon, $getData); //Grab results from database using connection and query
     echo "<thead>";
 echo "<tr>";
-echo "<th>Book Title</th>";
-echo "<th>Author Name</th>";
-echo "<th>Genre</th>";
-echo "<th>Year of Publish</th>";
-echo "<th>ISBN</th>";
-echo "<th>Language</th>";
-echo "<th>Cost</th>";
+echo "<th>Program </th>";
+echo "<th>Start Year </th>";
+echo "<th>Mission</th>";
 echo "</tr>";
 echo "/<thead>";
 //if data exist in table
@@ -115,25 +112,20 @@ if (mysqli_num_rows($results) > 0) {
     while ($row = mysqli_fetch_assoc($results)) {
         /* while results has row of data. output first name, last name
           date, total amount and a link */
-
-        echo "<tbody>";
+ echo "<tbody>";
         echo "<tr>";
-        echo "<td>" . $row["book_title"] . "</td>";
-        echo "<td>" . $row["author_fname"] . " " . $row["author_lname"] . "</td>";
-        echo "<td>" . $row["genre"] . "</td>";
-        echo "<td>" . $row["year_ofpub"] . "</td>";
-        echo "<td>" . $row["isbn"] . "</td>";
-        echo "<td>" . $row["language"] . "</td>";
-        echo "<td>" . $row["cost"] . "</td>";
-      echo "<td><a href='.php'>Edit</a> &nbsp<a href='deleteBook.php?id=".$row['book_id']."'>Delete</a></td>";
-      echo "</tr>";
-        
+        echo "<td>" . $row["program"] . "</td>";
+        echo "<td>" . $row["yr_start"] . "</td>";
+        echo "<td>" . $row["mission"] . "</td>";
+        echo "<td><a href='.php'>Edit</a> &nbsp<a href='deleteKeywordSearchProgram.php?programId=".$row['program_id']."'>Delete</a></td>";
+        echo "</tr>";
         echo "</tbody>";
     }
 }
 }else{
    echo "Error: " . $deleteQuery . "<br>" . mysqli_error($DataBaseCon);
 }
+
 
 mysqli_close($DataBaseCon);
 
