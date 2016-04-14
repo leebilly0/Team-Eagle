@@ -67,17 +67,14 @@
                 <li><a href="admin/programsAdmin.php">Programs</a></li>
                 <li><a href="admin/searchAdmin.php">Search</a></li>
                 <li><a href="admin/aboutAdmin.php">About</a></li>
-                <li><a href="admin/adminTools.php">Admin Tools</a></li>
                 <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin Tools<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
+                <li><a href="admin/addbookAdmin.php">Add Book</a></li>
+                <li><a href="admin/adddonorAdmin.php">Add Donor</a></li>
+                <li><a href="admin/addprogramAdmin.php">Add Program</a></li>
+                <li><a href="admin/addAdmin.php">Add Admin</a></li>
+                <li><a href="admin/uploadAdmin.php">Upload Spreadsheet</a></li>
               </ul>
             </li>
               </ul>

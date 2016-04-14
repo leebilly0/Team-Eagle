@@ -99,7 +99,16 @@
                 <li><a href="programsAdmin.php">Programs</a></li>
                 <li><a href="searchAdmin.php">Search</a></li>
                 <li><a href="aboutAdmin.php">About</a></li>
-                <li><a href="adminTools.php">Admin Tools</a></li>
+                <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin Tools<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="addbookAdmin.php">Add Book</a></li>
+                <li><a href="adddonorAdmin.php">Add Donor</a></li>
+                <li><a href="addprogramAdmin.php">Add Program</a></li>
+                <li><a href="addAdmin.php">Add Admin</a></li>
+                <li><a href="uploadAdmin.php">Upload Spreadsheet</a></li>
+              </ul>
+            </li>
 				<!--li><a href="searchAdmin.php">Add User</a></li-->
             </ul>
         </div>
@@ -116,3 +125,5 @@
       </div>
     </nav>
 	<!-- END Header code -->
+
+  

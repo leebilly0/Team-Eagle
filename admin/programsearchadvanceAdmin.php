@@ -61,6 +61,17 @@ require ("../configurationDatabase.php");
                         <li><a href="donorsAdmin.php">Donors</a></li>
                         <li><a href="programsAdmin.php">Programs</a></li>
                         <li><a href="searchAdmin.php">Search</a></li>
+                        <li><a href="aboutAdmin.php">About</a></li>
+                        <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin Tools<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="addbookAdmin.php">Add Book</a></li>
+                <li><a href="adddonorAdmin.php">Add Donor</a></li>
+                <li><a href="addprogramAdmin.php">Add Program</a></li>
+                <li><a href="addAdmin.php">Add Admin</a></li>
+                <li><a href="uploadAdmin.php">Upload Spreadsheet</a></li>
+              </ul>
+            </li>
                     </ul>
                 </div>
 
@@ -122,7 +133,7 @@ require ("../configurationDatabase.php");
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>
