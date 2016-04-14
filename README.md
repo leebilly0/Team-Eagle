@@ -1,5 +1,9 @@
 # Team-Eagle
 Team Eagle Repository
+4-14-16 - Linh
+-Added booksAdmin
+-Added delete keyword search, advance search for book, donors, and program
+
 4-13-16 -Billy
 -Fixed a bug in addDonor.php
 
