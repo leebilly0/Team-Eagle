@@ -1,5 +1,8 @@
 # Team-Eagle
 Team Eagle Repository
+4-13-16 -Billy
+-Fixed a bug in addDonor.php
+
 4-13-16 - Billy
 -Updated Logo for all pages ADMIN AND USER
 -Updated Name for all pages ADMIN AND USER
