@@ -1,5 +1,10 @@
 # Team-Eagle
 Team Eagle Repository
+
+4-17-2016 - Poleap
+- Add style sheet to user folder
+- Edit some addNewprogram and edit page.
+
 4-14-16 - Linh
 -Added booksAdmin
 -Added delete keyword search, advance search for book, donors, and program

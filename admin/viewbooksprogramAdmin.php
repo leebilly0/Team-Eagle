@@ -43,7 +43,7 @@
 			 
 			 
 			//****Called connecDatabase.php to do connection 
-			require("../configurationDatabase.php");
+			//require("../configurationDatabase.php");
 			$program_id = $_POST['program_id'];
 			$getDatabase = 'SELECT book_title, author_fname, author_lname, genre, year_ofpub,isbn, LANGUAGE FROM books WHERE program_id ="'.$program_id.'"';
 			

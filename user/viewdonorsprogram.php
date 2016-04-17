@@ -72,8 +72,8 @@
 
  <!-- Start your coding below here -->
   <!--***Add below-->
-	<h1>View Donor for " <?php $program_name = $_POST['program_name'];
-          echo $program_name; ?> "</h1>
+	<h3>View Donor for " <?php $program_name = $_POST['program_name'];
+          echo $program_name; ?> "</h3>
 	<br />
 	<!--Table of program to display-->
 	<table class = "tdBookAdmin" style="width: 100%" >

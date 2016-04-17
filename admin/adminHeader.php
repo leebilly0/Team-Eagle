@@ -6,7 +6,6 @@
 	require ("../session.php");
 	//Add php log out process After it press the logoff button
 	require ("../logoff.php"); 
-	
 	//***Add Billy code*****//
 	//To have access to mysql database
 	require ("../configurationDatabase.php");
