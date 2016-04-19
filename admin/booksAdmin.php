@@ -132,6 +132,7 @@
                     {
                       /*while results has row of data. output first name, last name
                       date, total amount and a link*/
+                
                       echo "<tbody>";
         echo "<tr>";
         echo "<td>" . $row["book_title"] . "</td>";
@@ -141,7 +142,7 @@
         echo "<td>" . $row["isbn"] . "</td>";
         echo "<td>" . $row["language"] . "</td>";
         echo "<td>" . $row["cost"] . "</td>";
-         echo "<td><a href='.php'>Edit</a> &nbsp<a href='DeleteBookAdmin.php?id=".$row['book_id']."'>Delete</a></td>";
+         echo "<td><a href='editbookAdmin.php?editId=".$row['book_id']."'>Edit</a> &nbsp<a href='DeleteBookAdmin.php?id=".$row['book_id']."'>Delete</a></td>";
       
         echo "</tr>";
         

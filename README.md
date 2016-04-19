@@ -1,6 +1,9 @@
 # Team-Eagle
 Team Eagle Repository
 
+4-18-16
+-Completed edit and delete buttons for booksAdmin and search book result pages
+
 4-17-2016 - Poleap
 - Add style sheet to user folder
 - Edit some addNewprogram and edit page.
