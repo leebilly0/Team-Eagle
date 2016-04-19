@@ -78,6 +78,9 @@
 
                             <form action ="searchresults.php" method="POST">
                                 <div class="input-group">
+                                    <div class="input-group-addon input-lg">
+                                        <span class="glyphicon glyphicon-book"></span>
+                                    </div>
                                     <input type="textbox" name ="keywordToSearch" required class="form-control input-lg" placeholder="Type in keyword to search for a book">
                                     <span class="input-group-btn">
                                         <button class="btn btn-primary btn-lg" name = "search" type="submit" >Search</button>
@@ -95,6 +98,9 @@
 
                             <form action ="Searchresults.php"  method="POST">
                                 <div class="input-group">
+                                    <div class="input-group-addon input-lg">
+                                        <span class="glyphicon glyphicon-user"></span>
+                                    </div>
                                     <input type="textbox" name ="DonorKeywordToSearch" required class="form-control input-lg" placeholder="Type in keyword to search for a donor">
                                     <span class="input-group-btn">
                                         <button class="btn btn-primary btn-lg" name = "DonorSearch" type="submit" >Search</button>
@@ -112,6 +118,9 @@
 
                             <form action ="Searchresults.php"  method="POST">
                                 <div class="input-group">
+                                     <div class="input-group-addon input-lg">
+                                        <span class="glyphicon glyphicon-folder-open"></span>
+                                    </div>
                                     <input type="textbox" name ="ProgramKeywordToSearch" required class="form-control input-lg" placeholder="Type in keyword to search for a program">
                                     <span class="input-group-btn">
                                         <button class="btn btn-primary btn-lg" name = "ProgramSearch" type="submit" >Search</button>

@@ -2,6 +2,7 @@
 Team Eagle Repository
 
 4-18-16
+-Added icons for books, donors and program
 -Completed edit and delete buttons for booksAdmin and search book result pages
 
 4-17-2016 - Poleap

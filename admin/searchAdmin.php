@@ -62,16 +62,16 @@ require ("../configurationDatabase.php");
                         <li><a href="programsAdmin.php">Programs</a></li>
                         <li><a href="searchAdmin.php">Search</a></li>
                         <li><a href="aboutAdmin.php">About</a></li>
-                         <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin Tools<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="addbookAdmin.php">Add Book</a></li>
-                <li><a href="adddonorAdmin.php">Add Donor</a></li>
-                <li><a href="addprogramAdmin.php">Add Program</a></li>
-                <li><a href="addAdmin.php">Add Admin</a></li>
-                <li><a href="uploadAdmin.php">Upload Spreadsheet</a></li>
-              </ul>
-            </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin Tools<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="addbookAdmin.php">Add Book</a></li>
+                                <li><a href="adddonorAdmin.php">Add Donor</a></li>
+                                <li><a href="addprogramAdmin.php">Add Program</a></li>
+                                <li><a href="addAdmin.php">Add Admin</a></li>
+                                <li><a href="uploadAdmin.php">Upload Spreadsheet</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
 
@@ -99,12 +99,17 @@ require ("../configurationDatabase.php");
 
                             <form action ="searchresultsAdmin.php"  method="POST">
                                 <div class="input-group">
-                                    <input type="textbox" name ="keywordToSearchAdmin" required class="form-control input-lg" placeholder="Type in keyword to search for a book">
+
+                                    <div class="input-group-addon input-lg">
+                                        <span class="glyphicon glyphicon-book"></span>
+                                    </div>
+                                    <input  type="textbox" name ="keywordToSearchAdmin" required class="form-control input-lg" placeholder="Type in keyword to search for a book" >
+
                                     <span class="input-group-btn">
                                         <button class="btn btn-primary btn-lg" name = "searchAdmin" type="submit" >Search</button>
                                     </span>
                                 </div>
-                                
+
                                 <div class="input-group">
                                     <button onclick="window.location.href = 'searchadvanceAdmin.php'" type="button" class="btn btn-link">Advanced Search</button>
                                 </div>
@@ -115,12 +120,15 @@ require ("../configurationDatabase.php");
 
                             <form action ="searchresultsAdmin.php"  method="POST">
                                 <div class="input-group">
+                                    <div class="input-group-addon input-lg">
+                                        <span class="glyphicon glyphicon-user"></span>
+                                    </div>
                                     <input type="textbox" name ="DonorKeywordToSearchAdmin" required class="form-control input-lg" placeholder="Type in keyword to search for a donor">
                                     <span class="input-group-btn">
                                         <button class="btn btn-primary btn-lg" name = "DonorSearchAdmin" type="submit" >Search</button>
                                     </span>
                                 </div>
-                                
+
                                 <div class="input-group">
                                     <button onclick="window.location.href = 'donorsearchadvanceAdmin.php'" type="button" class="btn btn-link">Advanced Search</button>
                                 </div>
@@ -131,12 +139,15 @@ require ("../configurationDatabase.php");
 
                             <form action ="searchresultsAdmin.php"  method="POST">
                                 <div class="input-group">
+                                    <div class="input-group-addon input-lg">
+                                        <span class="glyphicon glyphicon-folder-open"></span>
+                                    </div>
                                     <input type="textbox" name ="ProgramKeywordToSearchAdmin" required class="form-control input-lg" placeholder="Type in keyword to search for a program">
                                     <span class="input-group-btn">
                                         <button class="btn btn-primary btn-lg" name = "ProgramSearchAdmin" type="submit" >Search</button>
                                     </span>
                                 </div>
-                                
+
                                 <div class="input-group">
                                     <button onclick="window.location.href = 'programsearchadvanceAdmin.php'" type="button" class="btn btn-link">Advanced Search</button>
                                 </div>
