@@ -5,13 +5,19 @@
 	<!--***Done add above-->
     <!-- END OF NAVBAR -->
 
- <!-- Start your coding below here -->
- <!-- **Add below Start your coding below here -->
-	<h3>View Book for "<?php $program_name = $_POST['program_name'];
-          echo $program_name; ?> "</h3>
+ 	d above-->
+	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-1 main">
+          <br/>
+          <br/>
+    <!-- **Add below Start your coding below here -->
+	<h2>View Books for <?php $program_name = $_GET['program_name'];
+          echo $program_name; ?> </h2>
 	<br />
 	<!--Table of program to display-->
-	<table class = "tdBookAdmin" style="width: 100%" >
+	<div class="table-responsive">
+            <table class="table table-striped">
+              <!--Headers for data table-->
+              <thead>
 		<tr>
 			<th class = "tdBookAdmin">Title</th>
 			<th class = "tdBookAdmin">Author</th>
@@ -21,6 +27,8 @@
 			<th class = "tdBookAdmin">Language</th>
 			
 		</tr>
+		 </thead>
+		  <tbody>
 		
 		<!--***Add below-->
 			<?php
@@ -30,8 +38,8 @@
 			 
 			 
 			//****Called connecDatabase.php to do connection 
-			require("../configurationDatabase.php");
-			$program_id = $_POST['program_id'];
+			//require("../configurationDatabase.php");
+			$program_id = $_GET['program_id'];
 			$getDatabase = 'SELECT book_title, author_fname, author_lname, genre, year_ofpub,isbn, LANGUAGE FROM books WHERE program_id ="'.$program_id.'"';
 			
 			//Run query
@@ -67,9 +75,13 @@
 			}//End of while loop
 
 			?>
-
-	</table>
-<!--***Done add above-->
+</tbody>
+            </table>
+            <br/>
+             <!-- Back Button -->
+            <center><a class="btn btn-primary" href="programs.php" role="button">Back To Programs</a></center>
+          </div>
+        </div>
 
 
 

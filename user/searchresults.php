@@ -1,67 +1,8 @@
 <!DOCTYPE html>
 <?php
-require ("../configurationDatabase.php");
+  require ("../configurationDatabase.php");
+  require ("userHeader.php");
 ?>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <link rel="icon" href="favicon.ico">
-
-        <title>Vunnava Dot Com Library</title>
-
-        <!-- Bootstrap core CSS -->
-        <link href="../css/bootstrap.min.css" rel="stylesheet">
-
-        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <link href="../css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-
-        <!-- Custom styles for this template -->
-        <link href="../style.css" rel="stylesheet">
-
-        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-        <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-        <script src="../s/ie-emulation-modes-warning.js"></script>
-
-        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
-    </head>
-
-    <body>
-
-        <!-- THIS IS THE NAVBAR AT THE TOP OF EVERYPAGE -->
-        <nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-
-                    <!-- Start of Links on left nav bar -->
-                    <a class="navbar-brand" href="../index.php"><img class="header-logo" alt="Vunnava Dot Com Library Logo" src="../images/logo.png"></a>
-                    <ul class="nav navbar-nav">
-                        <li><a href="books.php">Books</a></li>
-                        <li><a href="donors.php">Donors</a></li>
-                        <li><a href="programs.php">Programs</a></li>
-                        <li><a href="search.php">Search</a></li>
-                        <li><a href="about.php">About</a></li>
-                    </ul>
-                </div>
-
-    
-            </div>
-        </nav>
-        <!-- END OF NAVBAR -->
 
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-1 main row-padding">
             <div class="panel panel-primary">
@@ -72,7 +13,7 @@ require ("../configurationDatabase.php");
 global $DataBaseCon; //grabs connection to MYSQL database
 
 if (isset($_POST['search'])) {
-    $keyword = filter_input(INPUT_POST, 'keywordToSearch');
+    $keyword = filter_input(INPUT_POST, 'keywordToSearch',FILTER_SANITIZE_SPECIAL_CHARS);
     $keywordInput = urldecode($keyword);
     // check the input is empty or not. If not then pop up an alert message
     if (empty($keywordInput)) {
@@ -122,17 +63,17 @@ if (mysqli_num_rows($results) > 0) {
 }
 if (isset($_POST['advancedSearch'])){
             //store all the input text field of the form
-        $title = filter_input(INPUT_POST, 'title');
+        $title = filter_input(INPUT_POST, 'title',FILTER_SANITIZE_SPECIAL_CHARS);
         $titleInput = urldecode($title);
-        $fName = filter_input(INPUT_POST, 'authorFName');
+        $fName = filter_input(INPUT_POST, 'authorFName',FILTER_SANITIZE_SPECIAL_CHARS);
         $fNameInput = urldecode($fName);
-        $lName= filter_input(INPUT_POST, 'authorLName');
+        $lName= filter_input(INPUT_POST, 'authorLName',FILTER_SANITIZE_SPECIAL_CHARS);
         $lNameInput = urldecode($lName);
         $genreInput = filter_input(INPUT_POST, 'genre');
-        $yearInput = filter_input(INPUT_POST, 'yearOfPub');
-        $isbnInput = filter_input(INPUT_POST, 'isbn');
+        $yearInput = filter_input(INPUT_POST, 'yearOfPub',FILTER_SANITIZE_SPECIAL_CHARS);
+        $isbnInput = filter_input(INPUT_POST, 'isbn',FILTER_SANITIZE_SPECIAL_CHARS);
         $languageInput = filter_input(INPUT_POST, 'language');
-        $cost = filter_input(INPUT_POST, 'cost');
+        $cost = filter_input(INPUT_POST, 'cost',FILTER_SANITIZE_SPECIAL_CHARS);
         $costInput = null;
         if (strpos($cost, '$') !== false) {
             $costInput = $cost;
@@ -189,7 +130,7 @@ if (mysqli_num_rows($results) > 0) {
 }
 }
  if (isset($_POST['DonorSearch'])){
-     $keyword = filter_input(INPUT_POST, 'DonorKeywordToSearch');
+     $keyword = filter_input(INPUT_POST, 'DonorKeywordToSearch',FILTER_SANITIZE_SPECIAL_CHARS);
      $keywordInput = urldecode($keyword);
     // check the input is empty or not. If not then pop up an alert message
     if (empty($keywordInput)) {
@@ -230,12 +171,12 @@ if (mysqli_num_rows($results) > 0) {
 }
 if (isset($_POST['DonorAdvancedSearch'])){
             //store all the input text field of the form
-        $donorFname = filter_input(INPUT_POST, 'donorFirstName');
+        $donorFname = filter_input(INPUT_POST, 'donorFirstName',FILTER_SANITIZE_SPECIAL_CHARS);
         $donorFnameInput = urldecode($donorFname);
-        $donorLname = filter_input(INPUT_POST, 'donorLastName');
+        $donorLname = filter_input(INPUT_POST, 'donorLastName',FILTER_SANITIZE_SPECIAL_CHARS);
         $donorLnameInput = urldecode($donorLname);
-        $donateDDInput = filter_input(INPUT_POST, 'donateDD');
-        $totalAmountInput = filter_input(INPUT_POST, 'totalAmount');
+        $donateDDInput = filter_input(INPUT_POST, 'donateDD',FILTER_SANITIZE_SPECIAL_CHARS);
+        $totalAmountInput = filter_input(INPUT_POST, 'totalAmount',FILTER_SANITIZE_SPECIAL_CHARS);
         $amountInput = null;
         if (strpos($totalAmountInput, '$') !== false) {
             $amountInput = $totalAmountInput;
@@ -284,7 +225,7 @@ if (mysqli_num_rows($results) > 0) {
 
 
  if (isset($_POST['ProgramSearch'])){
-     $keyword = filter_input(INPUT_POST, 'ProgramKeywordToSearch');
+     $keyword = filter_input(INPUT_POST, 'ProgramKeywordToSearch',FILTER_SANITIZE_SPECIAL_CHARS);
      $keywordInput = urldecode($keyword);
     // check the input is empty or not. If not then pop up an alert message
     if (empty($keywordInput)) {
@@ -325,10 +266,10 @@ if (mysqli_num_rows($results) > 0) {
 }
 if (isset($_POST['ProgramAdvancedSearch'])){
             //store all the input text field of the form
-        $program = filter_input(INPUT_POST, 'program');
+        $program = filter_input(INPUT_POST, 'program',FILTER_SANITIZE_SPECIAL_CHARS);
         $programInput = urldecode($program);
-        $startDateInput = filter_input(INPUT_POST, 'startDate');
-        $mission = filter_input(INPUT_POST, 'mission');
+        $startDateInput = filter_input(INPUT_POST, 'startDate',FILTER_SANITIZE_SPECIAL_CHARS);
+        $mission = filter_input(INPUT_POST, 'mission',FILTER_SANITIZE_SPECIAL_CHARS);
         $missionInput = urldecode($mission);
        
         //Check all fields are empty or not

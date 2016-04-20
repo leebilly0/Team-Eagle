@@ -6,51 +6,40 @@
 	//Add php log out process After it press the logoff button
 	require ("../logoff.php");      
 ?>
-<!--***Done add above-->  
+<br/>
+<div class="container center_div row-padding">
 
-   <!-- Start your coding below here -->  
-   <!--***Add below--> 
-   <?php
-	if(isset($_POST['submitEdit'])){
-	
-	$newProgram = $_POST['newProgramName'];
-	$year_start = $_POST['year_start'];
-	$mission = $_POST['mission'];
+            <div class="panel panel-primary ">
+                <div class="panel-heading"> <h4>Add Program</h4></div>
+                <div class="panel-body">
+                    <p>Add a program to the database</p>
+                    <form action ="AddProgramSubmit.php" method="POST" class="form-horizontal" >
 
-	//****Called connecDatabase.php to do connection from adminHeader.php	
-	//Insert program edit to database
-	$insertProgram = "INSERT INTO program(program,yr_start, mission ) VALUES('".$newProgram."','".$year_start."','".$mission."')";			
-	//Check if it return true or false
-	if(mysqli_query($DataBaseCon, $insertProgram)){
-		echo "Add Successfuly !";
-	
-	}else{
-		
-		echo "Add Error!";
-	}
-
-}//End of if edit
-?>
- 
-
-<h2>Add Program</h2>
-<form name="Edit_form" action="addprogramAdmin.php" method="POST">
-Program Name:<br>
-<input type = "text" name = "newProgramName">
-<br><br>
-Year Start:<br>
-<input type = "number" name = "year_start" min="1" max="3000">
-<br><br>
-Mission Statement: <br>
-<input style= "width: 36%; height: 111px;" type = "text" name = "mission">
-<br><br>
-<!--***Add below-->
-<input type="hidden" name="submitEdit" value="TRUE">
-<!--***Done add above-->
-<input type = "reset" name = "reset" value = "Cancel">
-<input type = "submit" name = "edit_program" value = "Save">
-<br><br>
-</form>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" >Program Name:</label>
+                            <div class="col-sm-10">
+                                <input type="text" name ="newProgramName" class="form-control"  >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" >Year Start:</label>
+                            <div class="col-sm-10"> 
+                                <input type="number" name ="year_start" class="form-control"  >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" >Mission Statement/Dedication:</label>
+                            <div class="col-sm-10">
+                                <input type="text" name ="mission" class="form-control"  >
+                            </div>
+                        </div>
+                        <div class="form-group "> 
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" name ="submit" class="btn btn-primary">Add Program</button>
+                            </div>
+                        </div>
+                    </form> </div>
+            </div>
 
   </body>
 <!-- end of body -->

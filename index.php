@@ -74,7 +74,7 @@
 		<div id="navbar" class="navbar-collapse collapse">
 		<!--***Add below for action = index.php-->
 		 <form class="navbar-form navbar-right">
-			<a href="Login.php">Log in</a>
+			<a href="login.php">Log in</a>
 		</form>
         </div>
 		<!--Done add login code above-->	
@@ -172,6 +172,7 @@
           <h2>What Is Vunnava Dot Com Library?</h2>
           <p>Founded in 2016, Vunnava Dot Com Library is a books donation website for the community.  
           Simply put, we exist to help those who need books, get books!</p>
+          <center><a class="btn btn-primary" href="user/about.php" role="button">More About Us &raquo;</a></center>
         </div>
         <div class="col-md-4">
           <h2>How Can I Help?</h2>

@@ -29,7 +29,7 @@
     <link href="../css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../style.css" rel="stylesheet">
+    <link href="donorStyle.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -95,7 +95,7 @@
     SEE LINE 133 for further step*/
     global $DataBaseCon; //grabs connection to MYSQL database
     //My Query I will be Using
-    $getData = "SELECT donor_fname, donor_lname, donate_dd, total_amt FROM donors ORDER BY donor_fname"; 
+    $getData = "SELECT donor_id, donor_fname, donor_lname, donate_dd, total_amt FROM donors ORDER BY donor_fname"; 
     $results = mysqli_query($DataBaseCon, $getData);  //Grab results from database using connection and query
 ?>
 
@@ -104,33 +104,32 @@
           <h1>Donors</h1> 
           <p>Here is the list of donors who have donated books and/or monetary value to Vunnava Dot Com Library over the years</p>
 
+
            <!--HEADLINER of PIX of donors and little info about them -->
           <div class="row placeholders">
             <div class="col-xs-6 col-sm-3 placeholder">
               <img src="../images/billy.jpg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
               <h4>Billy Lee</h4>
-              <span class="text-muted">Insert Text</span>
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="../images/notAvailable.png" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>John Doe</h4>
-              <span class="text-muted">Insert Text</span>
+              <img src="../images/Linh.jpg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4>Linh Huynh</h4>
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="../images/notAvailable.png" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+                <img src="../images/Jean.PNG" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
               <h4>Jane Doe</h4>
-              <span class="text-muted">Insert Text</span>
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="../images/notAvailable.png" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+                <img src="../images/Poleap.jpg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
               <h4>Poleap Sar</h4>
-              <span class="text-muted">Insert Text</span>
             </div>
           </div>
           <!--ENd of headliner for donors -->
 
            <!-- Table with Data -->
+           <h4><a href = "adddonorAdmin.php" >Add New Donor</a></h4>
           <h2 class="sub-header">Vunnava Dot Com Library Contributors</h2>
+
           <div class="table-responsive">
             <table class="table table-striped">
               <!--Headers for data table-->
@@ -159,7 +158,9 @@
                       echo "<td>".$row["donor_fname"]." ".$row["donor_lname"]."</td>";
                       echo "<td>".$row["donate_dd"]."</td>";
                       echo "<td>".$row["total_amt"]."</td>";
-                      echo "<td><a href='viewbooksdonorAdmin.php?first_name=".$row["donor_fname"]."&last_name=".$row["donor_lname"]."'>View Books Donated</a></td>";
+                      echo "<td><a href='viewbooksdonorAdmin.php?first_name=".$row["donor_fname"]."&last_name=".$row["donor_lname"].
+                        "'>View Books Donated</a> &nbsp &nbsp <a href='editdonorAdmin.php?editId=".$row['donor_id'].
+                        "'>Edit</a> &nbsp&nbsp<a href='DeleteDonorAdmin.php?id=".$row['donor_id']."'>Delete</a></td>";
                       echo "</tr>";
                     }
                   }
@@ -180,7 +181,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../  js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>

@@ -25,11 +25,7 @@
     <link rel="icon" href="favicon.ico">
 
     <title>Vunnava Dot Com Library</title>
-	
-	<!--***Add Below -->
-	<link href="StyleSheet/AdminStyleSheet.css" rel="stylesheet">
-	<!--***Done add above-->
-	
+
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
 
@@ -37,7 +33,7 @@
     <link href="../css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../style.css" rel="stylesheet">
+    <link href="donorStyle.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -48,33 +44,6 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-	
-	<!--Test---->
-	 <link rel="icon" href="favicon.ico">
-
-    <title>Vunnava Dot Com Library</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="style.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="js/ie-emulation-modes-warning.js"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-	
-	<!--End test-->
-	
   </head>
 
   <body>
@@ -116,7 +85,7 @@
         <div id="navbar" class="navbar-collapse collapse">
            <form class="navbar-form navbar-right" action="../logoff.php" method="POST">
 		   <div class="form-group">
-              <FONT COLOR="Black">Welcome Back<?php echo " {$_SESSION['user_name']}";?></FONT>
+              <FONT COLOR="Black">Welcome Back<?php echo " {$_SESSION['user_name']}";?>!</FONT>
             <button type="submit" class="btn btn-primary" name="log_out">Log off</button>
 			
           </form>
@@ -125,7 +94,6 @@
     </nav>
 	<!-- END Header code -->
 	
-	<br>
 	<br>
 
   

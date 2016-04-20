@@ -14,15 +14,19 @@ function absolute_url ($page = 'logginIndex.php') {
 //**Call first when the loginIndex.php page is submitted
 function check_login($loginID = '', $password = '') {
 	global $DataBaseCon;
+       
+        $loginIDFilter = filter_var($loginID, FILTER_SANITIZE_STRING);
+        $passwordFilter = filter_var($password, FILTER_SANITIZE_STRING);
+       
 
 	$errors = array(); // Declare variable $errors  as an array
 	
 	//If user don't enter login id
-	if (empty($loginID)) {
+	if (empty($loginIDFilter)) {
 	$errors[] = 'Please enter login ID';
 	} 
 	// If user don't enter password
-	if (empty($password)) {
+	if (empty($passwordFilter)) {
 	$errors[] = 'Please enter password';
 	} 
 
@@ -43,7 +47,7 @@ function check_login($loginID = '', $password = '') {
 		//***mysqli_query is command
 		//**perform the queries and if it connect and run command fine, it returns true
 		//**if true
-		$getDatabase = "SELECT NAME FROM logins WHERE username = '$loginID' AND PASSWORD = '$password' ";
+		$getDatabase = "SELECT NAME FROM logins WHERE username = '$loginIDFilter' AND PASSWORD = '$passwordFilter' ";
 		if($checkResult = mysqli_query($DataBaseCon, $getDatabase)){
                     
 			

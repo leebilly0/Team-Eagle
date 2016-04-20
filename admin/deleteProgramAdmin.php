@@ -1,22 +1,21 @@
- 
-	 <!--***Add below-->
+<?php
+require("../configurationDatabase.php");
+global $DataBaseCon; //grabs connection to MYSQL database
 
-	<?php
-	if(isset($_POST['Delete_program'])){
-			//****Called connecDatabase.php to do connection 
-			require("../configurationDatabase.php");	
-			$program_id = $_POST['program_id'];
-			$program_name = $_POST['program_name'];
-			//Get name from database with each donor id
-			$deleteData = 'DELETE FROM program WHERE program_id ='.$program_id.' AND program = "'.$program_name.'"';
-			//$deleteProgram = mysqli_query($DataBaseCon, $deleteData);
-			if(mysqli_query($DataBaseCon, $deleteData)){
-				
-			}else{
-				
-				echo "Not deleted successfully";
-			}
-			
-	}	
-	?>
-	<!--***Done add above-->
+$id = (isset($_GET['id']) ? $_GET['id'] : null);
+//echo $id;
+//echo $id;
+ $Query = "DELETE FROM program WHERE program_id= $id";
+ 
+if (mysqli_query($DataBaseCon, $Query)) {
+    echo "<script>alert('Program has been successfully deleted!');
+         
+    </script>";
+header("Location: programsAdmin.php"); 
+ 
+}
+
+mysqli_close($DataBaseCon);
+
+
+?>
