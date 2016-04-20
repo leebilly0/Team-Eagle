@@ -28,15 +28,15 @@
               <h4>Billy Lee</h4>
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="../images/lyn.jpg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <img src="../images/Linh.jpg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
               <h4>Linh Huynh</h4>
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="../images/notAvailable.png" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+                <img src="../images/Jean.PNG" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
               <h4>Jane Doe</h4>
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="../images/notAvailable.png" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+                <img src="../images/Poleap.jpg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
               <h4>Poleap Sar</h4>
             </div>
           </div>
