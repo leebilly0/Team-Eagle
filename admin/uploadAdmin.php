@@ -1,96 +1,124 @@
-<!DOCTYPE html>
-<!--Add Session to every Admin page-->
-<?php
-  //Add session to be start
-  require ("../session.php");
-
-  //Add php log out process After it press the logoff button
-  require ("../logoff.php");      
-
-   //To have access to mysql database
-  require ("../configurationDatabase.php");
-?>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="favicon.ico">
-
-    <title>Vunnava Dot Com Library</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="../style.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../s/ie-emulation-modes-warning.js"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-
-  <body>
-
-    <!-- THIS IS THE NAVBAR AT THE TOP OF EVERYPAGE -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-
-          <!-- Start of Links on left nav bar -->
-          <a class="navbar-brand" href="../indexAdmin.php"><img class="header-logo" alt="Vunnava Dot Com Library Logo" src="../images/logo.png"></a>
-          <ul class="nav navbar-nav">
-                <li><a href="booksAdmin.php">Books</a></li>
-                <li><a href="donorsAdmin.php">Donors</a></li>
-                <li><a href="programsAdmin.php">Programs</a></li>
-                <li><a href="searchAdmin.php">Search</a></li>
-                <li><a href="aboutAdmin.php">About</a></li>
-                 <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin Tools<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="addbookAdmin.php">Add Book</a></li>
-                <li><a href="adddonorAdmin.php">Add Donor</a></li>
-                <li><a href="addprogramAdmin.php">Add Program</a></li>
-                <li><a href="addAdmin.php">Add Admin</a></li>
-                <li><a href="uploadAdmin.php">Upload Spreadsheet</a></li>
-              </ul>
-            </li>
-            </ul>
-        </div>
-
-        <!-- Start of username password form of right nav bar -->
-        <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right" action="../logoff.php" method="POST">
-       <div class="form-group">
-              <FONT COLOR="Black">Welcome Back<?php echo " {$_SESSION['user_name']}";?>&#33;</FONT>
-            <button type="submit" class="btn btn-primary" name="log_out">Log off</button>
-      
-          </form>
-        </div>
-      </div>
-    </nav>
+<!--***Add Session to every Admin page-->
+	<!--***Add below-->
+	<?php
+	require ("adminHeader.php");
+	?>
+	<!--***Done add above-->
     <!-- END OF NAVBAR -->
 
     <!-- Start your coding below here -->
+	
+	<?php
+	/*
+	$directory = dir(getcwd());
+	
+	echo "Handle: ".$directory->handle."<br>";
+	echo "Path: ". $directory->path."<br>";
+	
+	while(($file = $directory->read()) !== false){
+		
+		echo "file name: ".$file."<br>";
+		
+	}
+	$directory->close();
+	*/
+	?>
+	<?php
+		
+		if(isset($_POST['submit_book_file'])){
+			//$fileUpload = basename($_FILES['fileToUpload']['name']);
+			
+			$target_directory = "uploads/";
+			$target_file = $target_directory.basename($_FILES["fileToUpload"]["name"]);
+			
+			$uploadOK = 1;
+			$bookFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+			
+			//Check if book file i a action file or fake
+			$checkFileSize = filesize($_FILES["fileToUpload"]["tmp_name"]);
+			if($checkFileSize !== false){
+					echo "Book file is ". $checkFileSize['mimie']."!";
+					$uploadOK =1;
+			}else {
+				
+				echo "File is not a fake one!";
+				$uploadOk = 0;
+			}
+			
+			
+			//Function of upload the file
+			if($uploadOK == 0){
+				//if file is empty or fake
+				echo "Sorry, your file was not uploaded!";
+				
+			}else{
+				if(move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)){
+					echo "Upload completted.\n";
+					echo "The file ".basename($_FILES["fileToUpload"]["name"])." has been uploaded!";
+					
+					
+				}else{
+					echo "Sorry, there was an error uploading your file.";
+					
+				}
+				
+			}
+			
+			//echo "File upload is: ". $fileUpload; 
+			
+			/* work for recula txt
+			$file = fopen($target_file, "r");
+			 //output a line of the file until the end is reached
+			 while(! feof($file)){
+				 echo fgets($file);
+			 }//End of while loop
+			 //Close the file
+			 fclose($file);
+			 
+			//echo readfile($target_file);
+			*/
+			
+			
+		/*	
+		$objReader = PHPExcel_IOFactory::createReader("Excel2007");
+		//$objPHPExcel = $objReader->load("05featuredemo.xlsx");
+		
+		$fileName = $target_file;
+		try{
+			$objPHPExcel = PHPExcel_IOFactory::load($fileName);
+		}catch(Exception $e){
+			die("Erro loading file: ".$e->getMessage()."<br>");
+				
+		}
+			*/
+			
+		include 'simplexlsx.class.php';
+			$xlsx = @(new SimpleXLSX($target_file));
+			$data = $xlsx->rows();
+			
+		
+		
+		
+		}//End of sumbit button
+	
+	
+	?>
+	
+	
+	
+	<!--Create Form for upload-->
+	
+	<form action ="uploadAdmin.php" method="POST" enctype="multipart/form-data">
+		Select Book file to upload: 
+		<input type = "file" name="fileToUpload" id= "fileToUpload"><br><br>
+		<input type = "submit" value="Upload File" name="submit_book_file">
+	
+	</form>
+	
+	
+	<!--Done create form for upload-->
 
+	
 
 
 

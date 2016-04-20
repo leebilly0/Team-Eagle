@@ -75,8 +75,9 @@
 		</div>		
 		<div id="navbar" class="navbar-collapse collapse">
 		<!--***Add below for action = index.php-->
-		 <form class="navbar-form navbar-right">
-			<a href="../Login.php">Log in</a>
+		 <form class="navbar-form navbar-right" action = "../Login.php">
+			<!--a href="../Login.php">Log in</a-->
+			 <button type="submit" class="btn btn-primary" name="login">Log In</button>
 		</form>
         </div>
 		<!--Done add login code above-->	
