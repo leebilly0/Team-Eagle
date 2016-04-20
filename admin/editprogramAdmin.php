@@ -1,4 +1,5 @@
 
+
 <!--Add Session to every Admin page-->
 <?php
 	//Add session to be start
