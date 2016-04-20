@@ -6,20 +6,30 @@
 	require("deleteProgramAdmin.php");
 	?>
 	<!--***Done add above-->
-
+ <!-- Start your coding below here -->
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-1 main">
     <!-- Start your coding below here -->
 	<h1>Programs</h1>
-	<br>
-	<h3><a href = "addprogramAdmin.php" >Add New Program</a></h3>
+	<p>Here is all the programs that donors have donated for</p>
+
+	<h4><a href = "addprogramAdmin.php" >Add New Program</a></h4>
 	<!--Table of program to display-->
-	<table class = "tdProgramsAdmin" style="width: 100%" >
-		<tr>
-			<th class = "tdProgramsAdmin">Program ID</th>
-			<th class = "tdProgramsAdmin">Program Name</th>
-			<th class = "tdProgramsAdmin">Year Started</th>
-			<th class = "tdProgramsAdmin">Mission Statement/Reason For Program</th>
-			<th class = "tdProgramsAdmin" colspan= "4">Edit</th>
-		</tr>
+	
+<div class="table-responsive">
+            <table class="table table-striped">
+              <!--Headers for data table-->
+              <thead>
+                <tr>
+                  <th>Program ID</th>
+                  <th>Program Name</th>
+                  <th>Year Started</th>
+                  <th>Mission Statement/Reason For Program</th>
+                </tr>
+              </thead>
+              <!--Data for Table -->
+              <tbody>
+              <!--Headers for data table-->
+              <thead>
 		
 			<!--***Add below-->
 			<?php
@@ -27,7 +37,7 @@
 			//****Called connecDatabase.php to do connection 
 			require("../configurationDatabase.php");
 		//	global $DataBaseCon; //grabs connection to MYSQL database
-			$getDatabase = "SELECT program_id,program,yr_start,mission FROM program ";
+			$getDatabase = "SELECT program_id,program,yr_start,mission FROM program LIMIT 1, 18446744073709551615";
 			//Run query
 			if(!$result = mysqli_query($DataBaseCon, $getDatabase)){
 				echo "Could not successfully run query";
@@ -55,40 +65,12 @@
 				echo "<td class = 'tdProgramsAdmin'>". $program_name."</td>";
 				echo "<td class = 'tdProgramsAdmin'>".$year."</td>";
 				echo "<td class = 'tdProgramsAdmin'>". $mission."</td>";
-				
-				echo "<td class = 'tdProgramsAdmin'>
-						<form name='submit_program_ID' action='viewbooksprogramAdmin.php' method='POST'>
-						<input type= 'hidden' name ='program_id' value ='".$number."'>
-						<input type= 'hidden' name ='program_name' value ='".$program_name."'>
-						<input type ='submit' name='submitProgramID' value = 'View Book' >
-						</form>
-					</td>";
-				
-				//echo "<td class = 'tdProgramsAdmin'><a href='viewbooksprogramAdmin.php'>View Books</a></td>";
-				//echo "<td class = 'tdProgramsAdmin'><a href='viewdonorsprogramAdmin.php'>View Donors</a></td>";
-				echo "<td class = 'tdProgramsAdmin'>
-						<form name='submit_program_ID' action='viewdonorsprogramAdmin.php' method='POST'>
-						<input type= 'hidden' name ='program_id' value ='".$number."'>
-						<input type= 'hidden' name ='program_name' value ='".$program_name."'>
-						<input type ='submit' name='submitProgramID' value = 'View Donor' >
-						</form>
-					</td>";
-				
-				echo "<td class = 'tdProgramsAdmin'>
-						<form name='submit_program_ID' action='editprogramAdmin.php' method='POST'>
-						<input type= 'hidden' name ='program_id' value ='".$number."'>
-						<input type= 'hidden' name ='program_name' value ='".$program_name."'>
-						<input type ='submit' name='edit_program' value = 'Edit' >
-						</form>
-					</td>";	
-				
-				echo "<td class = 'tdProgramsAdmin'>
-						<form name='submit_program_ID' action='programsAdmin.php' method='POST'>
-						<input type= 'hidden' name ='program_id' value ='".$number."'>
-						<input type= 'hidden' name ='program_name' value ='".$program_name."'>
-						<input type ='submit' name='Delete_program' value = 'Delete Program' >
-						</form>
-					</td>";
+				echo "<td><a href='viewbooksprogramAdmin.php?program_id=".$row["program_id"]."&program_name=".$row["program"]."'>View Books </a> &nbsp &nbsp 
+					<a href='viewdonorsprogramAdmin.php?program_id=".$row["program_id"]."&program_name=".$row["program"].
+                        "'>View Donors</a> &nbsp &nbsp 
+                        <a href='editprogramAdmin.php?editId=".$row['program_id'].
+                    "'>Edit</a> &nbsp&nbsp<a href='deleteProgramAdmin.php?id=".$row['program_id']."'>Delete</a></td>";
+
 				
 				echo "</tr>";
 

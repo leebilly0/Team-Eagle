@@ -9,79 +9,73 @@
 	
    <!-- Start your coding below here --> 
  
- <!--***Add below--> 
-   <?php
+ <?php
 
-if(isset($_POST['submittedEdit'])){	
+global $DataBaseCon; //grabs connection to MYSQL database
+$id = $_GET['editId'];
+//echo $id;
+//echo $id;
+ $Query = "SELECT program_id, program, yr_start, mission FROM program WHERE program_id= $id";
+   $results = mysqli_query($DataBaseCon, $Query);
+ if (mysqli_num_rows($results) > 0) {
+    //output data of each row 
+    while ($row = mysqli_fetch_array($results)) {
+      $program[] =$row["program"] ;
+     $year = $row["yr_start"] ;
+    $mission[]  =$row["mission"] ;
+     $_SESSION["IdEdit"] = $row["program_id"] ;
+    }
+ }
+ ?>
 
-	$newProgram_name = $_POST['newProgram_name'];
-	$year_start = $_POST['year_start'];
-	$mission = $_POST['mission'];
-	
-	$oldProgram_name = $_POST['oldProgram_name'];
-	$oldProgram_id = $_POST['oldProgram_id'];
+        <br/>
+        <div class="container center_div row-padding">
 
-	//update the program
-	//UPDATE program SET program = "Read Test Book", yr_start ="2016", mission = "read edit test 1" WHERE program_id = "1"; 
-	$updateData = "UPDATE program SET program = '".$newProgram_name."',yr_start ='".$year_start."', mission ='".$mission."' WHERE program_id ='".$oldProgram_id."'";
-	//Check if it return true or false
-	if(mysqli_query($DataBaseCon, $updateData)){
-		$GLOBALS['addEdit'] = "Edit Successfuly !";
-		
-		
-	}else{
-		
-		$GLOBALS['addEdit'] = "Edit Error!";
-	
-	}
-	
-	
-	
-}//End of if edit
+            <div class="panel panel-primary ">
+                <div class="panel-heading"> <h4>Edit Program</h4></div>
+                <div class="panel-body">
+                    <p>Edit the Program's info below</p>
+                    <form action ="editSubmitProgramAdmin.php" method="POST" class="form-horizontal" >
 
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" >Program Name:</label>
+                            <div class="col-sm-10">
+                                <input type="text" name ="programName" value= "<?php echo implode('', $program); ?>"  class="form-control"  >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" >Year:</label>
+                            <div class="col-sm-10"> 
+                                <input type="number" name ="year" value= <?php echo "$year"; ?> class="form-control"  >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" >Mission Statement/Theme:</label>
+                            <div class="col-sm-10">
+                                <input type="text" name ="mission" value= "<?php echo implode('', $mission); ?>" class="form-control"  >
+                            </div>
+                        </div>
+                        <div class="form-group "> 
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <a class="btn btn-primary" href="programsAdmin.php" role="button">Back To Program</a>&nbsp
+                                <button type="submit" name ="editButton" class="btn btn-primary">Save</button>
+                            </div>
+                        </div>
+                    </form> </div>
+            </div>
 
+        </div>
 
-?>
-<!--***Done add above--> 
+    </body>
+    <!-- end of body -->
 
-<!--Add form edit code-->
-<h2>Edit Program</h2>
-<form name="Edit_form" action="editprogramAdmin.php" method="POST">
-Program Name:<br>
-<input type = "text" name = "newProgram_name">
-<br><br>
-Year Start:<br>
-<input type = "number" name = "year_start">
-<br><br>
-Mission Statement: <br>
-<input style= "width: 36%; height: 111px;" type = "text" name = "mission">
-<br><br>
-<input type = "hidden" name = "oldProgram_name" value="<?php $GLOBALS['program_name'] = $_POST['program_name']; echo $program_name; ?>">
-<input type = "hidden" name = "oldProgram_id" value="<?php $GLOBALS['program_id'] = $_POST['program_id']; echo $program_id; ?>">
-
-<!--***Add below-->
-<input type="hidden" name="submittedEdit" value="TRUE">
-<!--***Done add above-->
-<input type = "reset" name = "reset" value = "Cancel">
-<input type = "submit" name = "edit_program" value = "Save">
-<br><br>
-
-</form>
-<!--Done add form above-->
-
-
-  </body>
-<!-- end of body -->
-
-  <!-- Bootstrap core JavaScript
-    ================================================== -->
+    <!-- Bootstrap core JavaScript
+      ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
+</body>
 </html>
-
-  

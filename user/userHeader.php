@@ -19,9 +19,6 @@
     <title>Vunnava Dot Com Library</title>
 
    
-	<!--***Add Below -->
-	<link href="StyleSheet/userStyleSheet.css" rel="stylesheet">
-	<!--***Done add above-->
 	
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -30,7 +27,7 @@
     <link href="../css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../style.css" rel="stylesheet">
+    <link href="Donorstyle.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->

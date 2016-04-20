@@ -11,26 +11,34 @@
     <!-- Start your coding below here -->
 
  <!-- Start your coding below here -->
+ <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-1 main">
+          <br/>
+          <br/>
  
  <!--***Add below-->
-	<h1>View Donor</h1>
+	<h2>View Donors for <?php $program_name = $_GET['program_name'];
+          echo $program_name; ?> </h2>
 	<br />
 	<!--Table of program to display-->
-	<table class = "tdBookAdmin" style="width: 100%" >
-		<tr>
+	<div class="table-responsive">
+            <table class="table table-striped">
+              <!--Headers for data table-->
+              <thead>
+                <tr>
 			<th class = "tdBookAdmin">ID</th>
 			<th class = "tdBookAdmin">First Name</th>
 			<th class = "tdBookAdmin">Last Name</th>
 			<th class = "tdBookAdmin">Total Amount</th>
-
-		</tr>
-		
+</tr>
+              </thead>
+              <!--Data for Table -->
+              <tbody>
 		<!--***Add below-->
 			<?php
 			//****Called connecDatabase.php to do connection 
 			require("../configurationDatabase.php");
 			
-			$program_id = $_POST['program_id'];
+			$program_id = $_GET['program_id'];
 			
 			//Get all donor id that donate to that program 1,2
 			//Get list of all donor donate to program 1
@@ -65,26 +73,8 @@
 				$donor_id = $row["donor_id"];
 				$donor_fname = $row["donor_fname"];
 				$donor_lname = $row["donor_lname"];
-				//$author = $author_fname.$author_lname;
 				$GLOBALS['total_amt'] = $row["total_amt"];
 				
-				/*
-				$GLOBALS['total_amt'] = "";
-				
-				$previosDonorID = "";
-				if($previosDonorID != $donor_id){
-					//if previousDonorID doesn't has the same id set equal to new id
-					$previosDonorID = $donor_id;
-					$total_amt = $row["total_amt"];
-					
-				} 
-				if($previosDonorID == $donor_id){ 
-				//if previousDonorID has the same sum the total 
-					$total_amt = $total_amt + $row["total_amt"];
-					
-				}
-
-				*/
 				
 				echo "<tr>";
 				echo "<td class = 'tdBookAdmin'>".$donor_id."</td>";
@@ -98,9 +88,13 @@
 			}//End of get donor id  loop
 
 			?>
-
-	</table>
-<!--***Done add above-->
+</tbody>
+            </table>
+            <br/>
+             <!-- Back Button -->
+            <center><a class="btn btn-primary" href="programsAdmin.php" role="button">Back To Programs</a></center>
+          </div>
+        </div>
 
 
 

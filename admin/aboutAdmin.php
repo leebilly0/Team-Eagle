@@ -95,7 +95,6 @@
 
 
 
-  </body>
 <!-- end of body -->
 
   <!-- Bootstrap core JavaScript

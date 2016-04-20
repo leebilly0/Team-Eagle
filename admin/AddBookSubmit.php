@@ -12,8 +12,12 @@
 ?>
 
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
 //require("../configurationDatabase.php");
 global $DataBaseCon; //grabs connection to MYSQL database
+
+
 
 //var_dump($DataBaseCon);
 
@@ -26,50 +30,39 @@ if(isset($_POST['submit']))
     $authorLNameAdmin = $_POST['authorLNameAdmin'];
     $authorLName=urldecode($authorLNameAdmin);
     $genreAdmin = $_POST['genreAdmin'];
-    $yearOfPubAdmin = $_POST['yearOfPubAdmin'];
-    $isbnAdmin = $_POST['isbnAdmin'];
+    $yearOfPubAdmin = intval($_POST['yearOfPubAdmin']);
+    $isbnAdmin = NULL;
     $languageAdmin = $_POST['languageAdmin'];
-    $costAdmin = $_POST['costAdmin'];
+    $costAdmin = floatval($_POST['costAdmin']);
     $programName = $_POST['programName'];
-    $program=urldecode($programName);
-    echo $program;
+    $arrayName2 = explode(" ", $programName);
+    $programid =  intval($arrayName2[0]);
     $donorName = $_POST['donorName'];
     $arrayName = explode(" ", $donorName);
-    $donorfName =  $arrayName[0];
-    $donorlName = $arrayName[1];
-    $donorFirst =urldecode($donorfName);
-     $donorLast =urldecode($donorlName);
-     
-     //I have problem with this query, it worked fine when i execute in Mysql
-    $query = "Select program_id, program, yr_start, mission from program where program = '$program' ";
-    $programresults = mysqli_query($DataBaseCon, $query);
-    if (mysqli_num_rows($programresults) > 0)
-                  {
-    while ($row = mysql_fetch_row($programresults)){
-        $programid = $row["program_id"];
-        echo $programid;
-    }
-                  }
+    $donorid=  intval($arrayName[0]);
+
+    //var_dump($donorid);
+
     
-    $query2 = "Select donor_id from donors where donor_fname='$donorFirst' and donor_lname='$donorLast'";
-    $donorresults = mysqli_query($DataBaseCon, $query2);
-     if (mysqli_num_rows($donorresults) > 0)
-                  {
-   while ($row = mysql_fetch_row($donorresults)){
-        $donorid = $row["donor_id"];
-        echo $donorid;
-    }
-                  }
-    
-    $getData = "INSERT INTO `books` SET `book_title`='".$title."', `author_fname`='".$authorFName."',"
-            . " `author_lname`='".$authorLName."', `genre`=".$genreAdmin.", `year_ofpub`='".$yearOfPubAdmin."',"
-            . " `isbn`=".$isbnAdmin.", `language`='".$languageAdmin."', `cost`=".$costAdmin.", `donor_id`='".$donorid."',"
-            . " `program_id`=".$programid.""; 
+    $getData = "INSERT INTO books (book_title, author_fname, author_lname, genre, year_ofpub, language, cost, donor_id, program_id) "
+            . "VALUES ('".$title."', '".$authorFName."', '".$authorLName."', '".$genreAdmin."', ".$yearOfPubAdmin.", '".$languageAdmin."', ".$costAdmin.",  '".$donorid."', '".$programid."')";
+            
+            
 
+    // $getData = "INSERT INTO `books` SET `book_title`='".$title."', `author_fname`='".$authorFName."',"
+    //         . " `author_lname`='".$authorLName."', `genre`=".$genreAdmin.", `year_ofpub`='".$yearOfPubAdmin."',"
+    //         . " `isbn`=".$isbnAdmin.", `language`='".$languageAdmin."', `cost`=".$costAdmin.", `donor_id`='".$donorid."',"
+    //         . " `program_id`=".$programid.""; 
 
+//var_dump($getData); 
 
-    $results = mysqli_query($DataBaseCon, $getData);  //Grab results from database using connection and query
+    if (!$results = mysqli_query($DataBaseCon, $getData))
+    {
+      echo "Error: " .  mysqli_error($DataBaseCon);
+    } //Grab results from database using connection and query
 
-}
+ ///   var_dump($results);
+ 
 header("Location: booksAdmin.php"); /* Redirect browser */
+}
 ?>

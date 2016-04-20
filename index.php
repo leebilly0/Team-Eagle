@@ -172,6 +172,7 @@
           <h2>What Is Vunnava Dot Com Library?</h2>
           <p>Founded in 2016, Vunnava Dot Com Library is a books donation website for the community.  
           Simply put, we exist to help those who need books, get books!</p>
+          <center><a class="btn btn-primary" href="user/about.php" role="button">More About Us &raquo;</a></center>
         </div>
         <div class="col-md-4">
           <h2>How Can I Help?</h2>

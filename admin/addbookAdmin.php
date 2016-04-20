@@ -89,7 +89,18 @@
     </nav>
     <!-- END OF NAVBAR -->
 
-  
+   <!-- Start your coding below here -->
+    <?php
+    /*There are two parts to connection to the database and querying results, THIS IS STEP 1
+    SEE LINE 133 for further step*/
+    global $DataBaseCon; //grabs connection to MYSQL database
+    //My Query I will be Using
+    $getData = "SELECT program_id, program FROM program"; 
+    $getData2 = "SELECT donor_id, donor_fname, donor_lname FROM donors"; 
+    $results = mysqli_query($DataBaseCon, $getData);  //Grab results from database using connection and query
+    $results2 = mysqli_query($DataBaseCon, $getData2);  //Grab results from database using connection and query
+
+    ?>
     <!-- Start your coding below here -->
 <div class="container center_div row-padding">
 
@@ -97,7 +108,7 @@
                 <div class="panel-heading"> <h4>Add Book</h4></div>
                 <div class="panel-body">
                     <p>Add a book to the database</p>
-                    <form action ="addBookFunctionAdmin.php" method="POST" class="form-horizontal" >
+                    <form action ="addBookSubmit.php" method="POST" class="form-horizontal" >
 
                         <div class="form-group">
                             <label class="control-label col-sm-2" >Title:</label>
@@ -122,25 +133,25 @@
                             <div class="col-sm-10"> 
                                 <select name="genreAdmin" class="form-control">
                                     <option value="">(Select one)</option>
-                                    <option value="novel">Novel</option>
-                                    <option value="science">Science</option>
-                                    <option value="drama">Drama</option>
-                                    <option value="action">Action</option>
-                                    <option value="romance">Romance</option>
-                                    <option value="mystery">Mystery</option>
-                                    <option value="horror">Horror</option>
-                                    <option value="health">Health</option>
-                                    <option value="travel">Travel</option>
-                                    <option value="guide">Guide</option>
-                                    <option value="children">Children</option>
-                                    <option value="religion">Religion</option>
-                                    <option value="science">Science</option>
-                                    <option value="history">History</option>
-                                    <option value="comics">Comics</option>
-                                    <option value="cookbooks">Cookbooks</option>
-                                    <option value="diaries">Diaries</option>
-                                    <option value="fantasy">Fantasy</option>
-                                    <option value="art">Art</option>
+                                    <option value="Novel">Novel</option>
+                                    <option value="Science">Science</option>
+                                    <option value="Drama">Drama</option>
+                                    <option value="Action">Action</option>
+                                    <option value="Romance">Romance</option>
+                                    <option value="Mystery">Mystery</option>
+                                    <option value="Horror">Horror</option>
+                                    <option value="Health">Health</option>
+                                    <option value="Travel">Travel</option>
+                                    <option value="Guide">Guide</option>
+                                    <option value="Children">Children</option>
+                                    <option value="Religion">Religion</option>
+                                    <option value="Science">Science</option>
+                                    <option value="History">History</option>
+                                    <option value="Comics">Comics</option>
+                                    <option value="Cookbooks">Cookbooks</option>
+                                    <option value="Diaries">Diaries</option>
+                                    <option value="Fantasy">Fantasy</option>
+                                    <option value="Art">Art</option>
 
                                 </select>
                             </div>
@@ -149,12 +160,6 @@
                             <label class="control-label col-sm-2" >Year of Publisher:</label>
                             <div class="col-sm-10"> 
                                 <input type="number" name ="yearOfPubAdmin" class="form-control"  >
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-2" >ISBN:</label>
-                            <div class="col-sm-10"> 
-                                <input type="number" name ="isbnAdmin" class="form-control"  >
                             </div>
                         </div>
                         <div class="form-group">
@@ -177,13 +182,41 @@
                          <div class="form-group">
                             <label class="control-label col-sm-2" >Program Name:</label>
                             <div class="col-sm-10"> 
-                                <input type="text" name ="programName" class="form-control"  >
+                                <select name = "programName" class="form-control">
+                                    <option selected="(Select one)">(Select one)</option>
+                                    <?php
+                                        if (mysqli_num_rows($results) > 0)
+                                          {
+                                            //output data of each row 
+                                            while ($row = mysqli_fetch_assoc($results))
+                                            {
+                                              ?>
+                                              <option><?php echo ($row['program_id'])." ".($row['program']);?></option>
+                                              <?php
+                                            }
+                                        }
+                                              ?>        
+                                </select>
                             </div>
                         </div>
                          <div class="form-group">
                             <label class="control-label col-sm-2" >Donor Name:</label>
-                            <div class="col-sm-10"> 
-                                <input type="text"  name ="donorName" class="form-control"  >
+                            <div class="col-sm-10">
+                             <select name = "donorName" class="form-control">
+                                    <option selected="(Select one)">(Select one)</option>
+                                    <?php
+                                        if (mysqli_num_rows($results2) > 0)
+                                          {
+                                            //output data of each row 
+                                            while ($row = mysqli_fetch_assoc($results2))
+                                            {
+                                              ?>
+                                              <option><?php echo ($row['donor_id'])." ".($row['donor_fname'])." ".($row['donor_lname']);?></option>
+                                              <?php
+                                            }
+                                        }
+                                              ?>        
+                                </select> 
                             </div>
                         </div>
                         <div class="form-group "> 

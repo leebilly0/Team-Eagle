@@ -5,20 +5,29 @@
 	<!--***Done add above-->
 
     <!-- Start your coding below here -->
-	<!--***Add Below for program table from the database-->
+	<!-- Start your coding below here -->
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-1 main">
     <!-- Start your coding below here -->
 	<h1>Programs</h1>
-	<br>
-	
+	<p>Here is all the programs that donors have donated for</p>
+
 	<!--Table of program to display-->
-	<table class = "tdProgramsAdmin" style="width: 100%" >
-		<tr>
-			<th class = "tdProgramsAdmin">Program ID</th>
-			<th class = "tdProgramsAdmin">Program Name</th>
-			<th class = "tdProgramsAdmin">Year Started</th>
-			<th class = "tdProgramsAdmin">Mission Statement/Reason For Program</th>
-			<th class = "tdProgramsAdmin" colspan= "4">Edit</th>
-		</tr>
+	
+<div class="table-responsive">
+            <table class="table table-striped">
+              <!--Headers for data table-->
+              <thead>
+                <tr>
+                  <th>Program ID</th>
+                  <th>Program Name</th>
+                  <th>Year Started</th>
+                  <th>Mission Statement/Reason For Program</th>
+                </tr>
+              </thead>
+              <!--Data for Table -->
+              <tbody>
+              <!--Headers for data table-->
+              <thead>
 		
 			<!--***Add below-->
 			<?php
@@ -26,7 +35,7 @@
 			//****Called connecDatabase.php to do connection 
 			require("../configurationDatabase.php");
 		//	global $DataBaseCon; //grabs connection to MYSQL database
-			$getDatabase = "SELECT program_id,program,yr_start,mission FROM program ";
+			$getDatabase = "SELECT program_id,program,yr_start,mission FROM program LIMIT 1, 18446744073709551615";
 			//Run query
 			if(!$result = mysqli_query($DataBaseCon, $getDatabase)){
 				echo "Could not successfully run query";
@@ -54,24 +63,11 @@
 				echo "<td class = 'tdProgramsAdmin'>". $program_name."</td>";
 				echo "<td class = 'tdProgramsAdmin'>".$year."</td>";
 				echo "<td class = 'tdProgramsAdmin'>". $mission."</td>";
+				echo "<td><a href='viewbooksprogram.php?program_id=".$row["program_id"]."&program_name=".$row["program"]."'>View Books </a> &nbsp &nbsp 
+					<a href='viewdonorsprogram.php?program_id=".$row["program_id"]."&program_name=".$row["program"].
+                        "'>View Donors</a>";
+
 				
-				echo "<td class = 'tdProgramsAdmin'>
-						<form name='submit_program_ID' action='viewbooksprogram.php' method='POST'>
-						<input type= 'hidden' name ='program_id' value ='".$number."'>
-						<input type= 'hidden' name ='program_name' value ='".$program_name."'>
-						<input type ='submit' name='submitProgramID' value = 'View Book' >
-						</form>
-					</td>";
-				
-				//echo "<td class = 'tdProgramsAdmin'><a href='viewbooksprogramAdmin.php'>View Books</a></td>";
-				//echo "<td class = 'tdProgramsAdmin'><a href='viewdonorsprogramAdmin.php'>View Donors</a></td>";
-				echo "<td class = 'tdProgramsAdmin'>
-						<form name='submit_program_ID' action='viewdonorsprogram.php' method='POST'>
-						<input type= 'hidden' name ='program_id' value ='".$number."'>
-						<input type= 'hidden' name ='program_name' value ='".$program_name."'>
-						<input type ='submit' name='submitProgramID' value = 'View Donor' >
-						</form>
-					</td>";
 				echo "</tr>";
 
 			}//End of while loop
@@ -79,6 +75,7 @@
 			?>
 	</table>
 	<!--***Done add above-->
+
 
 
 

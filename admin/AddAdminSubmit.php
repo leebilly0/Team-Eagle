@@ -19,12 +19,11 @@ global $DataBaseCon; //grabs connection to MYSQL database
 
 if(isset($_POST['submit']))
 {
-    $fname = $_POST['firstName'];
-    $lname = $_POST['lastName'];
-    $donateyear = intval($_POST['donateYear']);
-    $totalamount = floatval($_POST['totalAmountDonated']);
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $name = $_POST['name'];
 
-    $getData = "INSERT INTO donors (donor_fname, donor_lname, donate_dd, total_amt) VALUES ('".$fname."', '".$lname."', ".$donateyear.", ".$totalamount.")"; 
+    $getData = "INSERT INTO logins (username, password, name) VALUES ('".$username."', '".$password."', '".$name."')"; 
 
 
    //$getData = "INSERT INTO donors (donor_fname, donor_lname, donate_dd, total_amt) VALUES('".$fname."', '".$lname."', '".$donateyear."', ".$totalamount.")"; 
@@ -35,5 +34,5 @@ if(isset($_POST['submit']))
    // var_dump($results);
   //  mysql_close();
 }
-header("Location: donorsAdmin.php"); /* Redirect browser */
+header("Location: programsAdmin.php"); /* Redirect browser */
 ?>
