@@ -1,17 +1,24 @@
+
+<!--***Add Session to every Admin page-->
 	<!--***Add below-->
 	<?php
-	require ("userHeader.php");
+	require ("adminHeader.php");
+	require("deleteProgramAdmin.php");
 	?>
 	<!--***Done add above-->
-    <!-- END OF NAVBAR -->
 
-    <!-- Start your coding below here -->
-
-
-
-
-
-  </body>
+	
+	<!-- Start your coding below here -->
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	  </body>
 <!-- end of body -->
 
   <!-- Bootstrap core JavaScript

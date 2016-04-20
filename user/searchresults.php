@@ -96,7 +96,7 @@ echo "<th>ISBN</th>";
 echo "<th>Language</th>";
 echo "<th>Cost</th>";
 echo "</tr>";
-echo "/<thead>";
+echo "</thead>";
 //if data exist in table
 if (mysqli_num_rows($results) > 0) {
     //output data of each row 

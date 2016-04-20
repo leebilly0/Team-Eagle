@@ -64,7 +64,22 @@
                 <li><a href="user/programs.php">Programs</a></li>
                 <li><a href="user/search.php">Search</a></li>
                 <li><a href="user/about.php">About</a></li>
+				<!--li><a href="Login.php">Log in</a><li-->
             </ul>
+			
+			
+	
+		<!--Add loggin Link Below-->
+		</div>		
+		<div id="navbar" class="navbar-collapse collapse">
+		<!--***Add below for action = index.php-->
+		 <form class="navbar-form navbar-right">
+			<a href="Login.php">Log in</a>
+		</form>
+        </div>
+		<!--Done add login code above-->	
+		
+		
         </div>
     </nav>
     <!-- END OF NAVBAR -->

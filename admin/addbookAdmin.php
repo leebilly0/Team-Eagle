@@ -97,7 +97,7 @@
                 <div class="panel-heading"> <h4>Add Book</h4></div>
                 <div class="panel-body">
                     <p>Add a book to the database</p>
-                    <form action ="AddBookSubmit.php" method="POST" class="form-horizontal" >
+                    <form action ="addBookFunctionAdmin.php" method="POST" class="form-horizontal" >
 
                         <div class="form-group">
                             <label class="control-label col-sm-2" >Title:</label>

@@ -33,6 +33,7 @@
 			$program_id = $_POST['program_id'];
 			
 			//Get all donor id that donate to that program 1,2
+			//Get list of all donor donate to program 1
 			$getDornorID = $getDatabase = 'SELECT donor_id from books WHERE program_id="'.$program_id.'"';
 			if(!$result1 = mysqli_query($DataBaseCon, $getDornorID)){
 				echo "Could not successfully run query";
@@ -65,8 +66,25 @@
 				$donor_fname = $row["donor_fname"];
 				$donor_lname = $row["donor_lname"];
 				//$author = $author_fname.$author_lname;
-				$total_amt = $row["total_amt"];
+				$GLOBALS['total_amt'] = $row["total_amt"];
+				
+				/*
+				$GLOBALS['total_amt'] = "";
+				
+				$previosDonorID = "";
+				if($previosDonorID != $donor_id){
+					//if previousDonorID doesn't has the same id set equal to new id
+					$previosDonorID = $donor_id;
+					$total_amt = $row["total_amt"];
+					
+				} 
+				if($previosDonorID == $donor_id){ 
+				//if previousDonorID has the same sum the total 
+					$total_amt = $total_amt + $row["total_amt"];
+					
+				}
 
+				*/
 				
 				echo "<tr>";
 				echo "<td class = 'tdBookAdmin'>".$donor_id."</td>";

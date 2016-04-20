@@ -1,18 +1,14 @@
 
-
 <!--Add Session to every Admin page-->
-
 <?php
 	//Add session to be start
 	require ("adminHeader.php");
-	//Add php log out process After it press the logoff button
-	require ("../logoff.php");      
 ?>
 
 	
    <!-- Start your coding below here --> 
-   <!--***Add below-->
-   
+ 
+ <!--***Add below--> 
    <?php
 
 if(isset($_POST['submittedEdit'])){	
@@ -47,7 +43,7 @@ if(isset($_POST['submittedEdit'])){
 ?>
 <!--***Done add above--> 
 
-
+<!--Add form edit code-->
 <h2>Edit Program</h2>
 <form name="Edit_form" action="editprogramAdmin.php" method="POST">
 Program Name:<br>
@@ -70,7 +66,7 @@ Mission Statement: <br>
 <br><br>
 
 </form>
-
+<!--Done add form above-->
 
 
   </body>
