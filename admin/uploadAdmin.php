@@ -21,35 +21,7 @@
 			$uploadOK = 1;
 			$bookFileType = pathinfo($target_file, PATHINFO_EXTENSION);
 			
-			//Check if book file i a action file or fake
-			$checkFileSize = filesize($_FILES["fileToUpload"]["tmp_name"]);
-			if($checkFileSize !== false){
-					echo "Book file is ". $checkFileSize['mimie']."!";
-					$uploadOK =1;
-			}else {
-				
-				echo "File is not a fake one!";
-				$uploadOk = 0;
-			}
 			
-			
-			//Function of upload the file
-			if($uploadOK == 0){
-				//if file is empty or fake
-				echo "Sorry, your file was not uploaded!";
-				
-			}else{
-				if(move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)){
-					echo "Upload completted.\n";
-					echo "The file ".basename($_FILES["fileToUpload"]["name"])." has been uploaded!";
-					
-					
-				}else{
-					echo "Sorry, there was an error uploading your file.";
-					
-				}
-				
-			}
 			
 		include 'simplexlsx.class.php';
 			$xlsx = @(new SimpleXLSX($target_file));
@@ -126,9 +98,7 @@
 
         </div>
 
-	
-	
-	<!--Done create form for upload-->
+
 
 	
 

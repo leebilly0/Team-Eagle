@@ -1,21 +1,9 @@
 # Team-Eagle
 Team Eagle Repository
-4-20-16-Linh
-Added about page for Admin and user
-Added filter input to prevent sql injection in login page and updated about page
+4-20-16 - Poleap
+coding uploadAdmin
 
-4-20-16 -Billy
--edit book is not showing whole title -fixed
--finished add book so it would correctly add books to database
--finished edit donors to edit correctly
--fixed by in delete donors
--made books page looked like donors page
--cleaned up codes for all pages
--changed program page of button links to links
--Modified all admin and user pages to fit theme
--Fixed some bugs in user seach pages
--Finished Edit Donors
-EVERYTHING IS COMPLETE Except Upload Spreadsheet (Poleap) and About Page (Linh)
+
 
 4-18-16-Linh
 -Added icons for books, donors and program

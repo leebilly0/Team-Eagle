@@ -19,6 +19,9 @@
     <title>Vunnava Dot Com Library</title>
 
    
+	<!--***Add Below -->
+	<link href="StyleSheet/userStyleSheet.css" rel="stylesheet">
+	<!--***Done add above-->
 	
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -27,7 +30,7 @@
     <link href="../css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="Donorstyle.css" rel="stylesheet">
+    <link href="../style.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -72,8 +75,9 @@
 		</div>		
 		<div id="navbar" class="navbar-collapse collapse">
 		<!--***Add below for action = index.php-->
-		 <form class="navbar-form navbar-right">
-			<a href="../login.php">Log in</a>
+		 <form class="navbar-form navbar-right" action = "../Login.php">
+			<!--a href="../Login.php">Log in</a-->
+			 <button type="submit" class="btn btn-primary" name="login">Log In</button>
 		</form>
         </div>
 		<!--Done add login code above-->	
