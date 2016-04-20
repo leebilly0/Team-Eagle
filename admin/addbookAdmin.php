@@ -108,7 +108,7 @@
                 <div class="panel-heading"> <h4>Add Book</h4></div>
                 <div class="panel-body">
                     <p>Add a book to the database</p>
-                    <form action ="addBookSubmit.php" method="POST" class="form-horizontal" >
+                    <form action ="addBookSubmit.php" method="POST" class="form-horizontal" enctype="multipart/form-data">
 
                         <div class="form-group">
                             <label class="control-label col-sm-2" >Title:</label>
@@ -217,6 +217,12 @@
                                         }
                                               ?>        
                                 </select> 
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" >Upload Book Image:</label>
+                            <div class="col-sm-10"> 
+                                <input type="file" name="photo" accept="image/*">
                             </div>
                         </div>
                         <div class="form-group "> 

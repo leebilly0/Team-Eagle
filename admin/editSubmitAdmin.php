@@ -29,6 +29,8 @@ if (isset($_POST['editButton'])){
         $isbnInput = filter_input(INPUT_POST, 'isbnAdmin',FILTER_SANITIZE_SPECIAL_CHARS);
         $languageInput = filter_input(INPUT_POST, 'languageAdmin');
         $cost = filter_input(INPUT_POST, 'costAdmin');
+
+        
         
         $editBookId = $_SESSION["IdEdit"];
         //Check all fields are empty or not
@@ -46,6 +48,20 @@ if (isset($_POST['editButton'])){
                 . "language = '$languageInput',cost='$cost' where book_id = '$editBookId'" ;
 
         $results = mysqli_query($DataBaseCon, $getData);
+
+         $newpic= ($_FILES['photo']['tmp_name']);
+         var_dump($newpic);
+
+
+        if(isset($_FILES['photo'])){
+
+           $target = "../imgbooks/".$editBookId.".jpg"; 
+           $pic=($_FILES['photo']['tmp_name']);
+           move_uploaded_file($pic, $target);
+        // //  var_dump($target);
+        //   var_dump($pic);
+        }
+        
 }
 header("Location: booksAdmin.php"); /* Redirect browser */
 ?>

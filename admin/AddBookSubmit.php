@@ -41,6 +41,8 @@ if(isset($_POST['submit']))
     $arrayName = explode(" ", $donorName);
     $donorid=  intval($arrayName[0]);
 
+    
+
     //var_dump($donorid);
 
     
@@ -60,6 +62,17 @@ if(isset($_POST['submit']))
     {
       echo "Error: " .  mysqli_error($DataBaseCon);
     } //Grab results from database using connection and query
+
+    $last_id = (string)mysqli_insert_id($DataBaseCon);
+  //  var_dump($last_id);
+
+   $target = "../imgbooks/"; 
+    //$targetName = $target .basename($_FILES['userfile']['name'];
+   $pic=($_FILES['photo']['tmp_name']);
+   move_uploaded_file($pic, "../imgbooks/".$last_id.".jpg");
+
+  // var_dump($targetName);
+//   var_dump($pic);
 
  ///   var_dump($results);
  

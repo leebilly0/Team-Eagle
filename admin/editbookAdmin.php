@@ -111,7 +111,6 @@ $id = $_GET['editId'];
     }
  }
  ?>
-
         
         <div class="container center_div row-padding">
 
@@ -119,7 +118,8 @@ $id = $_GET['editId'];
                 <div class="panel-heading"> <h4>Edit Book</h4></div>
                 <div class="panel-body">
                     <p>Edit the book's info below</p>
-                    <form action ="editSubmitAdmin.php" method="POST" class="form-horizontal" >
+                    <center> <img src="../imgbooks/<?php echo "$book_id.jpg" ?>" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail" onerror='this.onerror = null; this.src="../imgbooks/notAvailable.png"' ></center>
+                    <form action ="editSubmitAdmin.php" method="POST" class="form-horizontal" enctype="multipart/form-data">
 
                         <div class="form-group">
                             <label class="control-label col-sm-2" >Title:</label>
@@ -194,6 +194,12 @@ $id = $_GET['editId'];
                             <label class="control-label col-sm-2" >Cost:</label>
                             <div class="col-sm-10"> 
                                 <input type="text" value=<?php echo "$cost";?> name="costAdmin" class="form-control"  >
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label class="control-label col-sm-2" >Upload Book Image:</label>
+                            <div class="col-sm-10"> 
+                                <input type="file" name="photo" accept="image/*">
                             </div>
                         </div>
                         <div class="form-group "> 
