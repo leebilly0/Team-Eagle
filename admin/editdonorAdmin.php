@@ -138,7 +138,7 @@ $id = $_GET['editId'];
                         <div class="form-group">
                             <label class="control-label col-sm-2" >Total Amount:</label>
                             <div class="col-sm-10"> 
-                                <input type="number" name ="totalAmount" value= <?php echo "$total_amt"; ?> class="form-control"  >
+                                <input type="text" name ="totalAmount" value= <?php echo "$total_amt"; ?> class="form-control"  >
                             </div>
                         </div>
                         <div class="form-group "> 

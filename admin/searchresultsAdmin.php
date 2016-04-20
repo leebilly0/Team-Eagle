@@ -261,7 +261,7 @@ if (mysqli_num_rows($results) > 0) {
         echo "<td>" . $row["donor_fname"] . " " . $row["donor_lname"] . "</td>";
         echo "<td>" . $row["donate_dd"] . "</td>";
         echo "<td>" . $row["total_amt"] . "</td>";
-        echo "<td><a href='.php'>Edit</a> &nbsp<a href='deleteKeywordSearchDonor.php?donorId=".$row['donor_id']."'>Delete</a></td>";
+        echo "<td><a href='editdonorAdmin.php?editId=".$row['donor_id']."'>Edit</a> &nbsp<a href='deleteKeywordSearchDonor.php?donorId=".$row['donor_id']."'>Delete</a></td>";
         echo "</tr>";
         echo "</tbody>";
     }
@@ -319,7 +319,7 @@ if (mysqli_num_rows($results) > 0) {
         echo "<td>" . $row["donor_fname"] . " " . $row["donor_lname"] . "</td>";
         echo "<td>" . $row["donate_dd"] . "</td>";
         echo "<td>" . $row["total_amt"] . "</td>";
-        echo "<td><a href='.php'>Edit</a> &nbsp<a href='deleteAdvanceSearchDonor.php?donorId=".$row['donor_id']."'>Delete</a></td>";
+        echo "<td><a href='editdonorAdmin.php?editId=".$row['donor_id']."'>Edit</a> &nbsp<a href='deleteAdvanceSearchDonor.php?donorId=".$row['donor_id']."'>Delete</a></td>";
         echo "</tr>";
         echo "</tbody>";
     }
@@ -363,7 +363,7 @@ if (mysqli_num_rows($results) > 0) {
         echo "<td>" . $row["program"] . "</td>";
         echo "<td>" . $row["yr_start"] . "</td>";
         echo "<td>" . $row["mission"] . "</td>";
-        echo "<td><a href='.php'>Edit</a> &nbsp<a href='deleteKeywordSearchProgram.php?programId=".$row['program_id']."'>Delete</a></td>";
+        echo "<td><a href='editprogramAdmin.php?editId=".$row['program_id']."'>Edit</a> &nbsp<a href='deleteKeywordSearchProgram.php?programId=".$row['program_id']."'>Delete</a></td>";
         echo "</tr>";
         echo "</tbody>";
     }
@@ -413,7 +413,7 @@ if (mysqli_num_rows($results) > 0) {
         echo "<td>" . $row["program"] . "</td>";
         echo "<td>" . $row["yr_start"] . "</td>";
         echo "<td>" . $row["mission"] . "</td>";
-        echo "<td><a href='.php'>Edit</a> &nbsp<a href='deleteAdvanceSearchProgram.php?programId=".$row['program_id']."'>Delete</a></td>";
+        echo "<td><a href='editprogramAdmin.php?editId=".$row['program_id']."'>Edit</a> &nbsp<a href='deleteAdvanceSearchProgram.php?programId=".$row['program_id']."'>Delete</a></td>";
         echo "</tr>";
         echo "</tbody>";
     }
