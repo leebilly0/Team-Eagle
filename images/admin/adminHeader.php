@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 
+<!--Add Session to every Admin page-->
 <?php
+	//Add session to be start
+	require ("../session.php");
+	//Add php log out process After it press the logoff button
+	require ("../logoff.php"); 
 	//***Add Billy code*****//
 	//To have access to mysql database
 	require ("../configurationDatabase.php");
 	//***Done Add Billy code*****//
 ?>
+<!--End of Session-->
+
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -18,11 +26,6 @@
 
     <title>Vunnava Dot Com Library</title>
 
-   
-	<!--***Add Below -->
-
-	<!--***Done add above-->
-	
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
 
@@ -45,8 +48,6 @@
 
   <body>
 
-	<!--END OF THE LOG IN PROCESS-->
-  
     <!-- THIS IS THE NAVBAR AT THE TOP OF EVERYPAGE -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -59,32 +60,40 @@
           </button>
 
           <!-- Start of Links on left nav bar -->
-          <a class="navbar-brand" href="../index.php"><img class="header-logo" alt="Vunnava Dot Com Library Logo" src="../images/logo.png"></a>
+          <a class="navbar-brand" href="../indexAdmin.php"><img class="header-logo" alt="Vunnava Dot Com Library Logo" src="../images/logo.png"></a>
           <ul class="nav navbar-nav">
-                 <li><a href="books.php">Books</a></li>
-                <li><a href="donors.php">Donors</a></li>
-                <li><a href="programs.php">Programs</a></li>
-                <li><a href="search.php">Search</a></li>
-                <li><a href="about.php">About</a></li>
-				<!--li><a href="Login.php">Log in</a><li-->
+                <li><a href="booksAdmin.php">Books</a></li>
+                <li><a href="donorsAdmin.php">Donors</a></li>
+                <li><a href="programsAdmin.php">Programs</a></li>
+                <li><a href="searchAdmin.php">Search</a></li>
+                <li><a href="aboutAdmin.php">About</a></li>
+                <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin Tools<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="addbookAdmin.php">Add Book</a></li>
+                <li><a href="adddonorAdmin.php">Add Donor</a></li>
+                <li><a href="addprogramAdmin.php">Add Program</a></li>
+                <li><a href="addAdmin.php">Add Admin</a></li>
+                <li><a href="uploadAdmin.php">Upload Spreadsheet</a></li>
+              </ul>
+            </li>
+				<!--li><a href="searchAdmin.php">Add User</a></li-->
             </ul>
-			
-			
-	
-		<!--Add loggin Link Below-->
-		</div>		
-		<div id="navbar" class="navbar-collapse collapse">
-		<!--***Add below for action = index.php-->
-		 <form class="navbar-form navbar-right" action = "../Login.php">
-			<!--a href="../Login.php">Log in</a-->
-			 <a href="../login.php">Log in</a>
-		</form>
         </div>
-		<!--Done add login code above-->	
-		
-		
+
+        <!-- Start of username password form of right nav bar -->
+        <div id="navbar" class="navbar-collapse collapse">
+           <form class="navbar-form navbar-right" action="../logoff.php" method="POST">
+		   <div class="form-group">
+              <FONT COLOR="Black">Welcome Back<?php echo " {$_SESSION['user_name']}";?>!</FONT>
+            <button type="submit" class="btn btn-primary" name="log_out">Log off</button>
+			
+          </form>
         </div>
+      </div>
     </nav>
-    <!-- END OF NAVBAR -->
+	<!-- END Header code -->
 	<br>
 	<br>
+
+  

@@ -6,11 +6,14 @@
 
     <!-- Start your coding below here -->
 	<!-- Start your coding below here -->
+ <!-- Start your coding below here -->
+ <!-- Start your coding below here -->
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-1 main">
     <!-- Start your coding below here -->
 	<h1>Programs</h1>
 	<p>Here is all the programs that donors have donated for</p>
 
+	<h4><a href = "addprogramAdmin.php" >Add New Program</a></h4>
 	<!--Table of program to display-->
 	
 <div class="table-responsive">
@@ -63,8 +66,8 @@
 				echo "<td class = 'tdProgramsAdmin'>". $program_name."</td>";
 				echo "<td class = 'tdProgramsAdmin'>".$year."</td>";
 				echo "<td class = 'tdProgramsAdmin'>". $mission."</td>";
-				echo "<td><a href='viewbooksprogram.php?program_id=".$row["program_id"]."&program_name=".$row["program"]."'>View Books </a> &nbsp &nbsp 
-					<a href='viewdonorsprogram.php?program_id=".$row["program_id"]."&program_name=".$row["program"].
+				echo "<td><a href='viewbooksprogramAdmin.php?program_id=".$row["program_id"]."&program_name=".$row["program"]."'>View Books </a> &nbsp &nbsp 
+					<a href='viewdonorsprogramAdmin.php?program_id=".$row["program_id"]."&program_name=".$row["program"].
                         "'>View Donors</a>";
 
 				
@@ -75,6 +78,7 @@
 			?>
 	</table>
 	<!--***Done add above-->
+
 
 
 

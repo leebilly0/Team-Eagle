@@ -1,0 +1,35 @@
+
+.tdProgramsAdmin{
+	
+	border: 1px solid black;
+	border-collapse: collapse;
+	text-align: center;
+	height: 50px;
+	
+}
+.tdBookAdmin{
+	
+	border: 1px solid black;
+	border-collapse: collapse;
+	text-align: center;
+	
+}
+
+.heading {
+    margin: 1em 0 0.5em 0;
+	font-weight: 100;
+	text-transform: uppercase;
+	color: #00caa6;
+	font-style: oblique;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 58px;
+	line-height: 54px;
+	text-shadow: 0 0 5px #A5F1FF, 0 0 10px #A5F1FF,
+             0 0 20px #A5F1FF, 0 0 30px #A5F1FF,
+             0 0 40px #A5F1FF;
+}
+
+.paragraph{
+    font-size: 150%;
+    font-style: oblique;
+}
