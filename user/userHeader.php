@@ -73,7 +73,7 @@
 		<div id="navbar" class="navbar-collapse collapse">
 		<!--***Add below for action = index.php-->
 		 <form class="navbar-form navbar-right">
-			<a href="../Login.php">Log in</a>
+			<a href="../login.php">Log in</a>
 		</form>
         </div>
 		<!--Done add login code above-->	
