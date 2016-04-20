@@ -1,5 +1,8 @@
 # Team-Eagle
 Team Eagle Repository
+4-20-16-Linh
+Added about page for Admin and user
+
 4-20-16 -Billy
 -edit book is not showing whole title -fixed
 -finished add book so it would correctly add books to database

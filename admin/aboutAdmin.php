@@ -30,6 +30,7 @@
 
     <!-- Custom styles for this template -->
     <link href="../style.css" rel="stylesheet">
+     <link href="../admin/StyleSheet/AdminStyleSheet.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -87,9 +88,75 @@
         </div>
       </div>
     </nav>
+   
     <!-- END OF NAVBAR -->
 
     <!-- Start your coding below here -->
+ <div class="container">
+
+        <!-- Introduction Row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header heading">We are small team with big ideas!
+                </h1>
+                <p class="paragraph">We are a collaborative and passionate team of 4 creative students of Metropolitan State University. Our library is being run through the help of donations.It is 100% funded through donations from the community. We have books in three languages – English, Telugu and Hindi.People donate money to buy the books to the library or donate books directly to the library and 100% of donated money is used to buy books as gift to be given to students </p>
+            </div>
+        </div>
+
+        <!-- Team Members Row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header">Meet Our Team</h2>
+            </div>
+            <div class="col-lg-3 text-center">
+                <img class="img-circle img-responsive img-center" src="../images/Billy.PNG" alt="">
+                <h3>Billy Lee </h3>
+                <h4> <small>Student</small></h4>
+                <a href="https://www.linkedin.com/in/billylee1?authType=name&authToken=RnON&trk=prof-sb-browse_map-name">Contact Info</a>
+            </div>
+            <div class="col-lg-3 text-center">
+                <img class="img-circle img-responsive img-center" src="../images/Linh.jpg"  alt="">
+                <h3>Linh Huynh
+                    <h4> <small>Student</small></h4>
+                </h3>
+                <a href="https://www.linkedin.com/in/linh-huynh-757139105">Contact Info</a>
+            </div>
+            <div class="col-lg-3 text-center">
+                <img class="img-circle img-responsive img-center" src="../images/Poleap.jpg" alt="">
+                <h3>Poleap Sar
+                    <h4> <small>Student</small></h4>
+                </h3>
+               <a href="https://www.linkedin.com/in/poleap-sar-1b717750?trk=nav_responsive_tab_profile">Contact Info</a>
+            </div>
+            <div class="col-lg-3 text-center">
+                <img class="img-circle img-responsive img-center" src="../images/Jean.PNG" width="304" height="236" alt="">
+                <h3>Jean Vang
+                    <h4> <small>Student</small></h4>
+                </h3>
+               <a href="https://www.linkedin.com/in/jean-vang-a133b23b">Contact Info</a>
+            </div>
+          
+         
+        </div>
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Vunnava Dot Com Library 2016</p>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+
+
+
+
 
 
 
