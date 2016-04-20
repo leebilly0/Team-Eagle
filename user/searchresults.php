@@ -13,7 +13,7 @@
 global $DataBaseCon; //grabs connection to MYSQL database
 
 if (isset($_POST['search'])) {
-    $keyword = filter_input(INPUT_POST, 'keywordToSearch');
+    $keyword = filter_input(INPUT_POST, 'keywordToSearch',FILTER_SANITIZE_SPECIAL_CHARS);
     $keywordInput = urldecode($keyword);
     // check the input is empty or not. If not then pop up an alert message
     if (empty($keywordInput)) {
@@ -63,17 +63,17 @@ if (mysqli_num_rows($results) > 0) {
 }
 if (isset($_POST['advancedSearch'])){
             //store all the input text field of the form
-        $title = filter_input(INPUT_POST, 'title');
+        $title = filter_input(INPUT_POST, 'title',FILTER_SANITIZE_SPECIAL_CHARS);
         $titleInput = urldecode($title);
-        $fName = filter_input(INPUT_POST, 'authorFName');
+        $fName = filter_input(INPUT_POST, 'authorFName',FILTER_SANITIZE_SPECIAL_CHARS);
         $fNameInput = urldecode($fName);
-        $lName= filter_input(INPUT_POST, 'authorLName');
+        $lName= filter_input(INPUT_POST, 'authorLName',FILTER_SANITIZE_SPECIAL_CHARS);
         $lNameInput = urldecode($lName);
         $genreInput = filter_input(INPUT_POST, 'genre');
-        $yearInput = filter_input(INPUT_POST, 'yearOfPub');
-        $isbnInput = filter_input(INPUT_POST, 'isbn');
+        $yearInput = filter_input(INPUT_POST, 'yearOfPub',FILTER_SANITIZE_SPECIAL_CHARS);
+        $isbnInput = filter_input(INPUT_POST, 'isbn',FILTER_SANITIZE_SPECIAL_CHARS);
         $languageInput = filter_input(INPUT_POST, 'language');
-        $cost = filter_input(INPUT_POST, 'cost');
+        $cost = filter_input(INPUT_POST, 'cost',FILTER_SANITIZE_SPECIAL_CHARS);
         $costInput = null;
         if (strpos($cost, '$') !== false) {
             $costInput = $cost;
@@ -130,7 +130,7 @@ if (mysqli_num_rows($results) > 0) {
 }
 }
  if (isset($_POST['DonorSearch'])){
-     $keyword = filter_input(INPUT_POST, 'DonorKeywordToSearch');
+     $keyword = filter_input(INPUT_POST, 'DonorKeywordToSearch',FILTER_SANITIZE_SPECIAL_CHARS);
      $keywordInput = urldecode($keyword);
     // check the input is empty or not. If not then pop up an alert message
     if (empty($keywordInput)) {
@@ -171,12 +171,12 @@ if (mysqli_num_rows($results) > 0) {
 }
 if (isset($_POST['DonorAdvancedSearch'])){
             //store all the input text field of the form
-        $donorFname = filter_input(INPUT_POST, 'donorFirstName');
+        $donorFname = filter_input(INPUT_POST, 'donorFirstName',FILTER_SANITIZE_SPECIAL_CHARS);
         $donorFnameInput = urldecode($donorFname);
-        $donorLname = filter_input(INPUT_POST, 'donorLastName');
+        $donorLname = filter_input(INPUT_POST, 'donorLastName',FILTER_SANITIZE_SPECIAL_CHARS);
         $donorLnameInput = urldecode($donorLname);
-        $donateDDInput = filter_input(INPUT_POST, 'donateDD');
-        $totalAmountInput = filter_input(INPUT_POST, 'totalAmount');
+        $donateDDInput = filter_input(INPUT_POST, 'donateDD',FILTER_SANITIZE_SPECIAL_CHARS);
+        $totalAmountInput = filter_input(INPUT_POST, 'totalAmount',FILTER_SANITIZE_SPECIAL_CHARS);
         $amountInput = null;
         if (strpos($totalAmountInput, '$') !== false) {
             $amountInput = $totalAmountInput;
@@ -225,7 +225,7 @@ if (mysqli_num_rows($results) > 0) {
 
 
  if (isset($_POST['ProgramSearch'])){
-     $keyword = filter_input(INPUT_POST, 'ProgramKeywordToSearch');
+     $keyword = filter_input(INPUT_POST, 'ProgramKeywordToSearch',FILTER_SANITIZE_SPECIAL_CHARS);
      $keywordInput = urldecode($keyword);
     // check the input is empty or not. If not then pop up an alert message
     if (empty($keywordInput)) {
@@ -266,10 +266,10 @@ if (mysqli_num_rows($results) > 0) {
 }
 if (isset($_POST['ProgramAdvancedSearch'])){
             //store all the input text field of the form
-        $program = filter_input(INPUT_POST, 'program');
+        $program = filter_input(INPUT_POST, 'program',FILTER_SANITIZE_SPECIAL_CHARS);
         $programInput = urldecode($program);
-        $startDateInput = filter_input(INPUT_POST, 'startDate');
-        $mission = filter_input(INPUT_POST, 'mission');
+        $startDateInput = filter_input(INPUT_POST, 'startDate',FILTER_SANITIZE_SPECIAL_CHARS);
+        $mission = filter_input(INPUT_POST, 'mission',FILTER_SANITIZE_SPECIAL_CHARS);
         $missionInput = urldecode($mission);
        
         //Check all fields are empty or not

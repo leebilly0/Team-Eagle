@@ -123,7 +123,8 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Vunnava Dot Com Library 2016</p>
+                    <p>Version 1 (April 2016) – Vunnava Dot Com Village Library Developed by Billy Lee, Linh Huynh, Jean Vang and Poleap Sar. Please contact Siva.Jasthi@metrostate.edu for any questions. @ Dr. Siva R Jasthi</p>
+                    
                 </div>
                 <!-- /.col-lg-12 -->
             </div>

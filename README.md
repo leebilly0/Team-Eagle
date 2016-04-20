@@ -2,6 +2,7 @@
 Team Eagle Repository
 4-20-16-Linh
 Added about page for Admin and user
+Added filter input to prevent sql injection in login page and updated about page
 
 4-20-16 -Billy
 -edit book is not showing whole title -fixed

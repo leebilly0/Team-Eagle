@@ -168,7 +168,7 @@ if (isset($_POST['advancedSearchAdmin'])){
         $_SESSION["isbn"] = $isbnInput;
         $languageInput = filter_input(INPUT_POST, 'languageAdmin');
         $_SESSION["language"] = $languageInput;
-        $cost = filter_input(INPUT_POST, 'costAdmin');
+        $cost = filter_input(INPUT_POST, 'costAdmin',FILTER_SANITIZE_SPECIAL_CHARS);
         $costInput = null;
         if (strpos($cost, '$') !== false) {
             $costInput = $cost;
@@ -275,9 +275,9 @@ if (isset($_POST['DonorAdvancedSearchAdmin'])){
         $donorLname = filter_input(INPUT_POST, 'donorLastNameAdmin',FILTER_SANITIZE_SPECIAL_CHARS);
          $donorLnameInput=urldecode($donorLname);
           $_SESSION["donorLname"] = $donorLnameInput;
-        $donateDDInput = filter_input(INPUT_POST, 'donateDDAdmin');
+        $donateDDInput = filter_input(INPUT_POST, 'donateDDAdmin',FILTER_SANITIZE_SPECIAL_CHARS);
          $_SESSION["donorDate"] = $donateDDInput;
-        $totalAmountInput = filter_input(INPUT_POST, 'totalAmountAdmin');
+        $totalAmountInput = filter_input(INPUT_POST, 'totalAmountAdmin',FILTER_SANITIZE_SPECIAL_CHARS);
         $amountInput = null;
         if (strpos($totalAmountInput, '$') !== false) {
             $amountInput = $totalAmountInput;
@@ -374,7 +374,7 @@ if (isset($_POST['ProgramAdvancedSearchAdmin'])){
         $program = filter_input(INPUT_POST, 'programAdmin',FILTER_SANITIZE_SPECIAL_CHARS);
         $programInput=urldecode($program);
          $_SESSION["programName"] = $programInput;
-        $startDateInput = filter_input(INPUT_POST, 'startDateAdmin');
+        $startDateInput = filter_input(INPUT_POST, 'startDateAdmin',FILTER_SANITIZE_SPECIAL_CHARS);
          $_SESSION["programDate"] = $startDateInput;
         $mission = filter_input(INPUT_POST, 'missionAdmin',FILTER_SANITIZE_SPECIAL_CHARS);
         $missionInput=urldecode($mission);
