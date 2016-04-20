@@ -95,6 +95,8 @@
 		include 'simplexlsx.class.php';
 			$xlsx = @(new SimpleXLSX($target_file));
 			$data = $xlsx->rows();
+			print_r($data);
+			echo "<br>";
 			
 		
 		
