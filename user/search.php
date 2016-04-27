@@ -32,7 +32,7 @@
                         
                          <div class="panel-body">
 
-                            <form action ="Searchresults.php"  method="POST">
+                            <form action ="searchresults.php"  method="POST">
                                 <div class="input-group">
                                     <div class="input-group-addon input-lg">
                                         <span class="glyphicon glyphicon-user"></span>
@@ -52,7 +52,7 @@
                         
                         <div class="panel-body">
 
-                            <form action ="Searchresults.php"  method="POST">
+                            <form action ="searchresults.php"  method="POST">
                                 <div class="input-group">
                                      <div class="input-group-addon input-lg">
                                         <span class="glyphicon glyphicon-folder-open"></span>
